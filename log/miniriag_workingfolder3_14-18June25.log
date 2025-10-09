@@ -1,0 +1,3364 @@
+2025-06-14 08:09:31  [INFO] 
+[LM STUDIO SERVER] Success! HTTP server listening on port 1234
+2025-06-14 08:09:31  [INFO] 
+2025-06-14 08:09:31  [INFO] 
+[LM STUDIO SERVER] Supported endpoints:
+2025-06-14 08:09:31  [INFO] 
+[LM STUDIO SERVER] -> GET http://localhost:1234/v1/models
+2025-06-14 08:09:31  [INFO] 
+[LM STUDIO SERVER] -> POST http://localhost:1234/v1/chat/completions
+2025-06-14 08:09:31  [INFO] 
+[LM STUDIO SERVER] -> POST http://localhost:1234/v1/completions
+2025-06-14 08:09:31  [INFO] 
+[LM STUDIO SERVER] -> POST http://localhost:1234/v1/embeddings
+2025-06-14 08:09:31  [INFO] 
+2025-06-14 08:09:31  [INFO] 
+[LM STUDIO SERVER] Logs are saved into C:\Users\user\.lmstudio\server-logs
+2025-06-14 08:09:31  [INFO] 
+Server started.
+2025-06-14 08:09:31  [INFO] 
+Just-in-time model loading active.
+2025-06-14 08:09:52 [DEBUG] 
+[INFO] [PaniniRagEngine] Loading model into embedding engine...
+[WARNING] Batch size (512) is < context length (8000). Resetting batch size to context length to avoid unexpected behavior.
+2025-06-14 08:09:52 [DEBUG] 
+[INFO] [LlamaEmbeddingEngine] Loading model from path: C:\Dat\llm\models\pqnet\bge-m3-gguf\bge-m3-f16.gguf
+2025-06-14 08:09:52 [DEBUG] 
+llama_model_load_from_file_impl: using device Vulkan0 (AMD Radeon(TM) Graphics) - 256 MiB free
+2025-06-14 08:09:52 [DEBUG] 
+llama_model_loader: loaded meta data with 32 key-value pairs and 389 tensors from C:\Dat\llm\models\pqnet\bge-m3-gguf\bge-m3-f16.gguf (version GGUF V3 (latest))
+llama_model_loader: Dumping metadata keys/values. Note: KV overrides do not apply in this output.
+llama_model_loader: - kv   0:                       general.architecture str              = bert
+llama_model_loader: - kv   1:                               general.type str              = model
+llama_model_loader: - kv   2:                         general.size_label str              = 567M
+llama_model_loader: - kv   3:                            general.license str              = mit
+llama_model_loader: - kv   4:                               general.tags arr[str,4]       = ["sentence-transformers", "feature-ex...
+llama_model_loader: - kv   5:                           bert.block_count u32              = 24
+llama_model_loader: - kv   6:                        bert.context_length u32              = 8192
+llama_model_loader: - kv   7:                      bert.embedding_length u32              = 1024
+llama_model_loader: - kv   8:                   bert.feed_forward_length u32              = 4096
+llama_model_loader: - kv   9:                  bert.attention.head_count u32              = 16
+llama_model_loader: - kv  10:          bert.attention.layer_norm_epsilon f32              = 0.000010
+llama_model_loader: - kv  11:                          general.file_type u32              = 1
+llama_model_loader: - kv  12:                      bert.attention.causal bool             = false
+llama_model_loader: - kv  13:                          bert.pooling_type u32              = 2
+llama_model_loader: - kv  14:                       tokenizer.ggml.model str              = t5
+llama_model_loader: - kv  15:                         tokenizer.ggml.pre str              = default
+2025-06-14 08:09:53 [DEBUG] 
+llama_model_loader: - kv 16: tokenizer.ggml.tokens arr[str,250002] = ["<s>", "<pad>", "</s>", "<unk>", ","...
+2025-06-14 08:09:53 [DEBUG] 
+llama_model_loader: - kv 17: tokenizer.ggml.scores arr[f32,250002] = [0.000000, 0.000000, 0.000000, 0.0000...
+2025-06-14 08:09:53 [DEBUG] 
+llama_model_loader: - kv  18:                  tokenizer.ggml.token_type arr[i32,250002]  = [3, 3, 3, 2, 1, 1, 1, 1, 1, 1, 1, 1, ...
+llama_model_loader: - kv  19:            tokenizer.ggml.add_space_prefix bool             = true
+llama_model_loader: - kv  20:            tokenizer.ggml.token_type_count u32              = 1
+llama_model_loader: - kv  21:    tokenizer.ggml.remove_extra_whitespaces bool             = true
+2025-06-14 08:09:53 [DEBUG] 
+llama_model_loader: - kv  22:        tokenizer.ggml.precompiled_charsmap arr[u8,237539]   = [0, 180, 2, 0, 0, 132, 0, 0, 0, 0, 0,...
+llama_model_loader: - kv  23:                tokenizer.ggml.bos_token_id u32              = 0
+llama_model_loader: - kv  24:                tokenizer.ggml.eos_token_id u32              = 2
+llama_model_loader: - kv  25:            tokenizer.ggml.unknown_token_id u32              = 3
+llama_model_loader: - kv  26:          tokenizer.ggml.seperator_token_id u32              = 2
+llama_model_loader: - kv  27:            tokenizer.ggml.padding_token_id u32              = 1
+llama_model_loader: - kv  28:               tokenizer.ggml.mask_token_id u32              = 250001
+llama_model_loader: - kv  29:               tokenizer.ggml.add_bos_token bool             = true
+llama_model_loader: - kv  30:               tokenizer.ggml.add_eos_token bool             = true
+llama_model_loader: - kv  31:               general.quantization_version u32              = 2
+llama_model_loader: - type  f32:  244 tensors
+llama_model_loader: - type  f16:  145 tensors
+print_info: file format = GGUF V3 (latest)
+print_info: file type   = F16
+print_info: file size   = 1.07 GiB (16.25 BPW)
+2025-06-14 08:09:54 [DEBUG] 
+load: model vocab missing newline token, using special_pad_id instead
+2025-06-14 08:09:54 [DEBUG] 
+load: special_eos_id is not in special_eog_ids - the tokenizer config may be incorrect
+2025-06-14 08:09:54 [DEBUG] 
+load: special tokens cache size = 4
+2025-06-14 08:09:54 [DEBUG] 
+load: token to piece cache size = 2.1668 MB
+print_info: arch             = bert
+print_info: vocab_only       = 0
+print_info: n_ctx_train      = 8192
+print_info: n_embd           = 1024
+print_info: n_layer          = 24
+print_info: n_head           = 16
+print_info: n_head_kv        = 16
+print_info: n_rot            = 64
+print_info: n_swa            = 0
+print_info: n_swa_pattern    = 1
+print_info: n_embd_head_k    = 64
+print_info: n_embd_head_v    = 64
+print_info: n_gqa            = 1
+print_info: n_embd_k_gqa     = 1024
+print_info: n_embd_v_gqa     = 1024
+print_info: f_norm_eps       = 1.0e-05
+print_info: f_norm_rms_eps   = 0.0e+00
+print_info: f_clamp_kqv      = 0.0e+00
+print_info: f_max_alibi_bias = 0.0e+00
+print_info: f_logit_scale    = 0.0e+00
+print_info: f_attn_scale     = 0.0e+00
+print_info: n_ff             = 4096
+print_info: n_expert         = 0
+print_info: n_expert_used    = 0
+print_info: causal attn      = 0
+print_info: pooling type     = 2
+print_info: rope type        = 2
+print_info: rope scaling     = linear
+print_info: freq_base_train  = 10000.0
+print_info: freq_scale_train = 1
+print_info: n_ctx_orig_yarn  = 8192
+print_info: rope_finetuned   = unknown
+print_info: ssm_d_conv       = 0
+print_info: ssm_d_inner      = 0
+print_info: ssm_d_state      = 0
+print_info: ssm_dt_rank      = 0
+print_info: ssm_dt_b_c_rms   = 0
+print_info: model type       = 335M
+print_info: model params     = 566.70 M
+print_info: general.name     = n/a
+print_info: vocab type       = UGM
+print_info: n_vocab          = 250002
+print_info: n_merges         = 0
+print_info: BOS token        = 0 '<s>'
+print_info: EOS token        = 2 '</s>'
+print_info: UNK token        = 3 '<unk>'
+print_info: SEP token        = 2 '</s>'
+print_info: PAD token        = 1 '<pad>'
+print_info: MASK token       = 250001 '[PAD250000]'
+print_info: LF token         = 0 '<s>'
+print_info: EOG token        = 2 '</s>'
+print_info: max token length = 48
+load_tensors: loading model tensors, this can take a while... (mmap = true)
+2025-06-14 08:09:54 [DEBUG] 
+load_tensors: offloading 24 repeating layers to GPU
+load_tensors: offloading output layer to GPU
+load_tensors: offloaded 25/25 layers to GPU
+load_tensors:      Vulkan0 model buffer size =   577.22 MiB
+load_tensors:   CPU_Mapped model buffer size =   520.30 MiB
+2025-06-14 08:09:55 [DEBUG] 
+llama_context: constructing llama_context
+llama_context: n_seq_max     = 1
+llama_context: n_ctx         = 8000
+llama_context: n_ctx_per_seq = 8000
+llama_context: n_batch       = 8000
+llama_context: n_ubatch      = 8000
+llama_context: causal_attn   = 0
+llama_context: flash_attn    = 0
+llama_context: freq_base     = 10000.0
+llama_context: freq_scale    = 1
+llama_context: n_ctx_per_seq (8000) < n_ctx_train (8192) -- the full capacity of the model will not be utilized
+2025-06-14 08:09:55 [DEBUG] 
+llama_context: Vulkan_Host output buffer size = 0.00 MiB
+2025-06-14 08:09:55 [DEBUG] 
+common_init_from_params: KV cache shifting is not supported for this context, disabling KV cache shifting
+common_init_from_params: setting dry_penalty_last_n to ctx_size = 8000
+common_init_from_params: warming up the model with an empty run - please wait ... (--no-warmup to disable)
+2025-06-14 08:09:55 [DEBUG] 
+[INFO] [LlamaEmbeddingEngine] Model load complete!
+[INFO] [PaniniRagEngine] Model loaded into embedding engine!
+[INFO] [PaniniRagEngine] Model loaded without an active session.
+2025-06-14 08:10:56 [DEBUG] 
+[LM Studio] GPU Configuration:
+  Strategy: evenly
+  Priority: []
+  Disabled GPUs: []
+  Limit weight offload to dedicated GPU Memory: OFF
+  Offload KV Cache to GPU: ON
+2025-06-14 08:10:56 [DEBUG] 
+[LM Studio] Live GPU memory info:
+No live GPU info available
+2025-06-14 08:10:56 [DEBUG] 
+[LM Studio] Model load size estimate with raw num offload layers '0' and context length '8000':
+  Model: 0
+  Context: 555.66 MB
+  Total: 555.66 MB
+[LM Studio] Strict GPU VRAM cap is OFF: GPU offload layers will not be checked for adjustment
+[LM Studio] Resolved GPU config options:
+  Num Offload Layers: 0
+  Main GPU: 0
+  Tensor Split: [0]
+  Disabled GPUs: []
+2025-06-14 08:10:56 [DEBUG] 
+CPU : SSE3 = 1 | SSSE3 = 1 | AVX = 1 | AVX2 = 1 | F16C = 1 | FMA = 1 | BMI2 = 1 | LLAMAFILE = 1 | OPENMP = 1 | AARCH64_REPACK = 1 |
+2025-06-14 08:10:56 [DEBUG] 
+llama_model_load_from_file_impl: using device Vulkan0 (AMD Radeon(TM) Graphics) - 256 MiB free
+2025-06-14 08:10:56 [DEBUG] 
+llama_model_loader: loaded meta data with 28 key-value pairs and 399 tensors from C:\Dat\llm\models\Qwen\Qwen3-8B-Q8_0\Qwen3-8B-Q8_0.gguf (version GGUF V3 (latest))
+llama_model_loader: Dumping metadata keys/values. Note: KV overrides do not apply in this output.
+llama_model_loader: - kv   0:                       general.architecture str              = qwen3
+llama_model_loader: - kv   1:                               general.type str              = model
+llama_model_loader: - kv   2:                               general.name str              = Qwen3 8B Instruct
+llama_model_loader: - kv   3:                           general.finetune str              = Instruct
+llama_model_loader: - kv   4:                           general.basename str              = Qwen3
+llama_model_loader: - kv   5:                         general.size_label str              = 8B
+llama_model_loader: - kv   6:                          qwen3.block_count u32              = 36
+llama_model_loader: - kv   7:                       qwen3.context_length u32              = 40960
+llama_model_loader: - kv   8:                     qwen3.embedding_length u32              = 4096
+llama_model_loader: - kv   9:                  qwen3.feed_forward_length u32              = 12288
+llama_model_loader: - kv  10:                 qwen3.attention.head_count u32              = 32
+llama_model_loader: - kv  11:              qwen3.attention.head_count_kv u32              = 8
+llama_model_loader: - kv  12:                       qwen3.rope.freq_base f32              = 1000000.000000
+llama_model_loader: - kv  13:     qwen3.attention.layer_norm_rms_epsilon f32              = 0.000001
+llama_model_loader: - kv  14:                 qwen3.attention.key_length u32              = 128
+llama_model_loader: - kv  15:               qwen3.attention.value_length u32              = 128
+llama_model_loader: - kv  16:                       tokenizer.ggml.model str              = gpt2
+llama_model_loader: - kv  17:                         tokenizer.ggml.pre str              = qwen2
+2025-06-14 08:10:56 [DEBUG] 
+llama_model_loader: - kv 18: tokenizer.ggml.tokens arr[str,151936] = ["!", "\"", "#", "$", "%", "&", "'", ...
+2025-06-14 08:10:56 [DEBUG] 
+llama_model_loader: - kv 19: tokenizer.ggml.token_type arr[i32,151936] = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, ...
+2025-06-14 08:10:56 [DEBUG] 
+llama_model_loader: - kv  20:                      tokenizer.ggml.merges arr[str,151387]  = ["Ġ Ġ", "ĠĠ ĠĠ", "i n", "Ġ t",...
+llama_model_loader: - kv  21:                tokenizer.ggml.eos_token_id u32              = 151645
+llama_model_loader: - kv  22:            tokenizer.ggml.padding_token_id u32              = 151643
+llama_model_loader: - kv  23:                tokenizer.ggml.bos_token_id u32              = 151643
+llama_model_loader: - kv  24:               tokenizer.ggml.add_bos_token bool             = false
+llama_model_loader: - kv  25:                    tokenizer.chat_template str              = {%- if tools %}\n    {{- '<|im_start|>...
+llama_model_loader: - kv  26:               general.quantization_version u32              = 2
+llama_model_loader: - kv  27:                          general.file_type u32              = 7
+llama_model_loader: - type  f32:  145 tensors
+llama_model_loader: - type q8_0:  254 tensors
+print_info: file format = GGUF V3 (latest)
+print_info: file type   = Q8_0
+print_info: file size   = 8.11 GiB (8.50 BPW)
+2025-06-14 08:10:57 [DEBUG] 
+load: special tokens cache size = 26
+2025-06-14 08:10:57 [DEBUG] 
+load: token to piece cache size = 0.9311 MB
+print_info: arch             = qwen3
+print_info: vocab_only       = 0
+print_info: n_ctx_train      = 40960
+print_info: n_embd           = 4096
+print_info: n_layer          = 36
+print_info: n_head           = 32
+print_info: n_head_kv        = 8
+print_info: n_rot            = 128
+print_info: n_swa            = 0
+print_info: n_swa_pattern    = 1
+print_info: n_embd_head_k    = 128
+print_info: n_embd_head_v    = 128
+print_info: n_gqa            = 4
+print_info: n_embd_k_gqa     = 1024
+print_info: n_embd_v_gqa     = 1024
+print_info: f_norm_eps       = 0.0e+00
+print_info: f_norm_rms_eps   = 1.0e-06
+print_info: f_clamp_kqv      = 0.0e+00
+print_info: f_max_alibi_bias = 0.0e+00
+print_info: f_logit_scale    = 0.0e+00
+print_info: f_attn_scale     = 0.0e+00
+print_info: n_ff             = 12288
+print_info: n_expert         = 0
+print_info: n_expert_used    = 0
+print_info: causal attn      = 1
+print_info: pooling type     = 0
+2025-06-14 08:10:57 [DEBUG] 
+print_info: rope type        = 2
+print_info: rope scaling     = linear
+print_info: freq_base_train  = 1000000.0
+print_info: freq_scale_train = 1
+print_info: n_ctx_orig_yarn  = 40960
+print_info: rope_finetuned   = unknown
+print_info: ssm_d_conv       = 0
+print_info: ssm_d_inner      = 0
+print_info: ssm_d_state      = 0
+print_info: ssm_dt_rank      = 0
+print_info: ssm_dt_b_c_rms   = 0
+print_info: model type       = 8B
+print_info: model params     = 8.19 B
+print_info: general.name     = Qwen3 8B Instruct
+print_info: vocab type       = BPE
+print_info: n_vocab          = 151936
+print_info: n_merges         = 151387
+print_info: BOS token        = 151643 '<|endoftext|>'
+print_info: EOS token        = 151645 '<|im_end|>'
+print_info: EOT token        = 151645 '<|im_end|>'
+print_info: PAD token        = 151643 '<|endoftext|>'
+print_info: LF token         = 198 'Ċ'
+print_info: FIM PRE token    = 151659 '<|fim_prefix|>'
+print_info: FIM SUF token    = 151661 '<|fim_suffix|>'
+print_info: FIM MID token    = 151660 '<|fim_middle|>'
+print_info: FIM PAD token    = 151662 '<|fim_pad|>'
+print_info: FIM REP token    = 151663 '<|repo_name|>'
+print_info: FIM SEP token    = 151664 '<|file_sep|>'
+print_info: EOG token        = 151643 '<|endoftext|>'
+print_info: EOG token        = 151645 '<|im_end|>'
+print_info: EOG token        = 151662 '<|fim_pad|>'
+print_info: EOG token        = 151663 '<|repo_name|>'
+print_info: EOG token        = 151664 '<|file_sep|>'
+print_info: max token length = 256
+load_tensors: loading model tensors, this can take a while... (mmap = true)
+2025-06-14 08:10:58 [DEBUG] 
+load_tensors: offloading 0 repeating layers to GPU
+load_tensors: offloaded 0/37 layers to GPU
+load_tensors:   CPU_Mapped model buffer size =  8300.36 MiB
+2025-06-14 08:11:06 [DEBUG] 
+llama_context: constructing llama_context
+llama_context: n_seq_max     = 1
+llama_context: n_ctx         = 8000
+llama_context: n_ctx_per_seq = 8000
+llama_context: n_batch       = 512
+llama_context: n_ubatch      = 512
+llama_context: causal_attn   = 1
+llama_context: flash_attn    = 0
+llama_context: freq_base     = 1000000.0
+llama_context: freq_scale    = 1
+llama_context: n_ctx_per_seq (8000) < n_ctx_train (40960) -- the full capacity of the model will not be utilized
+llama_context:        CPU  output buffer size =     0.58 MiB
+2025-06-14 08:11:06 [DEBUG] 
+llama_kv_cache_unified: CPU KV buffer size = 1125.00 MiB
+2025-06-14 08:11:06 [DEBUG] 
+llama_kv_cache_unified: size = 1125.00 MiB ( 8000 cells, 36 layers, 1 seqs), K (f16): 562.50 MiB, V (f16): 562.50 MiB
+2025-06-14 08:11:06 [DEBUG] 
+llama_context:    Vulkan0 compute buffer size =   994.34 MiB
+llama_context: Vulkan_Host compute buffer size =    23.63 MiB
+llama_context: graph nodes  = 1446
+llama_context: graph splits = 508 (with bs=512), 73 (with bs=1)
+common_init_from_params: setting dry_penalty_last_n to ctx_size = 8000
+common_init_from_params: warming up the model with an empty run - please wait ... (--no-warmup to disable)
+2025-06-14 08:11:07 [DEBUG] 
+GgmlThreadpools: llama threadpool init = n_threads = 4
+Image cache size: 10
+2025-06-14 08:14:04 [DEBUG] 
+Received request: GET to /v1/models
+2025-06-14 08:14:04  [INFO] 
+Returning {
+  "data": [
+    {
+      "id": "text-embedding-bge-m3",
+      "object": "model",
+      "owned_by": "organization_owner"
+    },
+    {
+      "id": "qwen3-8b",
+      "object": "model",
+      "owned_by": "organization_owner"
+    },
+    {
+      "id": "qwen3_8b-km",
+      "object": "model",
+      "owned_by": "organization_owner"
+    },
+    {
+      "id": "text-embedding-nomic-embed-text-v1.5",
+      "object": "model",
+      "owned_by": "organization_owner"
+    },
+    {
+      "id": "qwen3-4b-ud",
+      "object": "model",
+      "owned_by": "organization_owner"
+    },
+    {
+      "id": "open-thoughts.openthinker-7b-unverified",
+      "object": "model",
+      "owned_by": "organization_owner"
+    },
+    {
+      "id": "qwen2.5-coder-14b-instruct",
+      "object": "model",
+      "owned_by": "organization_owner"
+    }
+  ],
+  "object": "list"
+}
+2025-06-14 08:14:05 [DEBUG] 
+Received request: GET to /favicon.ico
+2025-06-14 08:14:05 [ERROR] 
+Unexpected endpoint or method. (GET /favicon.ico). Returning 200 anyway
+2025-06-14 20:33:31 [DEBUG] 
+Received request: POST to /v1/embeddings with body  {
+  "input": [
+    "This is a test sentence."
+  ],
+  "model": "bge-m3-gguf",
+  "encoding_format": "float"
+}
+2025-06-14 20:33:31  [INFO] 
+Received request to embed multiple:  [
+  "This is a test sentence."
+]
+2025-06-14 20:33:31  [INFO] 
+Returning embeddings (not shown in logs)
+2025-06-14 20:34:31 [DEBUG] 
+Received request: POST to /v1/chat/completions with body  {
+  "messages": [
+    {
+      "role": "user",
+      "content": "---Goal---\nGiven a text document that is potential... <Truncated in logs> ...t further underpins\n######################\nOutput:"
+    }
+  ],
+  "model": "Qwen3-8B"
+}
+2025-06-14 20:34:31  [INFO] 
+[LM STUDIO SERVER] Running chat completion on conversation with 1 messages.
+2025-06-14 20:34:31 [DEBUG] 
+Received request: POST to /v1/embeddings with body  {
+  "input": [
+    "# MINIMUM INTEROPERABILITYSTANDARDS (MIOS) FRAMEWO... <Truncated in logs> ... The outcomes (roof) of the e-Government programme",
+    "1. The strategic drive to advance the maturity on ... <Truncated in logs> ...ice Regulations respectively. It further underpins",
+    "the MIOS is to prescribe open system standards tha... <Truncated in logs> ...ality, but new technology infrastructure)   \n(iii)",
+    "db98ca8f9.jpg)  \nFigure 2: e-Government informatio... <Truncated in logs> ...ter.</td></tr><tr><td>3</td><td>GITO Council</td><",
+    "subject to approval. d) Manage the development, co... <Truncated in logs> ...(iv) The intellectual rights required to implement",
+    "interconnectedness and data exchange within and be... <Truncated in logs> ...>Information and Communication Technology</td></tr",
+    "><td>GCIO</td><td>Government Chief Information Off... <Truncated in logs> ...Modelling Language</td></tr></table></body></html>"
+  ],
+  "model": "bge-m3-gguf",
+  "encoding_format": "float"
+}
+2025-06-14 20:34:31  [INFO] 
+Received request to embed multiple:  [
+  "# MINIMUM INTEROPERABILITYSTANDARDS (MIOS) FRAMEWORKFor Government Information Systems  \n\nRevision 6...",
+  "1. The strategic drive to advance the maturity on interoperability not only compels government Infor...",
+  "the MIOS is to prescribe open system standards that will ensure minimum level of interoperability wi...",
+  "db98ca8f9.jpg)  \nFigure 2: e-Government information exchange scenarios  \n\n(b) The  life-cycle stages...",
+  "subject to approval. d) Manage the development, configuration and</td></tr></table></body></html>  \n...",
+  "interconnectedness and data exchange within and between systems.   \n(b) Openness: the specifications...",
+  "><td>GCIO</td><td>Government Chief Information Officer</td></tr><tr><td>GITO</td><td>Government Info..."
+]
+2025-06-14 20:34:31 [DEBUG] 
+Received request: POST to /v1/chat/completions with body  {
+  "messages": [
+    {
+      "role": "user",
+      "content": "---Goal---\nGiven a text document that is potential... <Truncated in logs> ...structure)   \n(iii)\n######################\nOutput:"
+    }
+  ],
+  "model": "Qwen3-8B"
+}
+2025-06-14 20:34:31  [INFO] 
+[LM STUDIO SERVER] Running chat completion on conversation with 1 messages.
+2025-06-14 20:34:31 [DEBUG] 
+Received request: POST to /v1/chat/completions with body  {
+  "messages": [
+    {
+      "role": "user",
+      "content": "---Goal---\nGiven a text document that is potential... <Truncated in logs> ...overnment programme\n######################\nOutput:"
+    }
+  ],
+  "model": "Qwen3-8B"
+}
+2025-06-14 20:34:31  [INFO] 
+[LM STUDIO SERVER] Running chat completion on conversation with 1 messages.
+2025-06-14 20:34:31 [DEBUG] 
+Received request: POST to /v1/chat/completions with body  {
+  "messages": [
+    {
+      "role": "user",
+      "content": "---Goal---\nGiven a text document that is potential... <Truncated in logs> ...>GITO Council</td><\n######################\nOutput:"
+    }
+  ],
+  "model": "Qwen3-8B"
+}
+2025-06-14 20:34:31  [INFO] 
+[LM STUDIO SERVER] Running chat completion on conversation with 1 messages.
+2025-06-14 20:34:31 [DEBUG] 
+Sampling params:	repeat_last_n = 64, repeat_penalty = 1.100, frequency_penalty = 0.000, presence_penalty = 0.000
+	dry_multiplier = 0.000, dry_base = 1.750, dry_allowed_length = 2, dry_penalty_last_n = -1
+	top_k = 40, top_p = 0.200, min_p = 0.050, xtc_probability = 0.000, xtc_threshold = 0.100, typical_p = 1.000, top_n_sigma = -1.000, temp = 0.200
+	mirostat = 0, mirostat_lr = 0.100, mirostat_ent = 5.000
+2025-06-14 20:34:31 [DEBUG] 
+sampling: 
+logits -> logit-bias -> penalties -> dry -> top-n-sigma -> top-k -> typical -> top-p -> min-p -> xtc -> temp-ext -> dist 
+generate: n_ctx = 8000, n_batch = 512, n_predict = -1, n_keep = 3534
+2025-06-14 20:34:31 [DEBUG] 
+BeginProcessingPrompt
+2025-06-14 20:34:54  [INFO] 
+Returning embeddings (not shown in logs)
+2025-06-14 20:34:58 [DEBUG] 
+PromptProcessing:
+2025-06-14 20:34:58 [DEBUG] 
+14.4878
+2025-06-14 20:35:13 [DEBUG] 
+PromptProcessing: 28.9757
+2025-06-14 20:35:27 [DEBUG] 
+PromptProcessing: 43.4635
+2025-06-14 20:35:42 [DEBUG] 
+PromptProcessing: 57.9513
+2025-06-14 20:35:57 [DEBUG] 
+PromptProcessing: 72.4392
+2025-06-14 20:36:12 [DEBUG] 
+PromptProcessing: 86.927
+2025-06-14 20:36:28 [DEBUG] 
+FinishedProcessingPrompt. Progress: 100
+2025-06-14 20:36:28  [INFO] 
+[LM STUDIO SERVER] Accumulating tokens ... (stream = false)
+2025-06-14 20:44:31  [INFO] 
+[LM STUDIO SERVER] Client disconnected. Stopping generation... (If the model is busy processing the prompt, it will finish first.)
+2025-06-14 20:44:31  [INFO] 
+[qwen3-8b] Generated prediction:  {
+  "id": "chatcmpl-107jtgwggueobb7n8k5h2d",
+  "object": "chat.completion",
+  "created": 1749926071,
+  "model": "qwen3-8b",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "message": {
+        "role": "assistant",
+        "content": ""
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "total_tokens": 0
+  },
+  "stats": {},
+  "system_fingerprint": "qwen3-8b"
+}
+2025-06-14 20:44:31  [INFO] 
+[LM STUDIO SERVER] Client disconnected. Stopping generation... (If the model is busy processing the prompt, it will finish first.)
+2025-06-14 20:44:31  [INFO] 
+[qwen3-8b] Generated prediction:  {
+  "id": "chatcmpl-8o4lfuzb7wya6preoqq40b",
+  "object": "chat.completion",
+  "created": 1749926071,
+  "model": "qwen3-8b",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "message": {
+        "role": "assistant",
+        "content": ""
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "total_tokens": 0
+  },
+  "stats": {},
+  "system_fingerprint": "qwen3-8b"
+}
+2025-06-14 20:44:31  [INFO] 
+[LM STUDIO SERVER] Client disconnected. Stopping generation... (If the model is busy processing the prompt, it will finish first.)
+2025-06-14 20:44:31  [INFO] 
+[qwen3-8b] Generated prediction:  {
+  "id": "chatcmpl-ue7apu5l2bdcyngy6e9sa",
+  "object": "chat.completion",
+  "created": 1749926071,
+  "model": "qwen3-8b",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "message": {
+        "role": "assistant",
+        "content": ""
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "total_tokens": 0
+  },
+  "stats": {},
+  "system_fingerprint": "qwen3-8b"
+}
+2025-06-14 20:44:31  [INFO] 
+[LM STUDIO SERVER] Client disconnected. Stopping generation... (If the model is busy processing the prompt, it will finish first.)
+2025-06-14 20:44:31 [DEBUG] 
+target model llama_perf stats:
+llama_perf_context_print:        load time =   10716.10 ms
+llama_perf_context_print: prompt eval time =  117477.97 ms /  3534 tokens (   33.24 ms per token,    30.08 tokens per second)
+llama_perf_context_print:        eval time =  481258.49 ms /   844 runs   (  570.21 ms per token,     1.75 tokens per second)
+llama_perf_context_print:       total time =  600087.62 ms /  4378 tokens
+2025-06-14 20:44:31  [INFO] 
+[qwen3-8b] Generated prediction:  {
+  "id": "chatcmpl-euncqzngbhuobypk57zh1",
+  "object": "chat.completion",
+  "created": 1749926071,
+  "model": "qwen3-8b",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "message": {
+        "role": "assistant",
+        "content": "<think>\nOkay, let's tackle this query step by step. The user provided a text document about e-Government initiatives, MIOS standards, and related legislation. They want me to identify entities of specific types (organization, person, geo, event, category) and their relationships.\n\nFirst, I need to parse the text carefully. Let me start by scanning for any named entities. The main topics here are government IT systems, e-Government programs, MIOS standards, and related laws. \n\nLooking at the first paragraph: \"government Information and Communication Technology leaders\" – that's a person or organization? Wait, it's referring to leaders, so maybe not an entity unless there's a specific name. But the text doesn't mention any individuals by name, so perhaps no person entities here.\n\nNext, \"e-Government initiatives\" – that's a category. Then \"Information and Communication Technology House of value\" – that seems like an organization or a concept. Wait, maybe it's part of the structure described in the document. The text mentions \"The Information and Communication Technology House of value\" as comprising roof, pillars, foundation. So perhaps this is an organization? Or maybe a category?\n\nThen there are terms like \"Public Service Act, 1994\", which are legislation, so they might be categorized under 'category' or 'organization'? Wait, the entity types allowed are [organization,person,geo,event,category]. Legislation would fall under 'category' perhaps. But I need to check if any specific organizations are mentioned.\n\nLooking further: \"State Information Technology Agency (SITA)\" is an organization. Also, \"Government Information Technology Officers Council\" – that's another organization. \n\nThe text also mentions \"Minimum Interoperability Standards (MIOS)\" which is a set of standards, so maybe a category or an organization? Since it's a standard, perhaps 'category' makes sense here.\n\nNow, for the entities:\n\n- \"Information and Communication Technology House of value\" – this seems like a conceptual framework, so maybe a category. But the text refers to it as a structure with components (roof, pillars, foundation), which are parts of the e-Government program. So perhaps it's an organization? Or maybe not. Since there's no specific name, maybe it's part of the e-Government initiative.\n\nWait, the user's example 3 had \"World Athletics Championship\" as an event and \"World Athletics Federation\" as an organization. Similarly, here, \"e-Government programme\" might be a category or an event? But in the text, it's more about initiatives and standards, so maybe 'category' is better.\n\nThen there are specific organizations like SITA (State Information Technology Agency), Government Information Technology Officers Council, and possibly others mentioned in legislation. \n\nFor people: The text mentions \"Minister of Public Service and Administration\" – that's a title, but not a person unless specified. Since no names are given, maybe no person entities here.\n\nGeographic entities? The text doesn't mention specific locations like cities or countries except for South Africa in the part about digital inclusion (BBBEE). So \"South Africa\" is a geo entity.\n\nEvents: The text refers to \"advancement of interoperability in Government as an ongoing process\", but no specific event names. Maybe not events here.\n\nNow, moving to relationships. For example, MIOS is related to e-Government initiatives because it's part of the standards for interoperability. SITA is responsible for setting standards under the SITA Act. The Public Service Act mandates the Minister to establish norms and standards. \n\nAlso, the MIOS V6 version was updated to be more agile, so there's a relationship between previous versions and MIOS V6. \n\nThe content keywords would include terms like e-Government, interoperability, standards, legislation, digital inclusion, etc.\n\nI need to make sure each entity is correctly categorized and that relationships are clearly defined with descriptions and strengths. Also, check for any missed entities or relationships.\n</think>\n\n(\"entity\"<|>\"e-Government\"<|>\"category\"<|>\"The e-Government category encompasses initiatives aimed at improving"
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 3534,
+    "completion_tokens": 844,
+    "total_tokens": 4378
+  },
+  "stats": {},
+  "system_fingerprint": "qwen3-8b"
+}
+2025-06-14 20:44:31 [DEBUG] 
+Received request: POST to /v1/chat/completions with body  {
+  "messages": [
+    {
+      "role": "user",
+      "content": "---Goal---\nGiven a text document that is potential... <Truncated in logs> ...>GITO Council</td><\n######################\nOutput:"
+    }
+  ],
+  "model": "Qwen3-8B"
+}
+2025-06-14 20:44:31  [INFO] 
+[LM STUDIO SERVER] Running chat completion on conversation with 1 messages.
+2025-06-14 20:44:31 [DEBUG] 
+Received request: POST to /v1/chat/completions with body  {
+  "messages": [
+    {
+      "role": "user",
+      "content": "---Goal---\nGiven a text document that is potential... <Truncated in logs> ...overnment programme\n######################\nOutput:"
+    }
+  ],
+  "model": "Qwen3-8B"
+}
+2025-06-14 20:44:31  [INFO] 
+[LM STUDIO SERVER] Running chat completion on conversation with 1 messages.
+2025-06-14 20:44:31 [DEBUG] 
+Received request: POST to /v1/chat/completions with body  {
+  "messages": [
+    {
+      "role": "user",
+      "content": "---Goal---\nGiven a text document that is potential... <Truncated in logs> ...t further underpins\n######################\nOutput:"
+    }
+  ],
+  "model": "Qwen3-8B"
+}
+2025-06-14 20:44:31  [INFO] 
+[LM STUDIO SERVER] Running chat completion on conversation with 1 messages.
+2025-06-14 20:44:31 [DEBUG] 
+Received request: POST to /v1/chat/completions with body  {
+  "messages": [
+    {
+      "role": "user",
+      "content": "---Goal---\nGiven a text document that is potential... <Truncated in logs> ...structure)   \n(iii)\n######################\nOutput:"
+    }
+  ],
+  "model": "Qwen3-8B"
+}
+2025-06-14 20:44:31  [INFO] 
+[LM STUDIO SERVER] Running chat completion on conversation with 1 messages.
+2025-06-14 20:44:31 [DEBUG] 
+Sampling params:	repeat_last_n = 64, repeat_penalty = 1.100, frequency_penalty = 0.000, presence_penalty = 0.000
+	dry_multiplier = 0.000, dry_base = 1.750, dry_allowed_length = 2, dry_penalty_last_n = -1
+	top_k = 40, top_p = 0.200, min_p = 0.050, xtc_probability = 0.000, xtc_threshold = 0.100, typical_p = 1.000, top_n_sigma = -1.000, temp = 0.200
+	mirostat = 0, mirostat_lr = 0.100, mirostat_ent = 5.000
+sampling: 
+logits -> logit-bias -> penalties -> dry -> top-n-sigma -> top-k -> typical -> top-p -> min-p -> xtc -> temp-ext -> dist 
+generate: n_ctx = 8000, n_batch = 512, n_predict = -1, n_keep = 3519
+2025-06-14 20:44:31 [DEBUG] 
+Detected 2291/4378 cached tokens to be a valid prefix of the current prompt. Removing 2087 tokens from the end of the cache
+2025-06-14 20:44:31 [DEBUG] 
+BeginProcessingPrompt
+2025-06-14 20:44:41 [DEBUG] 
+PromptProcessing: 72.7479
+2025-06-14 20:44:57 [DEBUG] 
+PromptProcessing: 87.2975
+2025-06-14 20:45:13 [DEBUG] 
+FinishedProcessingPrompt. Progress: 100
+2025-06-14 20:45:13  [INFO] 
+[LM STUDIO SERVER] Accumulating tokens ... (stream = false)
+2025-06-15 03:33:39  [INFO] 
+[LM STUDIO SERVER] Client disconnected. Stopping generation... (If the model is busy processing the prompt, it will finish first.)
+2025-06-15 03:33:39  [INFO] 
+[qwen3-8b] Generated prediction:  {
+  "id": "chatcmpl-yf39ch3hwjeh22k5qlrmg",
+  "object": "chat.completion",
+  "created": 1749926671,
+  "model": "qwen3-8b",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "message": {
+        "role": "assistant",
+        "content": ""
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "total_tokens": 0
+  },
+  "stats": {},
+  "system_fingerprint": "qwen3-8b"
+}
+2025-06-15 03:33:39  [INFO] 
+[LM STUDIO SERVER] Client disconnected. Stopping generation... (If the model is busy processing the prompt, it will finish first.)
+2025-06-15 03:33:39  [INFO] 
+[LM STUDIO SERVER] Client disconnected. Stopping generation... (If the model is busy processing the prompt, it will finish first.)
+2025-06-15 03:33:39  [INFO] 
+[qwen3-8b] Generated prediction:  {
+  "id": "chatcmpl-lxhcnhjzyke0843bgxi19np",
+  "object": "chat.completion",
+  "created": 1749926671,
+  "model": "qwen3-8b",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "message": {
+        "role": "assistant",
+        "content": ""
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "total_tokens": 0
+  },
+  "stats": {},
+  "system_fingerprint": "qwen3-8b"
+}
+2025-06-15 03:33:39  [INFO] 
+[LM STUDIO SERVER] Client disconnected. Stopping generation... (If the model is busy processing the prompt, it will finish first.)
+2025-06-15 03:33:39  [INFO] 
+[qwen3-8b] Generated prediction:  {
+  "id": "chatcmpl-5a53spcbyjliz35gngjet",
+  "object": "chat.completion",
+  "created": 1749926671,
+  "model": "qwen3-8b",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "message": {
+        "role": "assistant",
+        "content": ""
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "total_tokens": 0
+  },
+  "stats": {},
+  "system_fingerprint": "qwen3-8b"
+}
+2025-06-15 03:33:40 [DEBUG] 
+Received request: POST to /v1/chat/completions with body  {
+  "messages": [
+    {
+      "role": "user",
+      "content": "---Goal---\nGiven a text document that is potential... <Truncated in logs> ...structure)   \n(iii)\n######################\nOutput:"
+    }
+  ],
+  "model": "Qwen3-8B"
+}
+2025-06-15 03:33:40  [INFO] 
+[LM STUDIO SERVER] Running chat completion on conversation with 1 messages.
+2025-06-15 03:33:40 [DEBUG] 
+Received request: POST to /v1/chat/completions with body  {
+  "messages": [
+    {
+      "role": "user",
+      "content": "---Goal---\nGiven a text document that is potential... <Truncated in logs> ...>GITO Council</td><\n######################\nOutput:"
+    }
+  ],
+  "model": "Qwen3-8B"
+}
+2025-06-15 03:33:40  [INFO] 
+[LM STUDIO SERVER] Running chat completion on conversation with 1 messages.
+2025-06-15 03:33:41 [DEBUG] 
+Received request: POST to /v1/chat/completions with body  {
+  "messages": [
+    {
+      "role": "user",
+      "content": "---Goal---\nGiven a text document that is potential... <Truncated in logs> ...overnment programme\n######################\nOutput:"
+    }
+  ],
+  "model": "Qwen3-8B"
+}
+2025-06-15 03:33:41  [INFO] 
+[LM STUDIO SERVER] Running chat completion on conversation with 1 messages.
+2025-06-15 03:33:41 [DEBUG] 
+Received request: POST to /v1/chat/completions with body  {
+  "messages": [
+    {
+      "role": "user",
+      "content": "---Goal---\nGiven a text document that is potential... <Truncated in logs> ...t further underpins\n######################\nOutput:"
+    }
+  ],
+  "model": "Qwen3-8B"
+}
+2025-06-15 03:33:41  [INFO] 
+[LM STUDIO SERVER] Running chat completion on conversation with 1 messages.
+2025-06-15 03:33:41 [DEBUG] 
+target model llama_perf stats:
+llama_perf_context_print:        load time =   10716.10 ms
+llama_perf_context_print: prompt eval time =   41777.12 ms /  1228 tokens (   34.02 ms per token,    29.39 tokens per second)
+llama_perf_context_print:        eval time = 24506534.03 ms /   530 runs   (46238.74 ms per token,     0.02 tokens per second)
+llama_perf_context_print:       total time = 24549262.01 ms /  1758 tokens
+2025-06-15 03:33:41  [INFO] 
+[qwen3-8b] Generated prediction:  {
+  "id": "chatcmpl-37ok0csdzjhhodcfwy7be",
+  "object": "chat.completion",
+  "created": 1749926671,
+  "model": "qwen3-8b",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "message": {
+        "role": "assistant",
+        "content": "<think>\nOkay, let's tackle this query. The user provided a text document and wants me to identify entities of specific types (organization, person, geo, event, category) along with their relationships. Then I need to extract content keywords.\n\nFirst, I'll read through the text carefully. It seems to be about e-Government information exchange scenarios, specifically discussing MIOS (Minimum Interoperability Standards). There are sections on applicability, exemptions, principles, and standard setting responsibilities. \n\nStarting with entities. Let's look for organizations first. The text mentions \"Minister of Public Service and Administration\" which is a person title but might be part of an organization. Wait, the entity types include 'organization', so maybe the actual names like \"State Information Technology Agency (SITA)\" are organizations. Also, \"GITO Council\" is mentioned as a stakeholder. Then there's \"Public Service Act\", \"Public Service Regulations\", \"SITA Act\", and \"SITA General Regulations\"—these might be categories or legislation, but the entity types don't include 'legislation', so maybe they fall under 'category'? Wait, the allowed types are organization, person, geo, event, category. So laws could be considered as 'category'?\n\nNext, looking for people. The text refers to \"Minister\" and \"accounting officer\", but these are titles, not specific names. Unless there's a named individual mentioned, which I don't see. So maybe no person entities here.\n\nGeographic entities? There's no mention of places like cities or countries, so probably none.\n\nEvents? The text mentions \"Figure 2: e-Government information exchange scenarios\" but that's more of a figure title than an event. Maybe the MIOS framework is an event? Not sure. Alternatively, maybe not. Since there's no specific event name, perhaps no geo or event entities here.\n\nCategories? The entity types include 'category', so terms like \"e-Government\", \"information systems\", \"interoperability standards\" could be categories. Also, the MIOS itself might be a category.\n\nNow for organizations: SITA (State Information Technology Agency) is clearly an organization. The Minister of Public Service and Administration is part of the government structure but maybe not an entity here unless specified as an organization. Wait, the user's example 3 included \"World Athletics Federation\" as an organization. So in this case, \"Minister of Public Service and Administration\" might be a person title, but since there are no named individuals, perhaps we don't include them. Similarly, \"GITO Council\" is likely"
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 3519,
+    "completion_tokens": 530,
+    "total_tokens": 4049
+  },
+  "stats": {},
+  "system_fingerprint": "qwen3-8b"
+}
+2025-06-15 03:33:41 [DEBUG] 
+Sampling params:	repeat_last_n = 64, repeat_penalty = 1.100, frequency_penalty = 0.000, presence_penalty = 0.000
+	dry_multiplier = 0.000, dry_base = 1.750, dry_allowed_length = 2, dry_penalty_last_n = -1
+	top_k = 40, top_p = 0.200, min_p = 0.050, xtc_probability = 0.000, xtc_threshold = 0.100, typical_p = 1.000, top_n_sigma = -1.000, temp = 0.200
+	mirostat = 0, mirostat_lr = 0.100, mirostat_ent = 5.000
+2025-06-15 03:33:41 [DEBUG] 
+sampling: 
+logits -> logit-bias -> penalties -> dry -> top-n-sigma -> top-k -> typical -> top-p -> min-p -> xtc -> temp-ext -> dist 
+generate: n_ctx = 8000, n_batch = 512, n_predict = -1, n_keep = 3522
+2025-06-15 03:33:41 [DEBUG] 
+Detected 2291/4049 cached tokens to be a valid prefix of the current prompt. Removing 1758 tokens from the end of the cache
+BeginProcessingPrompt
+2025-06-15 17:24:22  [INFO] 
+[LM STUDIO SERVER] Client disconnected. Stopping generation... (If the model is busy processing the prompt, it will finish first.)
+2025-06-15 17:24:22  [INFO] 
+[qwen3-8b] Generated prediction:  {
+  "id": "chatcmpl-6gd79vrushe2ab3ea5wz3d",
+  "object": "chat.completion",
+  "created": 1749951221,
+  "model": "qwen3-8b",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "message": {
+        "role": "assistant",
+        "content": ""
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "total_tokens": 0
+  },
+  "stats": {},
+  "system_fingerprint": "qwen3-8b"
+}
+2025-06-15 17:24:22  [INFO] 
+[LM STUDIO SERVER] Client disconnected. Stopping generation... (If the model is busy processing the prompt, it will finish first.)
+2025-06-15 17:24:22  [INFO] 
+[qwen3-8b] Generated prediction:  {
+  "id": "chatcmpl-exjxbq8m33ibh25qr5wpga",
+  "object": "chat.completion",
+  "created": 1749951221,
+  "model": "qwen3-8b",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "message": {
+        "role": "assistant",
+        "content": ""
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "total_tokens": 0
+  },
+  "stats": {},
+  "system_fingerprint": "qwen3-8b"
+}
+2025-06-15 17:24:22  [INFO] 
+[LM STUDIO SERVER] Client disconnected. Stopping generation... (If the model is busy processing the prompt, it will finish first.)
+2025-06-15 17:24:22  [INFO] 
+[LM STUDIO SERVER] Client disconnected. Stopping generation... (If the model is busy processing the prompt, it will finish first.)
+2025-06-15 17:24:22  [INFO] 
+[qwen3-8b] Generated prediction:  {
+  "id": "chatcmpl-a7v0wrihy8ryhrcqbk29lf",
+  "object": "chat.completion",
+  "created": 1749951220,
+  "model": "qwen3-8b",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "message": {
+        "role": "assistant",
+        "content": ""
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "total_tokens": 0
+  },
+  "stats": {},
+  "system_fingerprint": "qwen3-8b"
+}
+2025-06-15 17:24:29 [DEBUG] 
+Received request: POST to /v1/chat/completions with body  {
+  "messages": [
+    {
+      "role": "user",
+      "content": "---Goal---\nGiven a text document that is potential... <Truncated in logs> ...overnment programme\n######################\nOutput:"
+    }
+  ],
+  "model": "Qwen3-8B"
+}
+2025-06-15 17:24:29  [INFO] 
+[LM STUDIO SERVER] Running chat completion on conversation with 1 messages.
+2025-06-15 17:24:29 [DEBUG] 
+Received request: POST to /v1/chat/completions with body  {
+  "messages": [
+    {
+      "role": "user",
+      "content": "---Goal---\nGiven a text document that is potential... <Truncated in logs> ...structure)   \n(iii)\n######################\nOutput:"
+    }
+  ],
+  "model": "Qwen3-8B"
+}
+2025-06-15 17:24:29  [INFO] 
+[LM STUDIO SERVER] Running chat completion on conversation with 1 messages.
+2025-06-15 17:24:29 [DEBUG] 
+Received request: POST to /v1/chat/completions with body  {
+  "messages": [
+    {
+      "role": "user",
+      "content": "---Goal---\nGiven a text document that is potential... <Truncated in logs> ...t further underpins\n######################\nOutput:"
+    }
+  ],
+  "model": "Qwen3-8B"
+}
+2025-06-15 17:24:29  [INFO] 
+[LM STUDIO SERVER] Running chat completion on conversation with 1 messages.
+2025-06-15 17:24:29 [DEBUG] 
+Received request: POST to /v1/chat/completions with body  {
+  "messages": [
+    {
+      "role": "user",
+      "content": "---Goal---\nGiven a text document that is potential... <Truncated in logs> ...>GITO Council</td><\n######################\nOutput:"
+    }
+  ],
+  "model": "Qwen3-8B"
+}
+2025-06-15 17:24:29  [INFO] 
+[LM STUDIO SERVER] Running chat completion on conversation with 1 messages.
+2025-06-15 17:24:33 [DEBUG] 
+PromptProcessing: 72.686
+target model llama_perf stats:
+llama_perf_context_print:        load time =   10716.10 ms
+llama_perf_context_print: prompt eval time =       0.00 ms /     1 tokens (    0.00 ms per token,      inf tokens per second)
+llama_perf_context_print:        eval time =       0.00 ms /     1 runs   (    0.00 ms per token,      inf tokens per second)
+llama_perf_context_print:       total time = 49852238.55 ms /     2 tokens
+2025-06-15 17:24:33  [INFO] 
+[qwen3-8b] Generated prediction:  {
+  "id": "chatcmpl-3zj545xplwfoh06yfx07u",
+  "object": "chat.completion",
+  "created": 1749951220,
+  "model": "qwen3-8b",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "message": {
+        "role": "assistant",
+        "content": ""
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 3522,
+    "completion_tokens": 0,
+    "total_tokens": 3522
+  },
+  "stats": {},
+  "system_fingerprint": "qwen3-8b"
+}
+2025-06-15 17:24:33 [DEBUG] 
+Sampling params:	repeat_last_n = 64, repeat_penalty = 1.100, frequency_penalty = 0.000, presence_penalty = 0.000
+	dry_multiplier = 0.000, dry_base = 1.750, dry_allowed_length = 2, dry_penalty_last_n = -1
+	top_k = 40, top_p = 0.200, min_p = 0.050, xtc_probability = 0.000, xtc_threshold = 0.100, typical_p = 1.000, top_n_sigma = -1.000, temp = 0.200
+	mirostat = 0, mirostat_lr = 0.100, mirostat_ent = 5.000
+sampling: 
+logits -> logit-bias -> penalties -> dry -> top-n-sigma -> top-k -> typical -> top-p -> min-p -> xtc -> temp-ext -> dist 
+generate: n_ctx = 8000, n_batch = 512, n_predict = -1, n_keep = 3579
+2025-06-15 17:24:33 [DEBUG] 
+Detected 2291/2560 cached tokens to be a valid prefix of the current prompt. Removing 269 tokens from the end of the cache
+2025-06-15 17:24:33 [DEBUG] 
+BeginProcessingPrompt
+2025-06-15 17:24:43 [DEBUG] 
+PromptProcessing: 71.5284
+2025-06-15 17:24:58 [DEBUG] 
+PromptProcessing: 85.834
+2025-06-15 17:25:14 [DEBUG] 
+FinishedProcessingPrompt. Progress: 100
+2025-06-15 17:25:14  [INFO] 
+[LM STUDIO SERVER] Accumulating tokens ... (stream = false)
+2025-06-15 17:34:29  [INFO] 
+[LM STUDIO SERVER] Client disconnected. Stopping generation... (If the model is busy processing the prompt, it will finish first.)
+2025-06-15 17:34:29  [INFO] 
+[qwen3-8b] Generated prediction:  {
+  "id": "chatcmpl-j9y2e4q7alcirjsi1lt",
+  "object": "chat.completion",
+  "created": 1750001069,
+  "model": "qwen3-8b",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "message": {
+        "role": "assistant",
+        "content": ""
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "total_tokens": 0
+  },
+  "stats": {},
+  "system_fingerprint": "qwen3-8b"
+}
+2025-06-15 17:34:29  [INFO] 
+[LM STUDIO SERVER] Client disconnected. Stopping generation... (If the model is busy processing the prompt, it will finish first.)
+2025-06-15 17:34:29  [INFO] 
+[LM STUDIO SERVER] Client disconnected. Stopping generation... (If the model is busy processing the prompt, it will finish first.)
+2025-06-15 17:34:29  [INFO] 
+[qwen3-8b] Generated prediction:  {
+  "id": "chatcmpl-72y9wlhvz141oefmjf61gg",
+  "object": "chat.completion",
+  "created": 1750001069,
+  "model": "qwen3-8b",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "message": {
+        "role": "assistant",
+        "content": ""
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "total_tokens": 0
+  },
+  "stats": {},
+  "system_fingerprint": "qwen3-8b"
+}
+2025-06-15 17:34:29  [INFO] 
+[LM STUDIO SERVER] Client disconnected. Stopping generation... (If the model is busy processing the prompt, it will finish first.)
+2025-06-15 17:34:29  [INFO] 
+[qwen3-8b] Generated prediction:  {
+  "id": "chatcmpl-r03vjw0wuv87t0hyo80kx",
+  "object": "chat.completion",
+  "created": 1750001069,
+  "model": "qwen3-8b",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "message": {
+        "role": "assistant",
+        "content": ""
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "total_tokens": 0
+  },
+  "stats": {},
+  "system_fingerprint": "qwen3-8b"
+}
+2025-06-15 17:34:30 [DEBUG] 
+target model llama_perf stats:
+llama_perf_context_print:        load time =   10716.10 ms
+llama_perf_context_print: prompt eval time = 49893565.90 ms /  1557 tokens (32044.68 ms per token,     0.03 tokens per second)
+llama_perf_context_print:        eval time =  553652.65 ms /   946 runs   (  585.26 ms per token,     1.71 tokens per second)
+llama_perf_context_print:       total time =  596534.93 ms /  2503 tokens
+2025-06-15 17:34:30  [INFO] 
+[qwen3-8b] Generated prediction:  {
+  "id": "chatcmpl-ckhpar6v64pywdltkv0pje",
+  "object": "chat.completion",
+  "created": 1750001069,
+  "model": "qwen3-8b",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "message": {
+        "role": "assistant",
+        "content": "<think>\nOkay, let's tackle this query step by step. First, I need to understand what the user is asking for. They provided a text document about the MIOS framework and want me to identify entities and relationships based on specific entity types: organization, person, geo, event, category.\n\nStarting with Step 1: Identifying all entities. Let's go through the text carefully. The first part mentions \"State Information Technology Agency (SITA)\" which is an organization. Then there's a mention of \"Government Information Technology Officers Council (GITO Council)\" which is another organization. There's also a person mentioned, Ms A.F. Muthambi, who is the Minister. \n\nLooking for geo entities: The text refers to Pretoria, South Africa, so that's a location. Events might be the approval process or the e-Government program mentioned. Categories could include things like \"interoperability standards\" or \"e-Government initiatives.\"\n\nNext, Step 2: Relationships between these entities. For example, SITA is responsible for developing MIOS, so there's a relationship between SITA and MIOS. The GITO Council was consulted, so that's another relationship. Ms Muthambi approved the document, linking her to the approval process.\n\nStep 3 involves content keywords. The main themes here are interoperability standards, e-Government initiatives, public service delivery, and government information systems. \n\nI need to make sure each entity is correctly categorized and relationships are clearly explained with appropriate strength scores. Also, check for any other entities I might have missed, like the \"Government ICT House of Value\" which could be an event or a category. Wait, in the examples, events were things like championships or meetings. Here, maybe the e-Government program is an event? Or perhaps it's a category. The text says \"e-Government programme in 2001,\" so that might be an event. \n\nAlso, the document mentions \"MIOS v6.0\" which is a version of the standard, but since entity types don't include versions, maybe it's part of the organization or the standard itself. Wait, the entity type 'category' could fit here as MIOS is a category of standards.\n\nI need to be careful with the relationships. For instance, SITA developed MIOS, so that's a development relationship. The GITO Council was consulted, which is a collaboration. The Minister approved it, so an approval relationship. \n\nFor content keywords, terms like \"interoperability,\" \"e-Government,\" \"public service delivery,\" \"government information systems\" would be relevant.\n\nLet me structure each entity with their type and description, then the relationships with clear explanations and strength scores. Finally, compile the content keywords.\n</think>\n\n(\"entity\"<|>\"State Information Technology Agency (SITA)\"<|>\"organization\"<|>\"The State Information Technology Agency (SITA) is responsible for developing and approving the Minimum Interoperability Standards (MIOS) framework for Government Information Systems, in collaboration with government departments and the Government Information Technology Officers Council (GITO Council).\")##\n(\"entity\"<|>\"Government Information Technology Officers Council (GITO Council)\"<|>\"organization\"<|>\"The GITO Council is a consultative body involved in the development of MIOS standards, working alongside SITA and government departments to ensure alignment with interoperability requirements.\")##\n(\"entity\"<|>\"Ms A.F. Muthambi\"<|>\"person\"<|>\"Ms A.F. Muthambi is the Minister of Public Service and Administration who formally approved the MIOS v6.0 framework for Government Information Systems.\")##\n(\"entity\"<|>\"Pretoria\"<|>\"geo\"<|>\"Pretoria is the capital city of South Africa, where key government offices such as SITA and the GITO Council are located.\")##\n(\"entity\"<|>\"Minimum Interoperability Standards (MIOS)\"<|>\"category\"<|>\"MIOS refers to a set of standards for Government Information Systems aimed at ensuring interoperability, compliance, and efficient information exchange across public sector systems.\")##\n(\"entity\"<|>\"e-Government Programme\"<|>\"event\"<|>\"The e-Government Programme is an initiative launched in 2001 by the South African government to improve public service delivery through effective use of Information and Communication Technology (ICT) resources.\")##\n(\"relationship\"<|>\"State Information Technology Agency (SITA)\"<|>\"Minimum Interoperability Standards (MIOS)\"<|>\"SITA developed and approved MIOS v6.0, which serves as the foundational framework for government information systems interoperability.\"<|>\"standard development"
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 3579,
+    "completion_tokens": 946,
+    "total_tokens": 4525
+  },
+  "stats": {},
+  "system_fingerprint": "qwen3-8b"
+}
+2025-06-15 17:34:30 [DEBUG] 
+Received request: POST to /v1/chat/completions with body  {
+  "messages": [
+    {
+      "role": "user",
+      "content": "---Goal---\nGiven a text document that is potential... <Truncated in logs> ...>GITO Council</td><\n######################\nOutput:"
+    }
+  ],
+  "model": "Qwen3-8B"
+}
+2025-06-15 17:34:30  [INFO] 
+[LM STUDIO SERVER] Running chat completion on conversation with 1 messages.
+2025-06-15 17:34:30 [DEBUG] 
+Received request: POST to /v1/chat/completions with body  {
+  "messages": [
+    {
+      "role": "user",
+      "content": "---Goal---\nGiven a text document that is potential... <Truncated in logs> ...structure)   \n(iii)\n######################\nOutput:"
+    }
+  ],
+  "model": "Qwen3-8B"
+}
+2025-06-15 17:34:30  [INFO] 
+[LM STUDIO SERVER] Running chat completion on conversation with 1 messages.
+2025-06-15 17:34:30 [DEBUG] 
+Received request: POST to /v1/chat/completions with body  {
+  "messages": [
+    {
+      "role": "user",
+      "content": "---Goal---\nGiven a text document that is potential... <Truncated in logs> ...t further underpins\n######################\nOutput:"
+    }
+  ],
+  "model": "Qwen3-8B"
+}
+2025-06-15 17:34:30  [INFO] 
+[LM STUDIO SERVER] Running chat completion on conversation with 1 messages.
+2025-06-15 17:34:30 [DEBUG] 
+Sampling params:	repeat_last_n = 64, repeat_penalty = 1.100, frequency_penalty = 0.000, presence_penalty = 0.000
+	dry_multiplier = 0.000, dry_base = 1.750, dry_allowed_length = 2, dry_penalty_last_n = -1
+	top_k = 40, top_p = 0.200, min_p = 0.050, xtc_probability = 0.000, xtc_threshold = 0.100, typical_p = 1.000, top_n_sigma = -1.000, temp = 0.200
+	mirostat = 0, mirostat_lr = 0.100, mirostat_ent = 5.000
+sampling: 
+logits -> logit-bias -> penalties -> dry -> top-n-sigma -> top-k -> typical -> top-p -> min-p -> xtc -> temp-ext -> dist 
+generate: n_ctx = 8000, n_batch = 512, n_predict = -1, n_keep = 3519
+2025-06-15 17:34:30 [DEBUG] 
+Received request: POST to /v1/chat/completions with body  {
+  "messages": [
+    {
+      "role": "user",
+      "content": "---Goal---\nGiven a text document that is potential... <Truncated in logs> ...overnment programme\n######################\nOutput:"
+    }
+  ],
+  "model": "Qwen3-8B"
+}
+2025-06-15 17:34:30  [INFO] 
+[LM STUDIO SERVER] Running chat completion on conversation with 1 messages.
+2025-06-15 17:34:30 [DEBUG] 
+Detected 2291/4525 cached tokens to be a valid prefix of the current prompt. Removing 2234 tokens from the end of the cache
+2025-06-15 17:34:30 [DEBUG] 
+BeginProcessingPrompt
+2025-06-15 17:34:40 [DEBUG] 
+PromptProcessing: 72.7479
+2025-06-16 00:01:04  [INFO] 
+[LM STUDIO SERVER] Client disconnected. Stopping generation... (If the model is busy processing the prompt, it will finish first.)
+2025-06-16 00:01:04  [INFO] 
+[LM STUDIO SERVER] Client disconnected. Stopping generation... (If the model is busy processing the prompt, it will finish first.)
+2025-06-16 00:01:04  [INFO] 
+[qwen3-8b] Generated prediction:  {
+  "id": "chatcmpl-pwc3hu0lsqdo0jmmmc8yrf",
+  "object": "chat.completion",
+  "created": 1750001670,
+  "model": "qwen3-8b",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "message": {
+        "role": "assistant",
+        "content": ""
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "total_tokens": 0
+  },
+  "stats": {},
+  "system_fingerprint": "qwen3-8b"
+}
+2025-06-16 00:01:04  [INFO] 
+[LM STUDIO SERVER] Client disconnected. Stopping generation... (If the model is busy processing the prompt, it will finish first.)
+2025-06-16 00:01:04  [INFO] 
+[qwen3-8b] Generated prediction:  {
+  "id": "chatcmpl-e1fforpgd9oz9dapovfalb",
+  "object": "chat.completion",
+  "created": 1750001670,
+  "model": "qwen3-8b",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "message": {
+        "role": "assistant",
+        "content": ""
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "total_tokens": 0
+  },
+  "stats": {},
+  "system_fingerprint": "qwen3-8b"
+}
+2025-06-16 00:01:04  [INFO] 
+[LM STUDIO SERVER] Client disconnected. Stopping generation... (If the model is busy processing the prompt, it will finish first.)
+2025-06-16 00:01:04  [INFO] 
+[qwen3-8b] Generated prediction:  {
+  "id": "chatcmpl-c6zefq54p26i4kxqcu6jp",
+  "object": "chat.completion",
+  "created": 1750001670,
+  "model": "qwen3-8b",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "message": {
+        "role": "assistant",
+        "content": ""
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "total_tokens": 0
+  },
+  "stats": {},
+  "system_fingerprint": "qwen3-8b"
+}
+2025-06-16 00:01:05 [DEBUG] 
+Received request: POST to /v1/chat/completions with body  {
+  "messages": [
+    {
+      "role": "user",
+      "content": "---Goal---\nGiven a text document that is potential... <Truncated in logs> ...t further underpins\n######################\nOutput:"
+    }
+  ],
+  "model": "Qwen3-8B"
+}
+2025-06-16 00:01:05  [INFO] 
+[LM STUDIO SERVER] Running chat completion on conversation with 1 messages.
+2025-06-16 00:01:05 [DEBUG] 
+Received request: POST to /v1/chat/completions with body  {
+  "messages": [
+    {
+      "role": "user",
+      "content": "---Goal---\nGiven a text document that is potential... <Truncated in logs> ...>GITO Council</td><\n######################\nOutput:"
+    }
+  ],
+  "model": "Qwen3-8B"
+}
+2025-06-16 00:01:05  [INFO] 
+[LM STUDIO SERVER] Running chat completion on conversation with 1 messages.
+2025-06-16 00:01:05 [DEBUG] 
+Received request: POST to /v1/chat/completions with body  {
+  "messages": [
+    {
+      "role": "user",
+      "content": "---Goal---\nGiven a text document that is potential... <Truncated in logs> ...structure)   \n(iii)\n######################\nOutput:"
+    }
+  ],
+  "model": "Qwen3-8B"
+}
+2025-06-16 00:01:05  [INFO] 
+[LM STUDIO SERVER] Running chat completion on conversation with 1 messages.
+2025-06-16 00:01:05 [DEBUG] 
+Received request: POST to /v1/chat/completions with body  {
+  "messages": [
+    {
+      "role": "user",
+      "content": "---Goal---\nGiven a text document that is potential... <Truncated in logs> ...overnment programme\n######################\nOutput:"
+    }
+  ],
+  "model": "Qwen3-8B"
+}
+2025-06-16 00:01:05  [INFO] 
+[LM STUDIO SERVER] Running chat completion on conversation with 1 messages.
+2025-06-16 00:01:21 [DEBUG] 
+PromptProcessing: 87.2975
+target model llama_perf stats:
+llama_perf_context_print:        load time =   10716.10 ms
+llama_perf_context_print: prompt eval time =       0.00 ms /     1 tokens (    0.00 ms per token,      inf tokens per second)
+llama_perf_context_print:        eval time =       0.00 ms /     1 runs   (    0.00 ms per token,      inf tokens per second)
+llama_perf_context_print:       total time = 23211472.01 ms /     2 tokens
+2025-06-16 00:01:21  [INFO] 
+[qwen3-8b] Generated prediction:  {
+  "id": "chatcmpl-jgjoph0f4zcfovv9u3ed19",
+  "object": "chat.completion",
+  "created": 1750001670,
+  "model": "qwen3-8b",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "message": {
+        "role": "assistant",
+        "content": ""
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 3519,
+    "completion_tokens": 0,
+    "total_tokens": 3519
+  },
+  "stats": {},
+  "system_fingerprint": "qwen3-8b"
+}
+2025-06-16 00:01:21 [DEBUG] 
+Sampling params:	repeat_last_n = 64, repeat_penalty = 1.100, frequency_penalty = 0.000, presence_penalty = 0.000
+	dry_multiplier = 0.000, dry_base = 1.750, dry_allowed_length = 2, dry_penalty_last_n = -1
+	top_k = 40, top_p = 0.200, min_p = 0.050, xtc_probability = 0.000, xtc_threshold = 0.100, typical_p = 1.000, top_n_sigma = -1.000, temp = 0.200
+	mirostat = 0, mirostat_lr = 0.100, mirostat_ent = 5.000
+sampling: 
+logits -> logit-bias -> penalties -> dry -> top-n-sigma -> top-k -> typical -> top-p -> min-p -> xtc -> temp-ext -> dist 
+generate: n_ctx = 8000, n_batch = 512, n_predict = -1, n_keep = 3534
+2025-06-16 00:01:21 [DEBUG] 
+Detected 2291/3072 cached tokens to be a valid prefix of the current prompt. Removing 781 tokens from the end of the cache
+2025-06-16 00:01:21 [DEBUG] 
+BeginProcessingPrompt
+2025-06-16 00:01:31 [DEBUG] 
+PromptProcessing: 72.4392
+2025-06-16 00:01:47 [DEBUG] 
+PromptProcessing: 86.927
+2025-06-16 00:02:02 [DEBUG] 
+FinishedProcessingPrompt. Progress: 100
+2025-06-16 00:02:02  [INFO] 
+[LM STUDIO SERVER] Accumulating tokens ... (stream = false)
+2025-06-16 00:11:05  [INFO] 
+[LM STUDIO SERVER] Client disconnected. Stopping generation... (If the model is busy processing the prompt, it will finish first.)
+2025-06-16 00:11:05  [INFO] 
+[LM STUDIO SERVER] Client disconnected. Stopping generation... (If the model is busy processing the prompt, it will finish first.)
+2025-06-16 00:11:05  [INFO] 
+[qwen3-8b] Generated prediction:  {
+  "id": "chatcmpl-17ysvvmo664ujsk9q1wh8e",
+  "object": "chat.completion",
+  "created": 1750024865,
+  "model": "qwen3-8b",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "message": {
+        "role": "assistant",
+        "content": ""
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "total_tokens": 0
+  },
+  "stats": {},
+  "system_fingerprint": "qwen3-8b"
+}
+2025-06-16 00:11:05 [DEBUG] 
+target model llama_perf stats:
+llama_perf_context_print:        load time =   10716.10 ms
+llama_perf_context_print: prompt eval time = 23252291.53 ms /  2024 tokens (11488.29 ms per token,     0.09 tokens per second)
+llama_perf_context_print:        eval time =  541632.77 ms /   983 runs   (  551.00 ms per token,     1.81 tokens per second)
+llama_perf_context_print:       total time =  583816.05 ms /  3007 tokens
+2025-06-16 00:11:05  [INFO] 
+[qwen3-8b] Generated prediction:  {
+  "id": "chatcmpl-kx08qrqnhxqjkvbgb04hcj",
+  "object": "chat.completion",
+  "created": 1750024865,
+  "model": "qwen3-8b",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "message": {
+        "role": "assistant",
+        "content": "<think>\nOkay, let's tackle this query step by step. The user provided a text document about e-Government initiatives, MIOS standards, and related legislation. They want me to identify entities of specific types (organization, person, geo, event, category) and their relationships.\n\nFirst, I need to parse the text carefully. Let me start by scanning for any named entities. The main topics here are government IT systems, e-Government programs, MIOS standards, and related laws. \n\nLooking at the first paragraph: \"government Information and Communication Technology leaders\" – that's a person or organization? Wait, it's referring to leaders, so maybe not an entity unless there's a specific name. But the text doesn't mention any individuals by name, so perhaps no person entities here.\n\nNext, \"e-Government initiatives\" – that's a category. Then \"Information and Communication Technology House of value\" – that seems like an organization or a concept. Wait, maybe it's part of the structure described in the document. The text mentions \"The Information and Communication Technology House of value\" as comprising roof, pillars, foundation. So perhaps this is an organization? Or maybe a category?\n\nThen there are terms like \"Public Service Act, 1994\", which are legislation, so they might be categorized under 'category' or 'organization'? Wait, the entity types allowed are [organization,person,geo,event,category]. Legislation would fall under 'category' perhaps. But I need to check if any specific organizations are mentioned.\n\nLooking further: \"State Information Technology Agency (SITA)\" is an organization. Also, \"Government Information Technology Officers Council\" – that's another organization. \n\nThe text also mentions \"Minimum Interoperability Standards (MIOS)\" which is a set of standards, so maybe a category or an organization? Since it's a standard, perhaps 'category' makes sense here.\n\nNow, for the entities:\n\n- \"Information and Communication Technology House of value\" – this seems like a conceptual framework, so maybe a category. But the text refers to it as a structure with components (roof, pillars, foundation), which are parts of the e-Government program. So perhaps it's an organization? Or maybe not. Since there's no specific name, maybe it's part of the e-Government initiative.\n\nWait, the user's example 3 had \"World Athletics Championship\" as an event and \"World Athletics Federation\" as an organization. Similarly, here, \"e-Government programme\" might be a category or an event? But in the text, it's more about initiatives and standards, so maybe 'category' is better.\n\nThen there are specific organizations like SITA (State Information Technology Agency), Government Information Technology Officers Council, and possibly others mentioned in legislation. \n\nFor entities:\n\n1. \"e-Government programme\" – category\n2. \"Information and Communication Technology House of value\" – category or organization? Maybe category.\n3. \"Minimum Interoperability Standards (MIOS)\" – category\n4. \"Public Service Act, 1994\" – legislation, which is a category?\n5. \"State Information Technology Agency (SITA)\" – organization\n6. \"Government Information Technology Officers Council\" – organization\n7. \"Public Finance Management Act, 1999\" – category\n8. \"South Africa\" – geo? The text mentions \"Digital inclusion... in South Africa\", so maybe 'geo' as a location.\n\nNow relationships: \n\n- MIOS is related to e-Government programme (since it's part of the standards for interoperability)\n- SITA is responsible for setting standards, which relates to MIOS\n- Public Service Act mandates the Minister to establish norms and standards, which connects to MIOS\n- The Government Information Technology Officers Council promotes objectives of interoperability, so related to MIOS\n\nAlso, the e-Government programme's outcomes (roof), pillars (value), foundation (capabilities) are parts of the structure. So relationships between these components.\n\nContent keywords would include terms like interoperability, e-Government, standards, legislation, digital inclusion, public service, etc.\n\nI need to make sure each entity is correctly categorized and that relationships are clearly defined with descriptions and strengths.\n</think>\n\n(\"entity\"<|>\"e-Government Programme\"<|>\"category\"<|>\"The e-Government programme focuses on improving public service delivery through interoperability, reducing duplication, and enhancing digital inclusion in government operations.\")##\n(\"entity\"<|>\"Minimum Interoperability Standards (MIOS)\"<|>\"category\"<|>\"MIOS is a set of mandatory standards ensuring interoperability between information systems and ICT infrastructure across government, industry, and international communities.\")##\n(\"entity\"<|>\"State Information Technology Agency (SITA)\"<|>\"organization\"<|>\"SITA is the organization"
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 3534,
+    "completion_tokens": 983,
+    "total_tokens": 4517
+  },
+  "stats": {},
+  "system_fingerprint": "qwen3-8b"
+}
+2025-06-16 00:11:05  [INFO] 
+[LM STUDIO SERVER] Client disconnected. Stopping generation... (If the model is busy processing the prompt, it will finish first.)
+2025-06-16 00:11:05  [INFO] 
+[LM STUDIO SERVER] Client disconnected. Stopping generation... (If the model is busy processing the prompt, it will finish first.)
+2025-06-16 00:11:05  [INFO] 
+[qwen3-8b] Generated prediction:  {
+  "id": "chatcmpl-op6mi53pxdi239xxdun946",
+  "object": "chat.completion",
+  "created": 1750024865,
+  "model": "qwen3-8b",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "message": {
+        "role": "assistant",
+        "content": ""
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "total_tokens": 0
+  },
+  "stats": {},
+  "system_fingerprint": "qwen3-8b"
+}
+2025-06-16 00:11:05 [DEBUG] 
+Sampling params:	repeat_last_n = 64, repeat_penalty = 1.100, frequency_penalty = 0.000, presence_penalty = 0.000
+	dry_multiplier = 0.000, dry_base = 1.750, dry_allowed_length = 2, dry_penalty_last_n = -1
+	top_k = 40, top_p = 0.200, min_p = 0.050, xtc_probability = 0.000, xtc_threshold = 0.100, typical_p = 1.000, top_n_sigma = -1.000, temp = 0.200
+	mirostat = 0, mirostat_lr = 0.100, mirostat_ent = 5.000
+sampling: 
+logits -> logit-bias -> penalties -> dry -> top-n-sigma -> top-k -> typical -> top-p -> min-p -> xtc -> temp-ext -> dist 
+generate: n_ctx = 8000, n_batch = 512, n_predict = -1, n_keep = 3522
+2025-06-16 00:11:05 [DEBUG] 
+Detected 2291/4517 cached tokens to be a valid prefix of the current prompt. Removing 2226 tokens from the end of the cache
+2025-06-16 00:11:05 [DEBUG] 
+BeginProcessingPrompt
+2025-06-16 00:11:13 [DEBUG] 
+Received request: POST to /v1/chat/completions with body  {
+  "messages": [
+    {
+      "role": "user",
+      "content": "---Goal---\nGiven a text document that is potential... <Truncated in logs> ...overnment programme\n######################\nOutput:"
+    }
+  ],
+  "model": "Qwen3-8B"
+}
+2025-06-16 00:11:13  [INFO] 
+[LM STUDIO SERVER] Running chat completion on conversation with 1 messages.
+2025-06-16 00:11:13 [DEBUG] 
+Received request: POST to /v1/chat/completions with body  {
+  "messages": [
+    {
+      "role": "user",
+      "content": "---Goal---\nGiven a text document that is potential... <Truncated in logs> ...t further underpins\n######################\nOutput:"
+    }
+  ],
+  "model": "Qwen3-8B"
+}
+2025-06-16 00:11:13  [INFO] 
+[LM STUDIO SERVER] Running chat completion on conversation with 1 messages.
+2025-06-16 00:11:13 [DEBUG] 
+Received request: POST to /v1/chat/completions with body  {
+  "messages": [
+    {
+      "role": "user",
+      "content": "---Goal---\nGiven a text document that is potential... <Truncated in logs> ...structure)   \n(iii)\n######################\nOutput:"
+    }
+  ],
+  "model": "Qwen3-8B"
+}
+2025-06-16 00:11:13  [INFO] 
+[LM STUDIO SERVER] Running chat completion on conversation with 1 messages.
+2025-06-16 00:11:13 [DEBUG] 
+Received request: POST to /v1/chat/completions with body  {
+  "messages": [
+    {
+      "role": "user",
+      "content": "---Goal---\nGiven a text document that is potential... <Truncated in logs> ...>GITO Council</td><\n######################\nOutput:"
+    }
+  ],
+  "model": "Qwen3-8B"
+}
+2025-06-16 00:11:13  [INFO] 
+[LM STUDIO SERVER] Running chat completion on conversation with 1 messages.
+2025-06-16 00:11:15 [DEBUG] 
+PromptProcessing: 72.686
+2025-06-16 00:11:30 [DEBUG] 
+PromptProcessing: 87.2232
+2025-06-16 00:11:46 [DEBUG] 
+FinishedProcessingPrompt. Progress: 100
+2025-06-16 01:18:00  [INFO] 
+[LM STUDIO SERVER] Client disconnected. Stopping generation... (If the model is busy processing the prompt, it will finish first.)
+2025-06-16 01:18:00  [INFO] 
+[qwen3-8b] Generated prediction:  {
+  "id": "chatcmpl-8z3bspcr74dy724zk312m",
+  "object": "chat.completion",
+  "created": 1750025473,
+  "model": "qwen3-8b",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "message": {
+        "role": "assistant",
+        "content": ""
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "total_tokens": 0
+  },
+  "stats": {},
+  "system_fingerprint": "qwen3-8b"
+}
+2025-06-16 01:18:00  [INFO] 
+[LM STUDIO SERVER] Client disconnected. Stopping generation... (If the model is busy processing the prompt, it will finish first.)
+2025-06-16 01:18:00  [INFO] 
+[qwen3-8b] Generated prediction:  {
+  "id": "chatcmpl-l7hns2nobwq0h0mfr3ygjh6",
+  "object": "chat.completion",
+  "created": 1750025473,
+  "model": "qwen3-8b",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "message": {
+        "role": "assistant",
+        "content": ""
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "total_tokens": 0
+  },
+  "stats": {},
+  "system_fingerprint": "qwen3-8b"
+}
+2025-06-16 01:18:00  [INFO] 
+[LM STUDIO SERVER] Client disconnected. Stopping generation... (If the model is busy processing the prompt, it will finish first.)
+2025-06-16 01:18:00  [INFO] 
+[qwen3-8b] Generated prediction:  {
+  "id": "chatcmpl-0b8xikem17sj9pku0meb42m",
+  "object": "chat.completion",
+  "created": 1750025473,
+  "model": "qwen3-8b",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "message": {
+        "role": "assistant",
+        "content": ""
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "total_tokens": 0
+  },
+  "stats": {},
+  "system_fingerprint": "qwen3-8b"
+}
+2025-06-16 01:18:00  [INFO] 
+[LM STUDIO SERVER] Client disconnected. Stopping generation... (If the model is busy processing the prompt, it will finish first.)
+2025-06-16 01:18:00  [INFO] 
+[qwen3-8b] Generated prediction:  {
+  "id": "chatcmpl-oda9ea8riyi89a6gnt3vr",
+  "object": "chat.completion",
+  "created": 1750025473,
+  "model": "qwen3-8b",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "message": {
+        "role": "assistant",
+        "content": ""
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "total_tokens": 0
+  },
+  "stats": {},
+  "system_fingerprint": "qwen3-8b"
+}
+2025-06-16 01:18:00 [DEBUG] 
+Received request: POST to /v1/chat/completions with body  {
+  "messages": [
+    {
+      "role": "user",
+      "content": "---Goal---\nGiven a text document that is potential... <Truncated in logs> ...>GITO Council</td><\n######################\nOutput:"
+    }
+  ],
+  "model": "Qwen3-8B"
+}
+2025-06-16 01:18:00  [INFO] 
+[LM STUDIO SERVER] Running chat completion on conversation with 1 messages.
+2025-06-16 01:18:01 [DEBUG] 
+Received request: POST to /v1/chat/completions with body  {
+  "messages": [
+    {
+      "role": "user",
+      "content": "---Goal---\nGiven a text document that is potential... <Truncated in logs> ...t further underpins\n######################\nOutput:"
+    }
+  ],
+  "model": "Qwen3-8B"
+}
+2025-06-16 01:18:01  [INFO] 
+[LM STUDIO SERVER] Running chat completion on conversation with 1 messages.
+2025-06-16 01:18:01 [DEBUG] 
+Received request: POST to /v1/chat/completions with body  {
+  "messages": [
+    {
+      "role": "user",
+      "content": "---Goal---\nGiven a text document that is potential... <Truncated in logs> ...overnment programme\n######################\nOutput:"
+    }
+  ],
+  "model": "Qwen3-8B"
+}
+2025-06-16 01:18:01  [INFO] 
+[LM STUDIO SERVER] Running chat completion on conversation with 1 messages.
+2025-06-16 01:18:01 [DEBUG] 
+Received request: POST to /v1/chat/completions with body  {
+  "messages": [
+    {
+      "role": "user",
+      "content": "---Goal---\nGiven a text document that is potential... <Truncated in logs> ...structure)   \n(iii)\n######################\nOutput:"
+    }
+  ],
+  "model": "Qwen3-8B"
+}
+2025-06-16 01:18:01  [INFO] 
+[LM STUDIO SERVER] Running chat completion on conversation with 1 messages.
+2025-06-16 03:30:12  [INFO] 
+[LM STUDIO SERVER] Client disconnected. Stopping generation... (If the model is busy processing the prompt, it will finish first.)
+2025-06-16 03:30:12  [INFO] 
+[qwen3-8b] Generated prediction:  {
+  "id": "chatcmpl-wte4f9olwse17vj3gu77rm",
+  "object": "chat.completion",
+  "created": 1750029481,
+  "model": "qwen3-8b",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "message": {
+        "role": "assistant",
+        "content": ""
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "total_tokens": 0
+  },
+  "stats": {},
+  "system_fingerprint": "qwen3-8b"
+}
+2025-06-16 03:30:12  [INFO] 
+[LM STUDIO SERVER] Client disconnected. Stopping generation... (If the model is busy processing the prompt, it will finish first.)
+2025-06-16 03:30:12  [INFO] 
+[qwen3-8b] Generated prediction:  {
+  "id": "chatcmpl-wvphnz8i7hnwvxp76xci4",
+  "object": "chat.completion",
+  "created": 1750029481,
+  "model": "qwen3-8b",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "message": {
+        "role": "assistant",
+        "content": ""
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "total_tokens": 0
+  },
+  "stats": {},
+  "system_fingerprint": "qwen3-8b"
+}
+2025-06-16 03:30:12  [INFO] 
+[LM STUDIO SERVER] Client disconnected. Stopping generation... (If the model is busy processing the prompt, it will finish first.)
+2025-06-16 03:30:12  [INFO] 
+[qwen3-8b] Generated prediction:  {
+  "id": "chatcmpl-h0dpauo7gj66lti92t6bb6",
+  "object": "chat.completion",
+  "created": 1750029481,
+  "model": "qwen3-8b",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "message": {
+        "role": "assistant",
+        "content": ""
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "total_tokens": 0
+  },
+  "stats": {},
+  "system_fingerprint": "qwen3-8b"
+}
+2025-06-16 03:30:12  [INFO] 
+[LM STUDIO SERVER] Client disconnected. Stopping generation... (If the model is busy processing the prompt, it will finish first.)
+2025-06-16 03:30:12  [INFO] 
+[qwen3-8b] Generated prediction:  {
+  "id": "chatcmpl-wkvtq4i7ceaaz16egziw4",
+  "object": "chat.completion",
+  "created": 1750029480,
+  "model": "qwen3-8b",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "message": {
+        "role": "assistant",
+        "content": ""
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "total_tokens": 0
+  },
+  "stats": {},
+  "system_fingerprint": "qwen3-8b"
+}
+2025-06-16 03:30:13 [DEBUG] 
+Received request: POST to /v1/chat/completions with body  {
+  "messages": [
+    {
+      "role": "user",
+      "content": "---Goal---\nGiven a text document that is potential... <Truncated in logs> ...>GITO Council</td><\n######################\nOutput:"
+    }
+  ],
+  "model": "Qwen3-8B"
+}
+2025-06-16 03:30:13  [INFO] 
+[LM STUDIO SERVER] Running chat completion on conversation with 1 messages.
+2025-06-16 03:30:13 [DEBUG] 
+Received request: POST to /v1/chat/completions with body  {
+  "messages": [
+    {
+      "role": "user",
+      "content": "---Goal---\nGiven a text document that is potential... <Truncated in logs> ...t further underpins\n######################\nOutput:"
+    }
+  ],
+  "model": "Qwen3-8B"
+}
+2025-06-16 03:30:13  [INFO] 
+[LM STUDIO SERVER] Running chat completion on conversation with 1 messages.
+2025-06-16 03:30:13 [DEBUG] 
+Received request: POST to /v1/chat/completions with body  {
+  "messages": [
+    {
+      "role": "user",
+      "content": "---Goal---\nGiven a text document that is potential... <Truncated in logs> ...overnment programme\n######################\nOutput:"
+    }
+  ],
+  "model": "Qwen3-8B"
+}
+2025-06-16 03:30:13  [INFO] 
+[LM STUDIO SERVER] Running chat completion on conversation with 1 messages.
+2025-06-16 03:30:13 [DEBUG] 
+Received request: POST to /v1/chat/completions with body  {
+  "messages": [
+    {
+      "role": "user",
+      "content": "---Goal---\nGiven a text document that is potential... <Truncated in logs> ...structure)   \n(iii)\n######################\nOutput:"
+    }
+  ],
+  "model": "Qwen3-8B"
+}
+2025-06-16 03:30:13  [INFO] 
+[LM STUDIO SERVER] Running chat completion on conversation with 1 messages.
+2025-06-16 06:08:31  [INFO] 
+[LM STUDIO SERVER] Client disconnected. Stopping generation... (If the model is busy processing the prompt, it will finish first.)
+2025-06-16 06:08:31  [INFO] 
+[qwen3-8b] Generated prediction:  {
+  "id": "chatcmpl-keer0r4vurs4a5d7cu93ld",
+  "object": "chat.completion",
+  "created": 1750037413,
+  "model": "qwen3-8b",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "message": {
+        "role": "assistant",
+        "content": ""
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "total_tokens": 0
+  },
+  "stats": {},
+  "system_fingerprint": "qwen3-8b"
+}
+2025-06-16 06:08:31  [INFO] 
+[LM STUDIO SERVER] Client disconnected. Stopping generation... (If the model is busy processing the prompt, it will finish first.)
+2025-06-16 06:08:31  [INFO] 
+[qwen3-8b] Generated prediction:  {
+  "id": "chatcmpl-7p26j65ymullfa351lbqo",
+  "object": "chat.completion",
+  "created": 1750037413,
+  "model": "qwen3-8b",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "message": {
+        "role": "assistant",
+        "content": ""
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "total_tokens": 0
+  },
+  "stats": {},
+  "system_fingerprint": "qwen3-8b"
+}
+2025-06-16 06:08:31  [INFO] 
+[LM STUDIO SERVER] Client disconnected. Stopping generation... (If the model is busy processing the prompt, it will finish first.)
+2025-06-16 06:08:31  [INFO] 
+[qwen3-8b] Generated prediction:  {
+  "id": "chatcmpl-0lba35rdomqotosojw5abh9",
+  "object": "chat.completion",
+  "created": 1750037413,
+  "model": "qwen3-8b",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "message": {
+        "role": "assistant",
+        "content": ""
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "total_tokens": 0
+  },
+  "stats": {},
+  "system_fingerprint": "qwen3-8b"
+}
+2025-06-16 06:08:31  [INFO] 
+[LM STUDIO SERVER] Client disconnected. Stopping generation... (If the model is busy processing the prompt, it will finish first.)
+2025-06-16 06:08:31  [INFO] 
+[qwen3-8b] Generated prediction:  {
+  "id": "chatcmpl-1ip3ixdt4kdw6it3cbzh1",
+  "object": "chat.completion",
+  "created": 1750037413,
+  "model": "qwen3-8b",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "message": {
+        "role": "assistant",
+        "content": ""
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "total_tokens": 0
+  },
+  "stats": {},
+  "system_fingerprint": "qwen3-8b"
+}
+2025-06-16 06:08:37 [DEBUG] 
+Received request: POST to /v1/chat/completions with body  {
+  "messages": [
+    {
+      "role": "user",
+      "content": "---Goal---\nGiven a text document that is potential... <Truncated in logs> ...quired to implement\n######################\nOutput:"
+    }
+  ],
+  "model": "Qwen3-8B"
+}
+2025-06-16 06:08:37  [INFO] 
+[LM STUDIO SERVER] Running chat completion on conversation with 1 messages.
+2025-06-16 06:08:37 [DEBUG] 
+Received request: POST to /v1/chat/completions with body  {
+  "messages": [
+    {
+      "role": "user",
+      "content": "---Goal---\nGiven a text document that is potential... <Truncated in logs> ...structure)   \n(iii)\n######################\nOutput:"
+    }
+  ],
+  "model": "Qwen3-8B"
+}
+2025-06-16 06:08:37  [INFO] 
+[LM STUDIO SERVER] Running chat completion on conversation with 1 messages.
+2025-06-16 06:08:37 [DEBUG] 
+Received request: POST to /v1/chat/completions with body  {
+  "messages": [
+    {
+      "role": "user",
+      "content": "---Goal---\nGiven a text document that is potential... <Truncated in logs> ...t further underpins\n######################\nOutput:"
+    }
+  ],
+  "model": "Qwen3-8B"
+}
+2025-06-16 06:08:37  [INFO] 
+[LM STUDIO SERVER] Running chat completion on conversation with 1 messages.
+2025-06-16 06:08:37 [DEBUG] 
+Received request: POST to /v1/embeddings with body  {
+  "input": [
+    "# MINIMUM INTEROPERABILITYSTANDARDS (MIOS) FRAMEWO... <Truncated in logs> ... The outcomes (roof) of the e-Government programme",
+    "1. The strategic drive to advance the maturity on ... <Truncated in logs> ...ice Regulations respectively. It further underpins",
+    "the MIOS is to prescribe open system standards tha... <Truncated in logs> ...ality, but new technology infrastructure)   \n(iii)",
+    "db98ca8f9.jpg)  \nFigure 2: e-Government informatio... <Truncated in logs> ...ter.</td></tr><tr><td>3</td><td>GITO Council</td><",
+    "subject to approval. d) Manage the development, co... <Truncated in logs> ...(iv) The intellectual rights required to implement",
+    "interconnectedness and data exchange within and be... <Truncated in logs> ...>Information and Communication Technology</td></tr",
+    "><td>GCIO</td><td>Government Chief Information Off... <Truncated in logs> ...Modelling Language</td></tr></table></body></html>"
+  ],
+  "model": "bge-m3-gguf",
+  "encoding_format": "float"
+}
+2025-06-16 06:08:37  [INFO] 
+Received request to embed multiple:  [
+  "# MINIMUM INTEROPERABILITYSTANDARDS (MIOS) FRAMEWORKFor Government Information Systems  \n\nRevision 6...",
+  "1. The strategic drive to advance the maturity on interoperability not only compels government Infor...",
+  "the MIOS is to prescribe open system standards that will ensure minimum level of interoperability wi...",
+  "db98ca8f9.jpg)  \nFigure 2: e-Government information exchange scenarios  \n\n(b) The  life-cycle stages...",
+  "subject to approval. d) Manage the development, configuration and</td></tr></table></body></html>  \n...",
+  "interconnectedness and data exchange within and between systems.   \n(b) Openness: the specifications...",
+  "><td>GCIO</td><td>Government Chief Information Officer</td></tr><tr><td>GITO</td><td>Government Info..."
+]
+2025-06-16 06:08:37 [DEBUG] 
+Received request: POST to /v1/embeddings with body  {
+  "input": [
+    "# the dpsa  \n\nDepartment: Public Service and Admin... <Truncated in logs> ...promptly, and promote two-way online communication",
+    "tr><td>MTEF</td><td>Medium-Term Expenditure Framew... <Truncated in logs> ...mance. A system is a set of structures, roles, and",
+    "of ICT principles  \n\n9.1.1. The Head of Department... <Truncated in logs> ...blic Service Regulations, 2016. The strategic plan",
+    "3.1.The Head of Department must ensure the develop... <Truncated in logs> ...g criteria to assess a department’s compliance and",
+    ".7.Departments are however encouraged to develop a... <Truncated in logs> ...he functions of the Minister of Public Service and",
+    "15   \n15.1 Business enabling policies, frameworks,... <Truncated in logs> ...umn 2 of Schedule 1, 2, or 3 of the Public Service",
+    "><td>ExCO</td><td>Executive Management Committee (... <Truncated in logs> ...nt are applicable to the ICT environment, such as:",
+    "the Constitution of the Republic of South Africa, ... <Truncated in logs> ...IT 2019 resonates with the King Code’s provisions.",
+    ").  \n\nCorporate governance of ICT is a subset of t... <Truncated in logs> ..., reported on, and change management effected; and",
+    "person on a senior management level with the autho... <Truncated in logs> ... \n\nAs contemplated in section 38(a)(iii)(b) of the",
+    "in the corporate governance regime of the departme... <Truncated in logs> ...pts, standards, and transversal initiatives, which",
+    "CO, which is accountable, provides the strategic d... <Truncated in logs> ...016.  \n\n(c) ICT operational plan (one-year plan) –",
+    "achievement of the departmental targets and object... <Truncated in logs> ...amework and model. 1st ed. Switzerland.   \n(15) IS",
+    "of IT for the organization. 2nd ed. Geneva (Switze... <Truncated in logs> ...ect manager); and   \nWhere applicable, ICT Project",
+    ".3 ICT Project Management  \n\nICT Projects should b... <Truncated in logs> ...atives approved in the ICT plan (three-year plan).",
+    "and related tolerances. Safeguarding ICT assets an... <Truncated in logs> ...ity of an initiative. It will describe the reasons",
+    "projects exceeding R10 million rands or projects c... <Truncated in logs> ... into automated ones. The business driver might be",
+    "for analysis should be directed at understanding a... <Truncated in logs> ... have to be made to pursue the chosen option.  \n\n#",
+    ", the probability, and impact, and illustrate how ... <Truncated in logs> ...td><td>Impact</td><td>Rating</td><td>Proximity</td",
+    "body><table><tr><td>No</td><td colspan=\"5\">Risk Ti... <Truncated in logs> ...d><td colspan=\"5\"></td></tr></table></body></html>"
+  ],
+  "model": "bge-m3-gguf",
+  "encoding_format": "float"
+}
+2025-06-16 06:08:37  [INFO] 
+Received request to embed multiple:  [
+  "# the dpsa  \n\nDepartment: Public Service and Administration REPUBLICOFSOUTHAFRICA  \n\nPrivate Bag X91...",
+  "tr><td>MTEF</td><td>Medium-Term Expenditure Framework</td></tr><tr><td>PUBLIC SERVICE ACT</td><td>Pu...",
+  "of ICT principles  \n\n9.1.1. The Head of Department must ensure that the corporate governance of ICT ...",
+  "3.1.The Head of Department must ensure the development and implementation of ICT plans over the long...",
+  ".7.Departments are however encouraged to develop a business case for all significant ICT expenditure...",
+  "15   \n15.1 Business enabling policies, frameworks, and plans… ..16   \n6. ICT ALIGNMENT PLANNING . .....",
+  "><td>ExCO</td><td>Executive Management Committee (consists of executive management members of the de...",
+  "the Constitution of the Republic of South Africa, 1996, and section 7 of the Public Service Act, 199...",
+  ").  \n\nCorporate governance of ICT is a subset of the department's corporate governance system (also ...",
+  "person on a senior management level with the authority to establish and monitor the corporate govern...",
+  "in the corporate governance regime of the department; and   \n2.2 Providing oversight to ensure that ...",
+  "CO, which is accountable, provides the strategic direction of the department. The strategic directio...",
+  "achievement of the departmental targets and objectives as contemplated in regulation 25 of the Publi...",
+  "of IT for the organization. 2nd ed. Geneva (Switzerland).   \n(13) International Organization for Sta...",
+  ".3 ICT Project Management  \n\nICT Projects should be managed in line with an established project mana...",
+  "and related tolerances. Safeguarding ICT assets and providing for disaster recovery and continuity o...",
+  "projects exceeding R10 million rands or projects cutting across government. The business case's dete...",
+  "for analysis should be directed at understanding and documenting the business challenge. Include any...",
+  ", the probability, and impact, and illustrate how to mitigate the risk.  \n\nSee Appendix 2 of this do...",
+  "body><table><tr><td>No</td><td colspan=\"5\">Risk Title</td></tr><tr><td>1</td><td colspan=\"5\"></td></..."
+]
+2025-06-16 06:08:37 [DEBUG] 
+Received request: POST to /v1/chat/completions with body  {
+  "messages": [
+    {
+      "role": "user",
+      "content": "---Goal---\nGiven a text document that is potential... <Truncated in logs> ...overnment programme\n######################\nOutput:"
+    }
+  ],
+  "model": "Qwen3-8B"
+}
+2025-06-16 06:08:37  [INFO] 
+[LM STUDIO SERVER] Running chat completion on conversation with 1 messages.
+2025-06-16 06:09:17  [INFO] 
+Returning embeddings (not shown in logs)
+2025-06-16 06:09:56  [INFO] 
+Returning embeddings (not shown in logs)
+2025-06-17 04:11:07  [INFO] 
+[LM STUDIO SERVER] Client disconnected. Stopping generation... (If the model is busy processing the prompt, it will finish first.)
+2025-06-17 04:11:07  [INFO] 
+[qwen3-8b] Generated prediction:  {
+  "id": "chatcmpl-5h7hf60ip5dehh76rj1ppa",
+  "object": "chat.completion",
+  "created": 1750046917,
+  "model": "qwen3-8b",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "message": {
+        "role": "assistant",
+        "content": ""
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "total_tokens": 0
+  },
+  "stats": {},
+  "system_fingerprint": "qwen3-8b"
+}
+2025-06-17 04:11:07  [INFO] 
+[LM STUDIO SERVER] Client disconnected. Stopping generation... (If the model is busy processing the prompt, it will finish first.)
+2025-06-17 04:11:07  [INFO] 
+[qwen3-8b] Generated prediction:  {
+  "id": "chatcmpl-y7q7eniv7unuam42k7r6d",
+  "object": "chat.completion",
+  "created": 1750046917,
+  "model": "qwen3-8b",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "message": {
+        "role": "assistant",
+        "content": ""
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "total_tokens": 0
+  },
+  "stats": {},
+  "system_fingerprint": "qwen3-8b"
+}
+2025-06-17 04:11:07  [INFO] 
+[LM STUDIO SERVER] Client disconnected. Stopping generation... (If the model is busy processing the prompt, it will finish first.)
+2025-06-17 04:11:07  [INFO] 
+[qwen3-8b] Generated prediction:  {
+  "id": "chatcmpl-j5zcq28hg7qoz3cjws2d9",
+  "object": "chat.completion",
+  "created": 1750046917,
+  "model": "qwen3-8b",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "message": {
+        "role": "assistant",
+        "content": ""
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "total_tokens": 0
+  },
+  "stats": {},
+  "system_fingerprint": "qwen3-8b"
+}
+2025-06-17 04:11:07  [INFO] 
+[LM STUDIO SERVER] Client disconnected. Stopping generation... (If the model is busy processing the prompt, it will finish first.)
+2025-06-17 04:11:07  [INFO] 
+[qwen3-8b] Generated prediction:  {
+  "id": "chatcmpl-uczgssh5p4jjqzhdc3pgp",
+  "object": "chat.completion",
+  "created": 1750046917,
+  "model": "qwen3-8b",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "message": {
+        "role": "assistant",
+        "content": ""
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "total_tokens": 0
+  },
+  "stats": {},
+  "system_fingerprint": "qwen3-8b"
+}
+2025-06-17 04:11:08 [DEBUG] 
+Received request: POST to /v1/chat/completions with body  {
+  "messages": [
+    {
+      "role": "user",
+      "content": "---Goal---\nGiven a text document that is potential... <Truncated in logs> ...quired to implement\n######################\nOutput:"
+    }
+  ],
+  "model": "Qwen3-8B"
+}
+2025-06-17 04:11:08  [INFO] 
+[LM STUDIO SERVER] Running chat completion on conversation with 1 messages.
+2025-06-17 04:11:08 [DEBUG] 
+Received request: POST to /v1/chat/completions with body  {
+  "messages": [
+    {
+      "role": "user",
+      "content": "---Goal---\nGiven a text document that is potential... <Truncated in logs> ...overnment programme\n######################\nOutput:"
+    }
+  ],
+  "model": "Qwen3-8B"
+}
+2025-06-17 04:11:08  [INFO] 
+[LM STUDIO SERVER] Running chat completion on conversation with 1 messages.
+2025-06-17 04:11:08 [DEBUG] 
+Received request: POST to /v1/chat/completions with body  {
+  "messages": [
+    {
+      "role": "user",
+      "content": "---Goal---\nGiven a text document that is potential... <Truncated in logs> ...structure)   \n(iii)\n######################\nOutput:"
+    }
+  ],
+  "model": "Qwen3-8B"
+}
+2025-06-17 04:11:08  [INFO] 
+[LM STUDIO SERVER] Running chat completion on conversation with 1 messages.
+2025-06-17 04:11:08 [DEBUG] 
+Received request: POST to /v1/chat/completions with body  {
+  "messages": [
+    {
+      "role": "user",
+      "content": "---Goal---\nGiven a text document that is potential... <Truncated in logs> ...t further underpins\n######################\nOutput:"
+    }
+  ],
+  "model": "Qwen3-8B"
+}
+2025-06-17 04:11:08  [INFO] 
+[LM STUDIO SERVER] Running chat completion on conversation with 1 messages.
+2025-06-17 04:59:42  [INFO] 
+[LM STUDIO SERVER] Client disconnected. Stopping generation... (If the model is busy processing the prompt, it will finish first.)
+2025-06-17 04:59:42  [INFO] 
+[qwen3-8b] Generated prediction:  {
+  "id": "chatcmpl-qwgdsuw277f6p381j0sae",
+  "object": "chat.completion",
+  "created": 1750126268,
+  "model": "qwen3-8b",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "message": {
+        "role": "assistant",
+        "content": ""
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "total_tokens": 0
+  },
+  "stats": {},
+  "system_fingerprint": "qwen3-8b"
+}
+2025-06-17 04:59:42  [INFO] 
+[LM STUDIO SERVER] Client disconnected. Stopping generation... (If the model is busy processing the prompt, it will finish first.)
+2025-06-17 04:59:42  [INFO] 
+[qwen3-8b] Generated prediction:  {
+  "id": "chatcmpl-01yjivhvjrc8c158nctg21s",
+  "object": "chat.completion",
+  "created": 1750126268,
+  "model": "qwen3-8b",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "message": {
+        "role": "assistant",
+        "content": ""
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "total_tokens": 0
+  },
+  "stats": {},
+  "system_fingerprint": "qwen3-8b"
+}
+2025-06-17 04:59:42  [INFO] 
+[LM STUDIO SERVER] Client disconnected. Stopping generation... (If the model is busy processing the prompt, it will finish first.)
+2025-06-17 04:59:42  [INFO] 
+[qwen3-8b] Generated prediction:  {
+  "id": "chatcmpl-kdk31qm8tbuzdfs3xrrw",
+  "object": "chat.completion",
+  "created": 1750126268,
+  "model": "qwen3-8b",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "message": {
+        "role": "assistant",
+        "content": ""
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "total_tokens": 0
+  },
+  "stats": {},
+  "system_fingerprint": "qwen3-8b"
+}
+2025-06-17 04:59:42  [INFO] 
+[LM STUDIO SERVER] Client disconnected. Stopping generation... (If the model is busy processing the prompt, it will finish first.)
+2025-06-17 04:59:42  [INFO] 
+[qwen3-8b] Generated prediction:  {
+  "id": "chatcmpl-8f6i1qfb7yo9z7vo7t52yq",
+  "object": "chat.completion",
+  "created": 1750126268,
+  "model": "qwen3-8b",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "message": {
+        "role": "assistant",
+        "content": ""
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "total_tokens": 0
+  },
+  "stats": {},
+  "system_fingerprint": "qwen3-8b"
+}
+2025-06-17 04:59:43 [DEBUG] 
+Received request: POST to /v1/chat/completions with body  {
+  "messages": [
+    {
+      "role": "user",
+      "content": "---Goal---\nGiven a text document that is potential... <Truncated in logs> ...overnment programme\n######################\nOutput:"
+    }
+  ],
+  "model": "Qwen3-8B"
+}
+2025-06-17 04:59:43  [INFO] 
+[LM STUDIO SERVER] Running chat completion on conversation with 1 messages.
+2025-06-17 04:59:43 [DEBUG] 
+Received request: POST to /v1/chat/completions with body  {
+  "messages": [
+    {
+      "role": "user",
+      "content": "---Goal---\nGiven a text document that is potential... <Truncated in logs> ...t further underpins\n######################\nOutput:"
+    }
+  ],
+  "model": "Qwen3-8B"
+}
+2025-06-17 04:59:43  [INFO] 
+[LM STUDIO SERVER] Running chat completion on conversation with 1 messages.
+2025-06-17 04:59:43 [DEBUG] 
+Received request: POST to /v1/chat/completions with body  {
+  "messages": [
+    {
+      "role": "user",
+      "content": "---Goal---\nGiven a text document that is potential... <Truncated in logs> ...structure)   \n(iii)\n######################\nOutput:"
+    }
+  ],
+  "model": "Qwen3-8B"
+}
+2025-06-17 04:59:43  [INFO] 
+[LM STUDIO SERVER] Running chat completion on conversation with 1 messages.
+2025-06-17 04:59:43 [DEBUG] 
+Received request: POST to /v1/chat/completions with body  {
+  "messages": [
+    {
+      "role": "user",
+      "content": "---Goal---\nGiven a text document that is potential... <Truncated in logs> ...quired to implement\n######################\nOutput:"
+    }
+  ],
+  "model": "Qwen3-8B"
+}
+2025-06-17 04:59:43  [INFO] 
+[LM STUDIO SERVER] Running chat completion on conversation with 1 messages.
+2025-06-17 22:14:55  [INFO] 
+[LM STUDIO SERVER] Client disconnected. Stopping generation... (If the model is busy processing the prompt, it will finish first.)
+2025-06-17 22:14:55  [INFO] 
+[qwen3-8b] Generated prediction:  {
+  "id": "chatcmpl-24fzyun1b5fwpw699o2f9r",
+  "object": "chat.completion",
+  "created": 1750129183,
+  "model": "qwen3-8b",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "message": {
+        "role": "assistant",
+        "content": ""
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "total_tokens": 0
+  },
+  "stats": {},
+  "system_fingerprint": "qwen3-8b"
+}
+2025-06-17 22:14:55  [INFO] 
+[LM STUDIO SERVER] Client disconnected. Stopping generation... (If the model is busy processing the prompt, it will finish first.)
+2025-06-17 22:14:55  [INFO] 
+[qwen3-8b] Generated prediction:  {
+  "id": "chatcmpl-ozyvvsp06ilzxudoqtd1r",
+  "object": "chat.completion",
+  "created": 1750129183,
+  "model": "qwen3-8b",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "message": {
+        "role": "assistant",
+        "content": ""
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "total_tokens": 0
+  },
+  "stats": {},
+  "system_fingerprint": "qwen3-8b"
+}
+2025-06-17 22:14:55  [INFO] 
+[LM STUDIO SERVER] Client disconnected. Stopping generation... (If the model is busy processing the prompt, it will finish first.)
+2025-06-17 22:14:55  [INFO] 
+[qwen3-8b] Generated prediction:  {
+  "id": "chatcmpl-7i73xjnrbgv8ppiz0ade",
+  "object": "chat.completion",
+  "created": 1750129183,
+  "model": "qwen3-8b",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "message": {
+        "role": "assistant",
+        "content": ""
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "total_tokens": 0
+  },
+  "stats": {},
+  "system_fingerprint": "qwen3-8b"
+}
+2025-06-17 22:14:55  [INFO] 
+[LM STUDIO SERVER] Client disconnected. Stopping generation... (If the model is busy processing the prompt, it will finish first.)
+2025-06-17 22:14:55  [INFO] 
+[qwen3-8b] Generated prediction:  {
+  "id": "chatcmpl-nb50gdv6wmsbchcijwim",
+  "object": "chat.completion",
+  "created": 1750129183,
+  "model": "qwen3-8b",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "message": {
+        "role": "assistant",
+        "content": ""
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "total_tokens": 0
+  },
+  "stats": {},
+  "system_fingerprint": "qwen3-8b"
+}
+2025-06-17 22:15:02 [DEBUG] 
+Received request: POST to /v1/chat/completions with body  {
+  "messages": [
+    {
+      "role": "user",
+      "content": "---Goal---\nGiven a text document that is potential... <Truncated in logs> ...quired to implement\n######################\nOutput:"
+    }
+  ],
+  "model": "Qwen3-8B"
+}
+2025-06-17 22:15:02  [INFO] 
+[LM STUDIO SERVER] Running chat completion on conversation with 1 messages.
+2025-06-17 22:15:02 [DEBUG] 
+Received request: POST to /v1/chat/completions with body  {
+  "messages": [
+    {
+      "role": "user",
+      "content": "---Goal---\nGiven a text document that is potential... <Truncated in logs> ...overnment programme\n######################\nOutput:"
+    }
+  ],
+  "model": "Qwen3-8B"
+}
+2025-06-17 22:15:02  [INFO] 
+[LM STUDIO SERVER] Running chat completion on conversation with 1 messages.
+2025-06-17 22:15:02 [DEBUG] 
+Received request: POST to /v1/chat/completions with body  {
+  "messages": [
+    {
+      "role": "user",
+      "content": "---Goal---\nGiven a text document that is potential... <Truncated in logs> ...structure)   \n(iii)\n######################\nOutput:"
+    }
+  ],
+  "model": "Qwen3-8B"
+}
+2025-06-17 22:15:02  [INFO] 
+[LM STUDIO SERVER] Running chat completion on conversation with 1 messages.
+2025-06-17 22:15:02 [DEBUG] 
+Received request: POST to /v1/chat/completions with body  {
+  "messages": [
+    {
+      "role": "user",
+      "content": "---Goal---\nGiven a text document that is potential... <Truncated in logs> ...t further underpins\n######################\nOutput:"
+    }
+  ],
+  "model": "Qwen3-8B"
+}
+2025-06-17 22:15:02  [INFO] 
+[LM STUDIO SERVER] Running chat completion on conversation with 1 messages.
+2025-06-17 22:18:36 [DEBUG] 
+target model llama_perf stats:
+llama_perf_context_print:        load time =   10716.10 ms
+llama_perf_context_print: prompt eval time =   40259.13 ms /  1231 tokens (   32.70 ms per token,    30.58 tokens per second)
+llama_perf_context_print:        eval time = 166007997.50 ms /  2554 runs   (64999.22 ms per token,     0.02 tokens per second)
+llama_perf_context_print:       total time = 166052698.61 ms /  3785 tokens
+2025-06-17 22:18:36  [INFO] 
+[qwen3-8b] Generated prediction:  {
+  "id": "chatcmpl-qgvz5dp3hcauj75vl1xg3s",
+  "object": "chat.completion",
+  "created": 1750024865,
+  "model": "qwen3-8b",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "message": {
+        "role": "assistant",
+        "content": ""
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 3522,
+    "completion_tokens": 0,
+    "total_tokens": 3522
+  },
+  "stats": {},
+  "system_fingerprint": "qwen3-8b"
+}
+2025-06-17 22:18:36 [DEBUG] 
+Sampling params:	repeat_last_n = 64, repeat_penalty = 1.100, frequency_penalty = 0.000, presence_penalty = 0.000
+	dry_multiplier = 0.000, dry_base = 1.750, dry_allowed_length = 2, dry_penalty_last_n = -1
+	top_k = 40, top_p = 0.200, min_p = 0.050, xtc_probability = 0.000, xtc_threshold = 0.100, typical_p = 1.000, top_n_sigma = -1.000, temp = 0.200
+	mirostat = 0, mirostat_lr = 0.100, mirostat_ent = 5.000
+2025-06-17 22:18:36 [DEBUG] 
+sampling: 
+logits -> logit-bias -> penalties -> dry -> top-n-sigma -> top-k -> typical -> top-p -> min-p -> xtc -> temp-ext -> dist 
+generate: n_ctx = 8000, n_batch = 512, n_predict = -1, n_keep = 3534
+2025-06-17 22:18:36 [DEBUG] 
+Detected 2291/6076 cached tokens to be a valid prefix of the current prompt. Removing 3785 tokens from the end of the cache
+2025-06-17 22:18:36 [DEBUG] 
+BeginProcessingPrompt
+2025-06-17 22:18:46 [DEBUG] 
+PromptProcessing: 72.4392
+2025-06-17 22:19:01 [DEBUG] 
+PromptProcessing: 86.927
+2025-06-17 22:19:16 [DEBUG] 
+FinishedProcessingPrompt. Progress: 100
+2025-06-17 22:19:16  [INFO] 
+[LM STUDIO SERVER] Accumulating tokens ... (stream = false)
+2025-06-17 22:25:02  [INFO] 
+[LM STUDIO SERVER] Client disconnected. Stopping generation... (If the model is busy processing the prompt, it will finish first.)
+2025-06-17 22:25:02  [INFO] 
+[qwen3-8b] Generated prediction:  {
+  "id": "chatcmpl-a4r7xlnc9gohfzczx3c",
+  "object": "chat.completion",
+  "created": 1750191302,
+  "model": "qwen3-8b",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "message": {
+        "role": "assistant",
+        "content": ""
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "total_tokens": 0
+  },
+  "stats": {},
+  "system_fingerprint": "qwen3-8b"
+}
+2025-06-17 22:25:02  [INFO] 
+[LM STUDIO SERVER] Client disconnected. Stopping generation... (If the model is busy processing the prompt, it will finish first.)
+2025-06-17 22:25:02  [INFO] 
+[qwen3-8b] Generated prediction:  {
+  "id": "chatcmpl-s0phg0vtqsp9oc1labbppt",
+  "object": "chat.completion",
+  "created": 1750191302,
+  "model": "qwen3-8b",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "message": {
+        "role": "assistant",
+        "content": ""
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "total_tokens": 0
+  },
+  "stats": {},
+  "system_fingerprint": "qwen3-8b"
+}
+2025-06-17 22:25:02  [INFO] 
+[LM STUDIO SERVER] Client disconnected. Stopping generation... (If the model is busy processing the prompt, it will finish first.)
+2025-06-17 22:25:02  [INFO] 
+[LM STUDIO SERVER] Client disconnected. Stopping generation... (If the model is busy processing the prompt, it will finish first.)
+2025-06-17 22:25:02  [INFO] 
+[qwen3-8b] Generated prediction:  {
+  "id": "chatcmpl-ojl5ejt6imlj1npz86a3r",
+  "object": "chat.completion",
+  "created": 1750191302,
+  "model": "qwen3-8b",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "message": {
+        "role": "assistant",
+        "content": ""
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "total_tokens": 0
+  },
+  "stats": {},
+  "system_fingerprint": "qwen3-8b"
+}
+2025-06-17 22:25:03 [DEBUG] 
+target model llama_perf stats:
+llama_perf_context_print:        load time =   10716.10 ms
+llama_perf_context_print: prompt eval time =   39925.36 ms /  1243 tokens (   32.12 ms per token,    31.13 tokens per second)
+llama_perf_context_print:        eval time =  345462.96 ms /   619 runs   (  558.10 ms per token,     1.79 tokens per second)
+llama_perf_context_print:       total time =  386470.74 ms /  1862 tokens
+2025-06-17 22:25:03  [INFO] 
+[qwen3-8b] Generated prediction:  {
+  "id": "chatcmpl-q4led84gwm59n8i12mapy",
+  "object": "chat.completion",
+  "created": 1750191302,
+  "model": "qwen3-8b",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "message": {
+        "role": "assistant",
+        "content": "<think>\nOkay, let's tackle this query step by step. First, I need to understand the user's goal. They want me to identify entities and relationships from a given text based on specific entity types: organization, person, geo, event, category. Then, extract all relationships between these entities and provide content keywords.\n\nLooking at the provided real data, the text is about a standard-setting process for interoperability standards in government. It mentions various steps like compiling a White List, filtering to a Grey List, assessing risks to form a Green List. There are references to organizations like SITA, GITOC, and the MIOS (which I assume stands for something like \"Minimum Interoperability Standards\" or similar). \n\nFirst step: Identify entities. Let's go through the text again.\n\nThe text starts with mentions of stakeholders, Government Departments, industry, users. Then there are specific roles like \"Stakeholder\", \"GITO Council\", and \"SITA\". The MIOS is mentioned as a set of standards. There's also mention of \"Standards selection principles\" which might be a category. \n\nPossible entities:\n- Stakeholder (type: person or organization? Since it's a general term, maybe category)\nWait, the entity types are [organization, person, geo, event, category]. So \"Stakeholder\" could be a category if it's a group, but in the text, stakeholders are individuals or groups. However, since the user hasn't specified that \"stakeholder\" is an entity type, maybe I should check if any of the mentioned entities fit into these types.\n\nLooking at the text again:\n\n- \"Stakeholder\" is mentioned as part of a table entry under \"Role and Responsibilities\". The term \"Stakeholder\" might be a category here. But since the user's entity types include 'category', maybe that's acceptable. However, in the examples provided earlier, entities like \"event\", \"organization\", etc., are specific names.\n\nWait, the text mentions \"GITO Council\" as an organization. Also, \"SITA\" is mentioned as a role (since it says \"Give input to SITA on MIOS\"). Wait, maybe \"SITA\" is an organization? The user might have intended that. Similarly, \"GITOC\" is mentioned as part of the process: \"Submit MlOS to GITOC for recommendation to Minister.\" So GITOC could be an organization.\n\nAlso, there's a mention of \"MIOS\" which is a set of standards, so maybe that's a category or an organization? But since it's a system or framework, perhaps 'category' is more appropriate. However, the user hasn't specified if MIOS is an entity type. Wait, the entity types are [organization,person,geo,event,category]. So \"MIOS\" could be categorized as a category.\n\nOther entities: The process described involves steps like compiling a White List, which might not be entities. But there's also mention of \"Standards selection principles\", which is a set"
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 3534,
+    "completion_tokens": 619,
+    "total_tokens": 4153
+  },
+  "stats": {},
+  "system_fingerprint": "qwen3-8b"
+}
+2025-06-17 22:25:03 [DEBUG] 
+Received request: POST to /v1/chat/completions with body  {
+  "messages": [
+    {
+      "role": "user",
+      "content": "---Goal---\nGiven a text document that is potential... <Truncated in logs> ...overnment programme\n######################\nOutput:"
+    }
+  ],
+  "model": "Qwen3-8B"
+}
+2025-06-17 22:25:03  [INFO] 
+[LM STUDIO SERVER] Running chat completion on conversation with 1 messages.
+2025-06-17 22:25:03 [DEBUG] 
+Received request: POST to /v1/chat/completions with body  {
+  "messages": [
+    {
+      "role": "user",
+      "content": "---Goal---\nGiven a text document that is potential... <Truncated in logs> ...t further underpins\n######################\nOutput:"
+    }
+  ],
+  "model": "Qwen3-8B"
+}
+2025-06-17 22:25:03  [INFO] 
+[LM STUDIO SERVER] Running chat completion on conversation with 1 messages.
+2025-06-17 22:25:03 [DEBUG] 
+Sampling params:	repeat_last_n = 64, repeat_penalty = 1.100, frequency_penalty = 0.000, presence_penalty = 0.000
+	dry_multiplier = 0.000, dry_base = 1.750, dry_allowed_length = 2, dry_penalty_last_n = -1
+	top_k = 40, top_p = 0.200, min_p = 0.050, xtc_probability = 0.000, xtc_threshold = 0.100, typical_p = 1.000, top_n_sigma = -1.000, temp = 0.200
+	mirostat = 0, mirostat_lr = 0.100, mirostat_ent = 5.000
+2025-06-17 22:25:03 [DEBUG] 
+sampling: 
+logits -> logit-bias -> penalties -> dry -> top-n-sigma -> top-k -> typical -> top-p -> min-p -> xtc -> temp-ext -> dist 
+generate: n_ctx = 8000, n_batch = 512, n_predict = -1, n_keep = 3579
+2025-06-17 22:25:03 [DEBUG] 
+Received request: POST to /v1/chat/completions with body  {
+  "messages": [
+    {
+      "role": "user",
+      "content": "---Goal---\nGiven a text document that is potential... <Truncated in logs> ...structure)   \n(iii)\n######################\nOutput:"
+    }
+  ],
+  "model": "Qwen3-8B"
+}
+2025-06-17 22:25:03  [INFO] 
+[LM STUDIO SERVER] Running chat completion on conversation with 1 messages.
+2025-06-17 22:25:03 [DEBUG] 
+Received request: POST to /v1/chat/completions with body  {
+  "messages": [
+    {
+      "role": "user",
+      "content": "---Goal---\nGiven a text document that is potential... <Truncated in logs> ...quired to implement\n######################\nOutput:"
+    }
+  ],
+  "model": "Qwen3-8B"
+}
+2025-06-17 22:25:03  [INFO] 
+[LM STUDIO SERVER] Running chat completion on conversation with 1 messages.
+2025-06-17 22:25:03 [DEBUG] 
+Detected 2291/4153 cached tokens to be a valid prefix of the current prompt. Removing 1862 tokens from the end of the cache
+BeginProcessingPrompt
+2025-06-17 22:25:13 [DEBUG] 
+PromptProcessing: 71.5284
+2025-06-17 22:25:34 [DEBUG] 
+PromptProcessing: 85.834
+2025-06-17 22:25:49 [DEBUG] 
+FinishedProcessingPrompt. Progress: 100
+2025-06-17 22:25:49  [INFO] 
+[LM STUDIO SERVER] Accumulating tokens ... (stream = false)
+2025-06-17 22:35:03  [INFO] 
+[LM STUDIO SERVER] Client disconnected. Stopping generation... (If the model is busy processing the prompt, it will finish first.)
+2025-06-17 22:35:03  [INFO] 
+[LM STUDIO SERVER] Client disconnected. Stopping generation... (If the model is busy processing the prompt, it will finish first.)
+2025-06-17 22:35:03  [INFO] 
+[qwen3-8b] Generated prediction:  {
+  "id": "chatcmpl-kvk2f0rxgk9xmnv7w7zhb",
+  "object": "chat.completion",
+  "created": 1750191903,
+  "model": "qwen3-8b",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "message": {
+        "role": "assistant",
+        "content": ""
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "total_tokens": 0
+  },
+  "stats": {},
+  "system_fingerprint": "qwen3-8b"
+}
+2025-06-17 22:35:03  [INFO] 
+[LM STUDIO SERVER] Client disconnected. Stopping generation... (If the model is busy processing the prompt, it will finish first.)
+2025-06-17 22:35:03  [INFO] 
+[qwen3-8b] Generated prediction:  {
+  "id": "chatcmpl-0i0iamqa116hyancrlswma",
+  "object": "chat.completion",
+  "created": 1750191903,
+  "model": "qwen3-8b",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "message": {
+        "role": "assistant",
+        "content": ""
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "total_tokens": 0
+  },
+  "stats": {},
+  "system_fingerprint": "qwen3-8b"
+}
+2025-06-17 22:35:03  [INFO] 
+[LM STUDIO SERVER] Client disconnected. Stopping generation... (If the model is busy processing the prompt, it will finish first.)
+2025-06-17 22:35:03  [INFO] 
+[qwen3-8b] Generated prediction:  {
+  "id": "chatcmpl-801wb3v25jsahu4peuis1",
+  "object": "chat.completion",
+  "created": 1750191903,
+  "model": "qwen3-8b",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "message": {
+        "role": "assistant",
+        "content": ""
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "total_tokens": 0
+  },
+  "stats": {},
+  "system_fingerprint": "qwen3-8b"
+}
+2025-06-17 22:35:03 [DEBUG] 
+target model llama_perf stats:
+llama_perf_context_print:        load time =   10716.10 ms
+llama_perf_context_print: prompt eval time =   46515.39 ms /  1288 tokens (   36.11 ms per token,    27.69 tokens per second)
+llama_perf_context_print:        eval time =  551979.48 ms /   909 runs   (  607.24 ms per token,     1.65 tokens per second)
+llama_perf_context_print:       total time =  600086.76 ms /  2197 tokens
+2025-06-17 22:35:03  [INFO] 
+[qwen3-8b] Generated prediction:  {
+  "id": "chatcmpl-y3rr9gqcd6d88h441zdpw",
+  "object": "chat.completion",
+  "created": 1750191903,
+  "model": "qwen3-8b",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "message": {
+        "role": "assistant",
+        "content": "<think>\nOkay, let's tackle this query step by step. First, I need to understand what the user is asking for. They provided a text document about the MIOS framework and want me to identify entities and relationships based on specific entity types: organization, person, geo, event, category.\n\nStarting with Step 1: Identifying all entities. Let's go through the text carefully. The first part mentions \"State Information Technology Agency (SITA)\" which is an organization. Then there's a mention of \"Government Information Technology Officers Council (GITO Council)\" which is another organization. There's also a person mentioned, Ms A.F. Muthambi, who is the Minister. \n\nLooking for geo entities: The text refers to Pretoria, South Africa, so that's a location. Events might be the approval process or the e-Government program mentioned. Categories could include things like \"interoperability standards\" or \"e-Government initiatives.\"\n\nNext, Step 2: Relationships between these entities. For example, SITA is responsible for developing MIOS, so there's a relationship between SITA and MIOS. The GITO Council was consulted, so that's another relationship. Ms Muthambi approved the document, linking her to the approval process.\n\nStep 3 involves content keywords. The main themes here are interoperability standards, e-Government initiatives, public service delivery, and government information systems. \n\nI need to make sure each entity is correctly categorized and relationships are clearly explained with appropriate strength scores. Also, check for any other entities I might have missed, like the \"Government ICT House of Value\" which could be an event or a category. Wait, in the examples, events were things like championships or meetings. Here, maybe the e-Government program is an event? Or perhaps it's a category. The text says \"e-Government programme in 2001,\" so that might be an event. \n\nAlso, the document mentions \"MIOS v6.0\" which is a version of the standard, but since entity types don't include versions, maybe it's part of the organization or the standard itself. Wait, the entity type 'category' could fit here as MIOS is a category of standards.\n\nI need to be careful with the relationships. For instance, SITA developed MIOS, so that's a development relationship. The GITO Council was consulted, which is a collaboration. The Minister approved it, so an approval relationship. \n\nFor content keywords, terms like \"interoperability,\" \"e-Government,\" \"public service delivery,\" \"government information systems\" would be relevant.\n\nLet me structure each entity with their type and description, then the relationships with clear explanations and strength scores. Finally, compile the content keywords.\n</think>\n\n(\"entity\"<|>\"State Information Technology Agency (SITA)\"<|>\"organization\"<|>\"The State Information Technology Agency (SITA) is responsible for developing and approving the Minimum Interoperability Standards (MIOS) framework for Government Information Systems, in collaboration with government departments and the Government Information Technology Officers Council (GITO Council).\")##\n(\"entity\"<|>\"Government Information Technology Officers Council (GITO Council)\"<|>\"organization\"<|>\"The GITO Council is a consultative body involved in the development of MIOS standards, working alongside SITA and government departments to ensure alignment with interoperability requirements.\")##\n(\"entity\"<|>\"Ms A.F. Muthambi\"<|>\"person\"<|>\"Ms A.F. Muthambi is the Minister of Public Service and Administration who formally approved the MIOS v6.0 framework for Government Information Systems.\")##\n(\"entity\"<|>\"Pretoria\"<|>\"geo\"<|>\"Pretoria is the capital city of South Africa, where key government offices such as SITA and the GITO Council are located.\")##\n(\"entity\"<|>\"Minimum Interoperability Standards (MIOS)\"<|>\"category\"<|>\"MIOS refers to a set of standards for Government Information Systems aimed at ensuring interoperability, compliance, and efficient information exchange across public sector systems.\")##\n(\"entity\"<|>\"e-Government Programme\"<|>\"event\"<|>\"The e-Government Programme is an initiative launched in 2001 by the South African government to improve public service delivery through effective use of Information and Communication Technology (ICT) resources.\")##\n(\"relationship\"<|>\"State Information Technology Agency (SITA)\"<|>\"Minimum Interoperability"
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 3579,
+    "completion_tokens": 909,
+    "total_tokens": 4488
+  },
+  "stats": {},
+  "system_fingerprint": "qwen3-8b"
+}
+2025-06-17 22:35:04 [DEBUG] 
+Received request: POST to /v1/chat/completions with body  {
+  "messages": [
+    {
+      "role": "user",
+      "content": "---Goal---\nGiven a text document that is potential... <Truncated in logs> ...overnment programme\n######################\nOutput:"
+    }
+  ],
+  "model": "Qwen3-8B"
+}
+2025-06-17 22:35:04  [INFO] 
+[LM STUDIO SERVER] Running chat completion on conversation with 1 messages.
+2025-06-17 22:35:04 [DEBUG] 
+Sampling params:	repeat_last_n = 64, repeat_penalty = 1.100, frequency_penalty = 0.000, presence_penalty = 0.000
+	dry_multiplier = 0.000, dry_base = 1.750, dry_allowed_length = 2, dry_penalty_last_n = -1
+	top_k = 40, top_p = 0.200, min_p = 0.050, xtc_probability = 0.000, xtc_threshold = 0.100, typical_p = 1.000, top_n_sigma = -1.000, temp = 0.200
+	mirostat = 0, mirostat_lr = 0.100, mirostat_ent = 5.000
+2025-06-17 22:35:04 [DEBUG] 
+sampling: 
+logits -> logit-bias -> penalties -> dry -> top-n-sigma -> top-k -> typical -> top-p -> min-p -> xtc -> temp-ext -> dist 
+generate: n_ctx = 8000, n_batch = 512, n_predict = -1, n_keep = 3579
+2025-06-17 22:35:04 [DEBUG] 
+Received request: POST to /v1/chat/completions with body  {
+  "messages": [
+    {
+      "role": "user",
+      "content": "---Goal---\nGiven a text document that is potential... <Truncated in logs> ...t further underpins\n######################\nOutput:"
+    }
+  ],
+  "model": "Qwen3-8B"
+}
+2025-06-17 22:35:04  [INFO] 
+[LM STUDIO SERVER] Running chat completion on conversation with 1 messages.
+2025-06-17 22:35:04 [DEBUG] 
+Detected 3579/4488 cached tokens to be a valid prefix of the current prompt. Removing 909 tokens from the end of the cache
+2025-06-17 22:35:04 [DEBUG] 
+BeginProcessingPrompt
+2025-06-17 22:35:04 [DEBUG] 
+Received request: POST to /v1/chat/completions with body  {
+  "messages": [
+    {
+      "role": "user",
+      "content": "---Goal---\nGiven a text document that is potential... <Truncated in logs> ...quired to implement\n######################\nOutput:"
+    }
+  ],
+  "model": "Qwen3-8B"
+}
+2025-06-17 22:35:04  [INFO] 
+[LM STUDIO SERVER] Running chat completion on conversation with 1 messages.
+2025-06-17 22:35:04 [DEBUG] 
+Received request: POST to /v1/chat/completions with body  {
+  "messages": [
+    {
+      "role": "user",
+      "content": "---Goal---\nGiven a text document that is potential... <Truncated in logs> ...structure)   \n(iii)\n######################\nOutput:"
+    }
+  ],
+  "model": "Qwen3-8B"
+}
+2025-06-17 22:35:04  [INFO] 
+[LM STUDIO SERVER] Running chat completion on conversation with 1 messages.
+2025-06-17 22:35:05 [DEBUG] 
+FinishedProcessingPrompt. Progress: 100
+2025-06-17 22:35:05  [INFO] 
+[LM STUDIO SERVER] Accumulating tokens ... (stream = false)
+2025-06-18 03:21:53  [INFO] 
+[LM STUDIO SERVER] Client disconnected. Stopping generation... (If the model is busy processing the prompt, it will finish first.)
+2025-06-18 03:21:53  [INFO] 
+[qwen3-8b] Generated prediction:  {
+  "id": "chatcmpl-pkwmgdy2phcmwfd8x3pcj",
+  "object": "chat.completion",
+  "created": 1750192504,
+  "model": "qwen3-8b",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "message": {
+        "role": "assistant",
+        "content": ""
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "total_tokens": 0
+  },
+  "stats": {},
+  "system_fingerprint": "qwen3-8b"
+}
+2025-06-18 03:21:53  [INFO] 
+[LM STUDIO SERVER] Client disconnected. Stopping generation... (If the model is busy processing the prompt, it will finish first.)
+2025-06-18 03:21:53  [INFO] 
+[qwen3-8b] Generated prediction:  {
+  "id": "chatcmpl-83mnne6ptwxoetwz128wti",
+  "object": "chat.completion",
+  "created": 1750192504,
+  "model": "qwen3-8b",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "message": {
+        "role": "assistant",
+        "content": ""
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "total_tokens": 0
+  },
+  "stats": {},
+  "system_fingerprint": "qwen3-8b"
+}
+2025-06-18 03:21:53  [INFO] 
+[LM STUDIO SERVER] Client disconnected. Stopping generation... (If the model is busy processing the prompt, it will finish first.)
+2025-06-18 03:21:53  [INFO] 
+[qwen3-8b] Generated prediction:  {
+  "id": "chatcmpl-s4mrildnhrrszrnl3vhou",
+  "object": "chat.completion",
+  "created": 1750192504,
+  "model": "qwen3-8b",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "message": {
+        "role": "assistant",
+        "content": ""
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "total_tokens": 0
+  },
+  "stats": {},
+  "system_fingerprint": "qwen3-8b"
+}
+2025-06-18 03:21:53  [INFO] 
+[LM STUDIO SERVER] Client disconnected. Stopping generation... (If the model is busy processing the prompt, it will finish first.)
+2025-06-18 03:21:56 [DEBUG] 
+target model llama_perf stats:
+llama_perf_context_print:        load time =   10716.10 ms
+llama_perf_context_print: prompt eval time =       0.00 ms /     1 tokens (    0.00 ms per token,      inf tokens per second)
+llama_perf_context_print:        eval time = 17211434.05 ms /    16 runs   (1075714.63 ms per token,     0.00 tokens per second)
+llama_perf_context_print:       total time = 17211507.83 ms /    17 tokens
+2025-06-18 03:21:56  [INFO] 
+[qwen3-8b] Generated prediction:  {
+  "id": "chatcmpl-7btj36rtdrtdp2n5wyipqe",
+  "object": "chat.completion",
+  "created": 1750192504,
+  "model": "qwen3-8b",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "message": {
+        "role": "assistant",
+        "content": "<think>\nOkay, let's tackle this query step by step. First,"
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 3579,
+    "completion_tokens": 15,
+    "total_tokens": 3594
+  },
+  "stats": {},
+  "system_fingerprint": "qwen3-8b"
+}
+2025-06-18 07:07:13 [DEBUG] 
+Received request: POST to /v1/chat/completions with body  {
+  "messages": [
+    {
+      "role": "user",
+      "content": "---Goal---\nGiven a text document that is potential... <Truncated in logs> ...quired to implement\n######################\nOutput:"
+    }
+  ],
+  "model": "Qwen3-8B"
+}
+2025-06-18 07:07:13  [INFO] 
+[LM STUDIO SERVER] Running chat completion on conversation with 1 messages.
+2025-06-18 07:07:13 [DEBUG] 
+Received request: POST to /v1/chat/completions with body  {
+  "messages": [
+    {
+      "role": "user",
+      "content": "---Goal---\nGiven a text document that is potential... <Truncated in logs> ...t further underpins\n######################\nOutput:"
+    }
+  ],
+  "model": "Qwen3-8B"
+}
+2025-06-18 07:07:13  [INFO] 
+[LM STUDIO SERVER] Running chat completion on conversation with 1 messages.
+2025-06-18 07:07:13 [DEBUG] 
+Received request: POST to /v1/chat/completions with body  {
+  "messages": [
+    {
+      "role": "user",
+      "content": "---Goal---\nGiven a text document that is potential... <Truncated in logs> ...structure)   \n(iii)\n######################\nOutput:"
+    }
+  ],
+  "model": "Qwen3-8B"
+}
+2025-06-18 07:07:13  [INFO] 
+[LM STUDIO SERVER] Running chat completion on conversation with 1 messages.
+2025-06-18 07:07:13 [DEBUG] 
+Received request: POST to /v1/chat/completions with body  {
+  "messages": [
+    {
+      "role": "user",
+      "content": "---Goal---\nGiven a text document that is potential... <Truncated in logs> ...overnment programme\n######################\nOutput:"
+    }
+  ],
+  "model": "Qwen3-8B"
+}
+2025-06-18 07:07:13  [INFO] 
+[LM STUDIO SERVER] Running chat completion on conversation with 1 messages.
+2025-06-18 07:07:13 [DEBUG] 
+Sampling params:	repeat_last_n = 64, repeat_penalty = 1.100, frequency_penalty = 0.000, presence_penalty = 0.000
+	dry_multiplier = 0.000, dry_base = 1.750, dry_allowed_length = 2, dry_penalty_last_n = -1
+	top_k = 40, top_p = 0.200, min_p = 0.050, xtc_probability = 0.000, xtc_threshold = 0.100, typical_p = 1.000, top_n_sigma = -1.000, temp = 0.200
+	mirostat = 0, mirostat_lr = 0.100, mirostat_ent = 5.000
+2025-06-18 07:07:13 [DEBUG] 
+sampling: 
+logits -> logit-bias -> penalties -> dry -> top-n-sigma -> top-k -> typical -> top-p -> min-p -> xtc -> temp-ext -> dist 
+generate: n_ctx = 8000, n_batch = 512, n_predict = -1, n_keep = 3534
+2025-06-18 07:07:13 [DEBUG] 
+Detected 2291/3594 cached tokens to be a valid prefix of the current prompt. Removing 1303 tokens from the end of the cache
+2025-06-18 07:07:13 [DEBUG] 
+BeginProcessingPrompt
+2025-06-18 11:22:48  [INFO] 
+[LM STUDIO SERVER] Client disconnected. Stopping generation... (If the model is busy processing the prompt, it will finish first.)
+2025-06-18 11:22:48  [INFO] 
+[LM STUDIO SERVER] Client disconnected. Stopping generation... (If the model is busy processing the prompt, it will finish first.)
+2025-06-18 11:22:48  [INFO] 
+[qwen3-8b] Generated prediction:  {
+  "id": "chatcmpl-wjelq92704h5yg3we8vozq",
+  "object": "chat.completion",
+  "created": 1750223233,
+  "model": "qwen3-8b",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "message": {
+        "role": "assistant",
+        "content": ""
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "total_tokens": 0
+  },
+  "stats": {},
+  "system_fingerprint": "qwen3-8b"
+}
+2025-06-18 11:22:48  [INFO] 
+[LM STUDIO SERVER] Client disconnected. Stopping generation... (If the model is busy processing the prompt, it will finish first.)
+2025-06-18 11:22:48  [INFO] 
+[qwen3-8b] Generated prediction:  {
+  "id": "chatcmpl-9xsmh31944avydncd4wbjr",
+  "object": "chat.completion",
+  "created": 1750223233,
+  "model": "qwen3-8b",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "message": {
+        "role": "assistant",
+        "content": ""
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "total_tokens": 0
+  },
+  "stats": {},
+  "system_fingerprint": "qwen3-8b"
+}
+2025-06-18 11:22:48  [INFO] 
+[LM STUDIO SERVER] Client disconnected. Stopping generation... (If the model is busy processing the prompt, it will finish first.)
+2025-06-18 11:22:48  [INFO] 
+[qwen3-8b] Generated prediction:  {
+  "id": "chatcmpl-r9pymb5ei1fydla1opeuh",
+  "object": "chat.completion",
+  "created": 1750223233,
+  "model": "qwen3-8b",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "message": {
+        "role": "assistant",
+        "content": ""
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "total_tokens": 0
+  },
+  "stats": {},
+  "system_fingerprint": "qwen3-8b"
+}
+2025-06-18 11:22:49 [DEBUG] 
+Received request: POST to /v1/chat/completions with body  {
+  "messages": [
+    {
+      "role": "user",
+      "content": "---Goal---\nGiven a text document that is potential... <Truncated in logs> ...t further underpins\n######################\nOutput:"
+    }
+  ],
+  "model": "Qwen3-8B"
+}
+2025-06-18 11:22:49  [INFO] 
+[LM STUDIO SERVER] Running chat completion on conversation with 1 messages.
+2025-06-18 11:22:49 [DEBUG] 
+Received request: POST to /v1/chat/completions with body  {
+  "messages": [
+    {
+      "role": "user",
+      "content": "---Goal---\nGiven a text document that is potential... <Truncated in logs> ...overnment programme\n######################\nOutput:"
+    }
+  ],
+  "model": "Qwen3-8B"
+}
+2025-06-18 11:22:49  [INFO] 
+[LM STUDIO SERVER] Running chat completion on conversation with 1 messages.
+2025-06-18 11:22:49 [DEBUG] 
+Received request: POST to /v1/chat/completions with body  {
+  "messages": [
+    {
+      "role": "user",
+      "content": "---Goal---\nGiven a text document that is potential... <Truncated in logs> ...quired to implement\n######################\nOutput:"
+    }
+  ],
+  "model": "Qwen3-8B"
+}
+2025-06-18 11:22:49  [INFO] 
+[LM STUDIO SERVER] Running chat completion on conversation with 1 messages.
+2025-06-18 11:22:49 [DEBUG] 
+Received request: POST to /v1/chat/completions with body  {
+  "messages": [
+    {
+      "role": "user",
+      "content": "---Goal---\nGiven a text document that is potential... <Truncated in logs> ...structure)   \n(iii)\n######################\nOutput:"
+    }
+  ],
+  "model": "Qwen3-8B"
+}
+2025-06-18 11:22:49  [INFO] 
+[LM STUDIO SERVER] Running chat completion on conversation with 1 messages.
+2025-06-18 11:22:56 [DEBUG] 
+PromptProcessing: 72.4392
+target model llama_perf stats:
+llama_perf_context_print:        load time =   10716.10 ms
+llama_perf_context_print: prompt eval time =       0.00 ms /     1 tokens (    0.00 ms per token,      inf tokens per second)
+llama_perf_context_print:        eval time =       0.00 ms /     1 runs   (    0.00 ms per token,      inf tokens per second)
+llama_perf_context_print:       total time = 15342444.29 ms /     2 tokens
+2025-06-18 11:22:56  [INFO] 
+[qwen3-8b] Generated prediction:  {
+  "id": "chatcmpl-i7k4nzfas7knk5q34tkm8",
+  "object": "chat.completion",
+  "created": 1750223233,
+  "model": "qwen3-8b",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "message": {
+        "role": "assistant",
+        "content": ""
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 3534,
+    "completion_tokens": 0,
+    "total_tokens": 3534
+  },
+  "stats": {},
+  "system_fingerprint": "qwen3-8b"
+}
+2025-06-18 11:22:56 [DEBUG] 
+Sampling params:	repeat_last_n = 64, repeat_penalty = 1.100, frequency_penalty = 0.000, presence_penalty = 0.000
+	dry_multiplier = 0.000, dry_base = 1.750, dry_allowed_length = 2, dry_penalty_last_n = -1
+	top_k = 40, top_p = 0.200, min_p = 0.050, xtc_probability = 0.000, xtc_threshold = 0.100, typical_p = 1.000, top_n_sigma = -1.000, temp = 0.200
+	mirostat = 0, mirostat_lr = 0.100, mirostat_ent = 5.000
+sampling: 
+logits -> logit-bias -> penalties -> dry -> top-n-sigma -> top-k -> typical -> top-p -> min-p -> xtc -> temp-ext -> dist 
+generate: n_ctx = 8000, n_batch = 512, n_predict = -1, n_keep = 3534
+2025-06-18 11:22:56 [DEBUG] 
+Detected 2291/2560 cached tokens to be a valid prefix of the current prompt. Removing 269 tokens from the end of the cache
+BeginProcessingPrompt
+2025-06-18 11:23:06 [DEBUG] 
+PromptProcessing: 72.4392
+2025-06-18 11:23:21 [DEBUG] 
+PromptProcessing: 86.927
+2025-06-18 11:23:38 [DEBUG] 
+FinishedProcessingPrompt. Progress: 100
+2025-06-18 11:23:38  [INFO] 
+[LM STUDIO SERVER] Accumulating tokens ... (stream = false)
+Info
+Context
+Load
+Model Information
+
+Model
+
+pqnet/bge-m3-gguf
+
+File
+
+bge-m3-f16.gguf
+
+Format
+
+GGUF
+
+Quantization
+
+F16
+
+Arch
+
+bert
+
+Domain
+
+embedding
+
+Size on disk
+
+1.16 GB
+
+API Usage
+
+This model's API identifier
+
+text-embedding-bge-m3
+
+✅ The local server is reachable at this address
+
+http://127.0.0.1:1234

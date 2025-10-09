@@ -1,0 +1,10 @@
+lightrag-hku>=1.3.6
+gradio>=4.0.0
+networkx
+pyvis
+python-dotenv
+openai
+ollama
+plotly
+tiktoken 
+graspologic>=3.4.1  ## networkx: utilities and algorithms for processing and analysis of graphs

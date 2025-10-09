@@ -1,0 +1,30 @@
+# .gitignore et al
+#.gitignore
+.cursorindexingignore
+.env
+pyvenv.cfg
+
+Scripts/*
+share*
+Include/*
+lib/*
+
+# project
+MINIRAGsmy/*
+
+# SpecStory explanation file
+.specstory/*
+
+# working folder
+working_folder*/*
+copy/*
+dataset/*
+
+# logs
+logs/*
+troubleshooting.py
+
+# SpecStory explanation file
+.specstory/*
+# SpecStory explanation file
+.specstory/.what-is-this.md

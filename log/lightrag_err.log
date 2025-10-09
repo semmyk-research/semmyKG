@@ -1,0 +1,1546 @@
+[21Jun25]
+_llm_model_func: Error while initialising model: RetryError[<Future at 0x23ec8ccae10 state=finished raised RateLimitError>]
+ Successfully indexed 2 markdown files.
+
+[18Jun25]
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\tenacity\asyncio\__init__.py", line 189, in async_wrapped        
+    return await copy(fn, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\tenacity\asyncio\__init__.py", line 111, in __call__
+    do = await self.iter(retry_state=retry_state)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\tenacity\asyncio\__init__.py", line 153, in iter
+    result = await action(retry_state)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\tenacity\_utils.py", line 99, in inner
+    return call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\tenacity\__init__.py", line 421, in exc_check
+    raise retry_exc from fut.exception()
+tenacity.RetryError: RetryError[<Future at 0x1f65086d760 state=finished raised InvalidResponseError>]
+
+Invalid response from OpenAI API
+Invalid response from OpenAI API
+Invalid response from OpenAI API
+limit_async: Error in decorated function: RetryError[<Future at 0x1f65281b380 state=finished raised InvalidResponseError>]
+Invalid response from OpenAI API
+Invalid response from OpenAI API
+Invalid response from OpenAI API
+Invalid response from OpenAI API
+limit_async: Error in decorated function: RetryError[<Future at 0x1f65581c890 state=finished raised InvalidResponseError>]
+Invalid response from OpenAI API
+Invalid response from OpenAI API
+limit_async: Error in decorated function: RetryError[<Future at 0x1f6527f3e60 state=finished raised InvalidResponseError>]
+Invalid response from OpenAI API
+Invalid response from OpenAI API
+Invalid response from OpenAI API
+limit_async: Error in decorated function: RetryError[<Future at 0x1f6519b4380 state=finished raised InvalidResponseError>]
+Failed to extract entities and relationships: RetryError[<Future at 0x1f6519b4380 state=finished raised InvalidResponseError>]
+Failed to extrat document doc-ef0cd77646808f710c155866c8180354: Traceback (most recent call last):
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\tenacity\asyncio\__init__.py", line 114, in __call__
+    result = await fn(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\llm\openai.py", line 271, in openai_complete_if_cache   
+    raise InvalidResponseError("Invalid response from OpenAI API")
+lightrag.llm.openai.InvalidResponseError: Invalid response from OpenAI API
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\lightrag.py", line 990, in process_document
+    await asyncio.gather(*tasks)
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\lightrag.py", line 1168, in _process_entity_relation_graph
+    raise e
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\lightrag.py", line 1154, in _process_entity_relation_graph
+    chunk_results = await extract_entities(
+                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\operate.py", line 832, in extract_entities
+    raise task.exception()
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\operate.py", line 808, in _process_with_semaphore       
+    return await _process_single_content(chunk)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\operate.py", line 733, in _process_single_content       
+    final_result = await use_llm_func_with_cache(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\utils.py", line 1614, in use_llm_func_with_cache        
+    res: str = await use_llm_func(input_text, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\utils.py", line 544, in wait_func
+    return await future
+           ^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\utils.py", line 328, in worker
+    result = await func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\app_gradio_lightrag.py", line 133, in _llm_model_func
+    return await openai_complete_if_cache(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\tenacity\asyncio\__init__.py", line 189, in async_wrapped        
+    return await copy(fn, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\tenacity\asyncio\__init__.py", line 111, in __call__
+    do = await self.iter(retry_state=retry_state)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\tenacity\asyncio\__init__.py", line 153, in iter
+    result = await action(retry_state)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\tenacity\_utils.py", line 99, in inner
+    return call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\tenacity\__init__.py", line 421, in exc_check
+    raise retry_exc from fut.exception()
+tenacity.RetryError: RetryError[<Future at 0x1f6519b4380 state=finished raised InvalidResponseError>]
+
+Invalid response from OpenAI API
+Invalid response from OpenAI API
+Invalid response from OpenAI API
+Invalid response from OpenAI API
+Invalid response from OpenAI API
+limit_async: Error in decorated function: RetryError[<Future at 0x1f65168bf80 state=finished raised InvalidResponseError>]
+Invalid response from OpenAI API
+Invalid response from OpenAI API
+limit_async: Error in decorated function: RetryError[<Future at 0x1f64e77d730 state=finished raised InvalidResponseError>]
+Invalid response from OpenAI API
+Invalid response from OpenAI API
+Invalid response from OpenAI API
+Invalid response from OpenAI API
+limit_async: Error in decorated function: RetryError[<Future at 0x1f64e623620 state=finished raised InvalidResponseError>]
+Failed to extract entities and relationships: RetryError[<Future at 0x1f64e623620 state=finished raised InvalidResponseError>]
+Failed to extrat document doc-ffbfdfc92426ea7b0a437555f6066a1f: Traceback (most recent call last):
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\tenacity\asyncio\__init__.py", line 114, in __call__
+    result = await fn(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\llm\openai.py", line 271, in openai_complete_if_cache   
+    raise InvalidResponseError("Invalid response from OpenAI API")
+lightrag.llm.openai.InvalidResponseError: Invalid response from OpenAI API
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\lightrag.py", line 990, in process_document
+    await asyncio.gather(*tasks)
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\lightrag.py", line 1168, in _process_entity_relation_graph
+    raise e
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\lightrag.py", line 1154, in _process_entity_relation_graph
+    chunk_results = await extract_entities(
+                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\operate.py", line 832, in extract_entities
+    raise task.exception()
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\operate.py", line 808, in _process_with_semaphore       
+    return await _process_single_content(chunk)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\operate.py", line 733, in _process_single_content       
+    final_result = await use_llm_func_with_cache(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\utils.py", line 1614, in use_llm_func_with_cache        
+    res: str = await use_llm_func(input_text, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\utils.py", line 544, in wait_func
+    return await future
+           ^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\utils.py", line 328, in worker
+    result = await func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\app_gradio_lightrag.py", line 133, in _llm_model_func
+    return await openai_complete_if_cache(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\tenacity\asyncio\__init__.py", line 189, in async_wrapped        
+    return await copy(fn, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\tenacity\asyncio\__init__.py", line 111, in __call__
+    do = await self.iter(retry_state=retry_state)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\tenacity\asyncio\__init__.py", line 153, in iter
+    result = await action(retry_state)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\tenacity\_utils.py", line 99, in inner
+    return call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\tenacity\__init__.py", line 421, in exc_check
+    raise retry_exc from fut.exception()
+tenacity.RetryError: RetryError[<Future at 0x1f64e623620 state=finished raised InvalidResponseError>]
+
+Invalid response from OpenAI API
+Invalid response from OpenAI API
+limit_async: Error in decorated function: RetryError[<Future at 0x1f6528a62d0 state=finished raised InvalidResponseError>]
+Invalid response from OpenAI API
+Invalid response from OpenAI API
+Invalid response from OpenAI API
+limit_async: Error in decorated function: RetryError[<Future at 0x1f64deb9b20 state=finished raised InvalidResponseError>]
+Invalid response from OpenAI API
+Invalid response from OpenAI API
+Invalid response from OpenAI API
+limit_async: Error in decorated function: RetryError[<Future at 0x1f6556c5d30 state=finished raised InvalidResponseError>]
+Failed to extract entities and relationships: RetryError[<Future at 0x1f6556c5d30 state=finished raised InvalidResponseError>]
+Failed to extrat document doc-f489721a8973148eab8fdfd0931a49fe: Traceback (most recent call last):
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\tenacity\asyncio\__init__.py", line 114, in __call__
+    result = await fn(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\llm\openai.py", line 271, in openai_complete_if_cache   
+    raise InvalidResponseError("Invalid response from OpenAI API")
+lightrag.llm.openai.InvalidResponseError: Invalid response from OpenAI API
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\lightrag.py", line 990, in process_document
+    await asyncio.gather(*tasks)
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\lightrag.py", line 1168, in _process_entity_relation_graph
+    raise e
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\lightrag.py", line 1154, in _process_entity_relation_graph
+    chunk_results = await extract_entities(
+                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\operate.py", line 832, in extract_entities
+    raise task.exception()
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\operate.py", line 808, in _process_with_semaphore       
+    return await _process_single_content(chunk)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\operate.py", line 733, in _process_single_content       
+    final_result = await use_llm_func_with_cache(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\utils.py", line 1614, in use_llm_func_with_cache        
+    res: str = await use_llm_func(input_text, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\utils.py", line 544, in wait_func
+    return await future
+           ^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\utils.py", line 328, in worker
+    result = await func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\app_gradio_lightrag.py", line 133, in _llm_model_func
+    return await openai_complete_if_cache(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\tenacity\asyncio\__init__.py", line 189, in async_wrapped        
+    return await copy(fn, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\tenacity\asyncio\__init__.py", line 111, in __call__
+    do = await self.iter(retry_state=retry_state)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\tenacity\asyncio\__init__.py", line 153, in iter
+    result = await action(retry_state)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\tenacity\_utils.py", line 99, in inner
+    return call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\tenacity\__init__.py", line 421, in exc_check
+    raise retry_exc from fut.exception()
+tenacity.RetryError: RetryError[<Future at 0x1f6556c5d30 state=finished raised InvalidResponseError>]
+
+Invalid response from OpenAI API
+Invalid response from OpenAI API
+Invalid response from OpenAI API
+limit_async: Error in decorated function: RetryError[<Future at 0x1f6528a6840 state=finished raised InvalidResponseError>]
+Invalid response from OpenAI API
+Invalid response from OpenAI API
+Invalid response from OpenAI API
+limit_async: Error in decorated function: RetryError[<Future at 0x1f6556bb7d0 state=finished raised InvalidResponseError>]
+Invalid response from OpenAI API
+Invalid response from OpenAI API
+limit_async: Error in decorated function: RetryError[<Future at 0x1f64e5f6120 state=finished raised InvalidResponseError>]
+Failed to extract entities and relationships: RetryError[<Future at 0x1f64e5f6120 state=finished raised InvalidResponseError>]
+Failed to extrat document doc-8df300e1a1180c2396364be49e925a16: Traceback (most recent call last):
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\tenacity\asyncio\__init__.py", line 114, in __call__
+    result = await fn(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\llm\openai.py", line 271, in openai_complete_if_cache   
+    raise InvalidResponseError("Invalid response from OpenAI API")
+lightrag.llm.openai.InvalidResponseError: Invalid response from OpenAI API
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\lightrag.py", line 990, in process_document
+    await asyncio.gather(*tasks)
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\lightrag.py", line 1168, in _process_entity_relation_graph
+    raise e
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\lightrag.py", line 1154, in _process_entity_relation_graph
+    chunk_results = await extract_entities(
+                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\operate.py", line 832, in extract_entities
+    raise task.exception()
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\operate.py", line 808, in _process_with_semaphore       
+    return await _process_single_content(chunk)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\operate.py", line 733, in _process_single_content       
+    final_result = await use_llm_func_with_cache(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\utils.py", line 1614, in use_llm_func_with_cache        
+    res: str = await use_llm_func(input_text, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\utils.py", line 544, in wait_func
+    return await future
+           ^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\utils.py", line 328, in worker
+    result = await func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\app_gradio_lightrag.py", line 133, in _llm_model_func
+    return await openai_complete_if_cache(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\tenacity\asyncio\__init__.py", line 189, in async_wrapped        
+    return await copy(fn, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\tenacity\asyncio\__init__.py", line 111, in __call__
+    do = await self.iter(retry_state=retry_state)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\tenacity\asyncio\__init__.py", line 153, in iter
+    result = await action(retry_state)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\tenacity\_utils.py", line 99, in inner
+    return call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\tenacity\__init__.py", line 421, in exc_check
+    raise retry_exc from fut.exception()
+tenacity.RetryError: RetryError[<Future at 0x1f64e5f6120 state=finished raised InvalidResponseError>]
+
+Invalid response from OpenAI API
+Invalid response from OpenAI API
+INFO:openai._base_client:Retrying request to /embeddings in 0.422294 seconds
+Invalid response from OpenAI API
+limit_async: Error in decorated function: RetryError[<Future at 0x1f6525a0590 state=finished raised InvalidResponseError>]
+Invalid response from OpenAI API
+Invalid response from OpenAI API
+Invalid response from OpenAI API
+limit_async: Error in decorated function: RetryError[<Future at 0x1f6556396a0 state=finished raised InvalidResponseError>]
+Failed to extract entities and relationships: RetryError[<Future at 0x1f6556396a0 state=finished raised InvalidResponseError>]
+Failed to extrat document doc-a97b8af842e5d53b5c7360718cfd0641: Traceback (most recent call last):
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\tenacity\asyncio\__init__.py", line 114, in __call__
+    result = await fn(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\llm\openai.py", line 271, in openai_complete_if_cache   
+    raise InvalidResponseError("Invalid response from OpenAI API")
+lightrag.llm.openai.InvalidResponseError: Invalid response from OpenAI API
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\lightrag.py", line 990, in process_document
+    await asyncio.gather(*tasks)
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\lightrag.py", line 1168, in _process_entity_relation_graph
+    raise e
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\lightrag.py", line 1154, in _process_entity_relation_graph
+    chunk_results = await extract_entities(
+                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\operate.py", line 832, in extract_entities
+    raise task.exception()
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\operate.py", line 808, in _process_with_semaphore       
+    return await _process_single_content(chunk)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\operate.py", line 733, in _process_single_content       
+    final_result = await use_llm_func_with_cache(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\utils.py", line 1614, in use_llm_func_with_cache        
+    res: str = await use_llm_func(input_text, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\utils.py", line 544, in wait_func
+    return await future
+           ^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\utils.py", line 328, in worker
+    result = await func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\app_gradio_lightrag.py", line 133, in _llm_model_func
+    return await openai_complete_if_cache(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\tenacity\asyncio\__init__.py", line 189, in async_wrapped        
+    return await copy(fn, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\tenacity\asyncio\__init__.py", line 111, in __call__
+    do = await self.iter(retry_state=retry_state)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\tenacity\asyncio\__init__.py", line 153, in iter
+    result = await action(retry_state)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\tenacity\_utils.py", line 99, in inner
+    return call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\tenacity\__init__.py", line 421, in exc_check
+    raise retry_exc from fut.exception()
+tenacity.RetryError: RetryError[<Future at 0x1f6556396a0 state=finished raised InvalidResponseError>]
+
+Invalid response from OpenAI API
+Invalid response from OpenAI API
+Invalid response from OpenAI API
+limit_async: Error in decorated function: RetryError[<Future at 0x1f64e115b20 state=finished raised InvalidResponseError>]
+Invalid response from OpenAI API
+Invalid response from OpenAI API
+INFO:openai._base_client:Retrying request to /embeddings in 0.499549 seconds
+INFO:openai._base_client:Retrying request to /embeddings in 0.769309 seconds
+INFO:openai._base_client:Retrying request to /chat/completions in 0.419234 seconds
+Invalid response from OpenAI API
+Invalid response from OpenAI API
+INFO:openai._base_client:Retrying request to /chat/completions in 0.420988 seconds
+Invalid response from OpenAI API
+limit_async: Error in decorated function: RetryError[<Future at 0x1f6527e1820 state=finished raised InvalidResponseError>]
+Invalid response from OpenAI API
+Invalid response from OpenAI API
+INFO:openai._base_client:Retrying request to /embeddings in 0.379338 seconds
+Invalid response from OpenAI API
+limit_async: Error in decorated function: RetryError[<Future at 0x1f650977980 state=finished raised InvalidResponseError>]
+Failed to extract entities and relationships: RetryError[<Future at 0x1f650977980 state=finished raised InvalidResponseError>]
+Failed to extrat document doc-9eadb646c4355417caddb6475cfaf814: Traceback (most recent call last):
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\tenacity\asyncio\__init__.py", line 114, in __call__
+    result = await fn(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\llm\openai.py", line 271, in openai_complete_if_cache   
+    raise InvalidResponseError("Invalid response from OpenAI API")
+lightrag.llm.openai.InvalidResponseError: Invalid response from OpenAI API
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\lightrag.py", line 990, in process_document
+    await asyncio.gather(*tasks)
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\lightrag.py", line 1168, in _process_entity_relation_graph
+    raise e
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\lightrag.py", line 1154, in _process_entity_relation_graph
+    chunk_results = await extract_entities(
+                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\operate.py", line 832, in extract_entities
+    raise task.exception()
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\operate.py", line 808, in _process_with_semaphore       
+    return await _process_single_content(chunk)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\operate.py", line 733, in _process_single_content       
+    final_result = await use_llm_func_with_cache(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\utils.py", line 1614, in use_llm_func_with_cache        
+    res: str = await use_llm_func(input_text, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\utils.py", line 544, in wait_func
+    return await future
+           ^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\utils.py", line 328, in worker
+    result = await func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\app_gradio_lightrag.py", line 133, in _llm_model_func
+    return await openai_complete_if_cache(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\tenacity\asyncio\__init__.py", line 189, in async_wrapped        
+    return await copy(fn, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\tenacity\asyncio\__init__.py", line 111, in __call__
+    do = await self.iter(retry_state=retry_state)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\tenacity\asyncio\__init__.py", line 153, in iter
+    result = await action(retry_state)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\tenacity\_utils.py", line 99, in inner
+    return call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\tenacity\__init__.py", line 421, in exc_check
+    raise retry_exc from fut.exception()
+tenacity.RetryError: RetryError[<Future at 0x1f650977980 state=finished raised InvalidResponseError>]
+
+Invalid response from OpenAI API
+Invalid response from OpenAI API
+Invalid response from OpenAI API
+limit_async: Error in decorated function: RetryError[<Future at 0x1f65562d790 state=finished raised InvalidResponseError>]
+Invalid response from OpenAI API
+Invalid response from OpenAI API
+INFO:openai._base_client:Retrying request to /chat/completions in 0.410176 seconds
+Invalid response from OpenAI API
+INFO:openai._base_client:Retrying request to /embeddings in 0.853570 seconds
+INFO:openai._base_client:Retrying request to /chat/completions in 0.376756 seconds
+Invalid response from OpenAI API
+limit_async: Error in decorated function: RetryError[<Future at 0x1f652543d10 state=finished raised InvalidResponseError>]
+Invalid response from OpenAI API
+Invalid response from OpenAI API
+Invalid response from OpenAI API
+Invalid response from OpenAI API
+limit_async: Error in decorated function: RetryError[<Future at 0x1f652566360 state=finished raised InvalidResponseError>]
+Invalid response from OpenAI API
+Invalid response from OpenAI API
+Invalid response from OpenAI API
+limit_async: Error in decorated function: RetryError[<Future at 0x1f651860200 state=finished raised InvalidResponseError>]
+Failed to extract entities and relationships: RetryError[<Future at 0x1f651860200 state=finished raised InvalidResponseError>]
+Failed to extrat document doc-f9d967c53e9f2e581334ed9428bde6ca: Traceback (most recent call last):
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\tenacity\asyncio\__init__.py", line 114, in __call__
+    result = await fn(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\llm\openai.py", line 271, in openai_complete_if_cache   
+    raise InvalidResponseError("Invalid response from OpenAI API")
+lightrag.llm.openai.InvalidResponseError: Invalid response from OpenAI API
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\lightrag.py", line 990, in process_document
+    await asyncio.gather(*tasks)
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\lightrag.py", line 1168, in _process_entity_relation_graph
+    raise e
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\lightrag.py", line 1154, in _process_entity_relation_graph
+    chunk_results = await extract_entities(
+                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\operate.py", line 832, in extract_entities
+    raise task.exception()
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\operate.py", line 808, in _process_with_semaphore       
+    return await _process_single_content(chunk)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\operate.py", line 733, in _process_single_content       
+    final_result = await use_llm_func_with_cache(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\utils.py", line 1614, in use_llm_func_with_cache        
+    res: str = await use_llm_func(input_text, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\utils.py", line 544, in wait_func
+    return await future
+           ^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\utils.py", line 328, in worker
+    result = await func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\app_gradio_lightrag.py", line 133, in _llm_model_func
+    return await openai_complete_if_cache(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\tenacity\asyncio\__init__.py", line 189, in async_wrapped        
+    return await copy(fn, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\tenacity\asyncio\__init__.py", line 111, in __call__
+    do = await self.iter(retry_state=retry_state)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\tenacity\asyncio\__init__.py", line 153, in iter
+    result = await action(retry_state)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\tenacity\_utils.py", line 99, in inner
+    return call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\tenacity\__init__.py", line 421, in exc_check
+    raise retry_exc from fut.exception()
+tenacity.RetryError: RetryError[<Future at 0x1f651860200 state=finished raised InvalidResponseError>]
+
+Invalid response from OpenAI API
+Invalid response from OpenAI API
+Invalid response from OpenAI API
+limit_async: Error in decorated function: RetryError[<Future at 0x1f6528d0230 state=finished raised InvalidResponseError>]
+Invalid response from OpenAI API
+limit_async: Error in decorated function: RetryError[<Future at 0x1f655666600 state=finished raised InvalidResponseError>]
+Invalid response from OpenAI API
+Invalid response from OpenAI API
+limit_async: Error in decorated function: RetryError[<Future at 0x1f6525dd820 state=finished raised InvalidResponseError>]
+Invalid response from OpenAI API
+Invalid response from OpenAI API
+Invalid response from OpenAI API
+Invalid response from OpenAI API
+limit_async: Error in decorated function: RetryError[<Future at 0x1f6517f9280 state=finished raised InvalidResponseError>]
+Failed to extract entities and relationships: RetryError[<Future at 0x1f6517f9280 state=finished raised InvalidResponseError>]
+Failed to extrat document doc-f8b2dca12f2fd13fb6f027fa1b0e5981: Traceback (most recent call last):
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\tenacity\asyncio\__init__.py", line 114, in __call__
+    result = await fn(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\llm\openai.py", line 271, in openai_complete_if_cache   
+    raise InvalidResponseError("Invalid response from OpenAI API")
+lightrag.llm.openai.InvalidResponseError: Invalid response from OpenAI API
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\lightrag.py", line 990, in process_document
+    await asyncio.gather(*tasks)
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\lightrag.py", line 1168, in _process_entity_relation_graph
+    raise e
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\lightrag.py", line 1154, in _process_entity_relation_graph
+    chunk_results = await extract_entities(
+                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\operate.py", line 832, in extract_entities
+    raise task.exception()
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\operate.py", line 808, in _process_with_semaphore       
+    return await _process_single_content(chunk)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\operate.py", line 748, in _process_single_content       
+    glean_result = await use_llm_func_with_cache(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\utils.py", line 1614, in use_llm_func_with_cache        
+    res: str = await use_llm_func(input_text, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\utils.py", line 544, in wait_func
+    return await future
+           ^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\utils.py", line 328, in worker
+    result = await func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\app_gradio_lightrag.py", line 133, in _llm_model_func
+    return await openai_complete_if_cache(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\tenacity\asyncio\__init__.py", line 189, in async_wrapped        
+    return await copy(fn, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\tenacity\asyncio\__init__.py", line 111, in __call__
+    do = await self.iter(retry_state=retry_state)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\tenacity\asyncio\__init__.py", line 153, in iter
+    result = await action(retry_state)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\tenacity\_utils.py", line 99, in inner
+    return call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\tenacity\__init__.py", line 421, in exc_check
+    raise retry_exc from fut.exception()
+tenacity.RetryError: RetryError[<Future at 0x1f6517f9280 state=finished raised InvalidResponseError>]
+
+Invalid response from OpenAI API
+Invalid response from OpenAI API
+limit_async: Error in decorated function: RetryError[<Future at 0x1f64e632540 state=finished raised InvalidResponseError>]
+Invalid response from OpenAI API
+Invalid response from OpenAI API
+Invalid response from OpenAI API
+Invalid response from OpenAI API
+limit_async: Error in decorated function: RetryError[<Future at 0x1f652567da0 state=finished raised InvalidResponseError>]
+Invalid response from OpenAI API
+Invalid response from OpenAI API
+Invalid response from OpenAI API
+limit_async: Error in decorated function: RetryError[<Future at 0x1f650947200 state=finished raised InvalidResponseError>]
+Failed to extract entities and relationships: RetryError[<Future at 0x1f650947200 state=finished raised InvalidResponseError>]
+Failed to extrat document doc-8d9f1c2154bc03d13ad2583ff23573d5: Traceback (most recent call last):
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\tenacity\asyncio\__init__.py", line 114, in __call__
+    result = await fn(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\llm\openai.py", line 271, in openai_complete_if_cache   
+    raise InvalidResponseError("Invalid response from OpenAI API")
+lightrag.llm.openai.InvalidResponseError: Invalid response from OpenAI API
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\lightrag.py", line 990, in process_document
+    await asyncio.gather(*tasks)
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\lightrag.py", line 1168, in _process_entity_relation_graph
+    raise e
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\lightrag.py", line 1154, in _process_entity_relation_graph
+    chunk_results = await extract_entities(
+                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\operate.py", line 832, in extract_entities
+    raise task.exception()
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\operate.py", line 808, in _process_with_semaphore       
+    return await _process_single_content(chunk)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\operate.py", line 733, in _process_single_content       
+    final_result = await use_llm_func_with_cache(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\utils.py", line 1614, in use_llm_func_with_cache        
+    res: str = await use_llm_func(input_text, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\utils.py", line 544, in wait_func
+    return await future
+           ^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\utils.py", line 328, in worker
+    result = await func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\app_gradio_lightrag.py", line 133, in _llm_model_func
+    return await openai_complete_if_cache(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\tenacity\asyncio\__init__.py", line 189, in async_wrapped        
+    return await copy(fn, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\tenacity\asyncio\__init__.py", line 111, in __call__
+    do = await self.iter(retry_state=retry_state)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\tenacity\asyncio\__init__.py", line 153, in iter
+    result = await action(retry_state)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\tenacity\_utils.py", line 99, in inner
+    return call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\tenacity\__init__.py", line 421, in exc_check
+    raise retry_exc from fut.exception()
+tenacity.RetryError: RetryError[<Future at 0x1f650947200 state=finished raised InvalidResponseError>]
+
+Invalid response from OpenAI API
+Invalid response from OpenAI API
+Invalid response from OpenAI API
+limit_async: Error in decorated function: RetryError[<Future at 0x1f64e224770 state=finished raised InvalidResponseError>]
+Invalid response from OpenAI API
+Invalid response from OpenAI API
+Invalid response from OpenAI API
+limit_async: Error in decorated function: RetryError[<Future at 0x1f64e5cf050 state=finished raised InvalidResponseError>]
+Failed to extract entities and relationships: RetryError[<Future at 0x1f64e5cf050 state=finished raised InvalidResponseError>]
+Failed to extrat document doc-f1107827ac6a5ba31fa7c6b221694515: Traceback (most recent call last):
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\tenacity\asyncio\__init__.py", line 114, in __call__
+    result = await fn(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\llm\openai.py", line 271, in openai_complete_if_cache   
+    raise InvalidResponseError("Invalid response from OpenAI API")
+lightrag.llm.openai.InvalidResponseError: Invalid response from OpenAI API
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\lightrag.py", line 990, in process_document
+    await asyncio.gather(*tasks)
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\lightrag.py", line 1168, in _process_entity_relation_graph
+    raise e
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\lightrag.py", line 1154, in _process_entity_relation_graph
+    chunk_results = await extract_entities(
+                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\operate.py", line 832, in extract_entities
+    raise task.exception()
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\operate.py", line 808, in _process_with_semaphore       
+    return await _process_single_content(chunk)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\operate.py", line 748, in _process_single_content       
+    glean_result = await use_llm_func_with_cache(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\utils.py", line 1614, in use_llm_func_with_cache        
+    res: str = await use_llm_func(input_text, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\utils.py", line 544, in wait_func
+    return await future
+           ^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\utils.py", line 328, in worker
+    result = await func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\app_gradio_lightrag.py", line 133, in _llm_model_func
+    return await openai_complete_if_cache(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\tenacity\asyncio\__init__.py", line 189, in async_wrapped        
+    return await copy(fn, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\tenacity\asyncio\__init__.py", line 111, in __call__
+    do = await self.iter(retry_state=retry_state)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\tenacity\asyncio\__init__.py", line 153, in iter
+    result = await action(retry_state)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\tenacity\_utils.py", line 99, in inner
+    return call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\tenacity\__init__.py", line 421, in exc_check
+    raise retry_exc from fut.exception()
+tenacity.RetryError: RetryError[<Future at 0x1f64e5cf050 state=finished raised InvalidResponseError>]
+
+Invalid response from OpenAI API
+Invalid response from OpenAI API
+Invalid response from OpenAI API
+limit_async: Error in decorated function: RetryError[<Future at 0x1f64e1d8f50 state=finished raised InvalidResponseError>]
+Invalid response from OpenAI API
+Invalid response from OpenAI API
+INFO:openai._base_client:Retrying request to /chat/completions in 0.472093 seconds
+Invalid response from OpenAI API
+limit_async: Error in decorated function: RetryError[<Future at 0x1f64e5ce660 state=finished raised InvalidResponseError>]
+Invalid response from OpenAI API
+INFO:openai._base_client:Retrying request to /embeddings in 0.858953 seconds
+Invalid response from OpenAI API
+Invalid response from OpenAI API
+limit_async: Error in decorated function: RetryError[<Future at 0x1f65288a9f0 state=finished raised InvalidResponseError>]
+Invalid response from OpenAI API
+Invalid response from OpenAI API
+limit_async: Error in decorated function: RetryError[<Future at 0x1f6558ac1d0 state=finished raised InvalidResponseError>]
+Failed to extract entities and relationships: RetryError[<Future at 0x1f6558ac1d0 state=finished raised InvalidResponseError>]
+Failed to extrat document doc-026b7401b78dc555787846c71557a304: Traceback (most recent call last):
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\tenacity\asyncio\__init__.py", line 114, in __call__
+    result = await fn(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\llm\openai.py", line 271, in openai_complete_if_cache   
+    raise InvalidResponseError("Invalid response from OpenAI API")
+lightrag.llm.openai.InvalidResponseError: Invalid response from OpenAI API
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\lightrag.py", line 990, in process_document
+    await asyncio.gather(*tasks)
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\lightrag.py", line 1168, in _process_entity_relation_graph
+    raise e
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\lightrag.py", line 1154, in _process_entity_relation_graph
+    chunk_results = await extract_entities(
+                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\operate.py", line 832, in extract_entities
+    raise task.exception()
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\operate.py", line 808, in _process_with_semaphore       
+    return await _process_single_content(chunk)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\operate.py", line 733, in _process_single_content       
+    final_result = await use_llm_func_with_cache(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\utils.py", line 1614, in use_llm_func_with_cache        
+    res: str = await use_llm_func(input_text, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\utils.py", line 544, in wait_func
+    return await future
+           ^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\utils.py", line 328, in worker
+    result = await func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\app_gradio_lightrag.py", line 133, in _llm_model_func
+    return await openai_complete_if_cache(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\tenacity\asyncio\__init__.py", line 189, in async_wrapped        
+    return await copy(fn, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\tenacity\asyncio\__init__.py", line 111, in __call__
+    do = await self.iter(retry_state=retry_state)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\tenacity\asyncio\__init__.py", line 153, in iter
+    result = await action(retry_state)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\tenacity\_utils.py", line 99, in inner
+    return call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\tenacity\__init__.py", line 421, in exc_check
+    raise retry_exc from fut.exception()
+tenacity.RetryError: RetryError[<Future at 0x1f6558ac1d0 state=finished raised InvalidResponseError>]
+
+Invalid response from OpenAI API
+Invalid response from OpenAI API
+Invalid response from OpenAI API
+Invalid response from OpenAI API
+limit_async: Error in decorated function: RetryError[<Future at 0x1f64e20fce0 state=finished raised InvalidResponseError>]
+Invalid response from OpenAI API
+Invalid response from OpenAI API
+limit_async: Error in decorated function: RetryError[<Future at 0x1f64e5cdd90 state=finished raised InvalidResponseError>]
+Failed to extract entities and relationships: RetryError[<Future at 0x1f64e5cdd90 state=finished raised InvalidResponseError>]
+Failed to extrat document doc-89770f1fb5ecf790f77e1bed87947716: Traceback (most recent call last):
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\tenacity\asyncio\__init__.py", line 114, in __call__
+    result = await fn(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\llm\openai.py", line 271, in openai_complete_if_cache   
+    raise InvalidResponseError("Invalid response from OpenAI API")
+lightrag.llm.openai.InvalidResponseError: Invalid response from OpenAI API
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\lightrag.py", line 990, in process_document
+    await asyncio.gather(*tasks)
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\lightrag.py", line 1168, in _process_entity_relation_graph
+    raise e
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\lightrag.py", line 1154, in _process_entity_relation_graph
+    chunk_results = await extract_entities(
+                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\operate.py", line 832, in extract_entities
+    raise task.exception()
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\operate.py", line 808, in _process_with_semaphore       
+    return await _process_single_content(chunk)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\operate.py", line 733, in _process_single_content       
+    final_result = await use_llm_func_with_cache(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\utils.py", line 1614, in use_llm_func_with_cache        
+    res: str = await use_llm_func(input_text, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\utils.py", line 544, in wait_func
+    return await future
+           ^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\utils.py", line 328, in worker
+    result = await func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\app_gradio_lightrag.py", line 133, in _llm_model_func
+    return await openai_complete_if_cache(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\tenacity\asyncio\__init__.py", line 189, in async_wrapped        
+    return await copy(fn, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\tenacity\asyncio\__init__.py", line 111, in __call__
+    do = await self.iter(retry_state=retry_state)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\tenacity\asyncio\__init__.py", line 153, in iter
+    result = await action(retry_state)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\tenacity\_utils.py", line 99, in inner
+    return call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\tenacity\__init__.py", line 421, in exc_check
+    raise retry_exc from fut.exception()
+tenacity.RetryError: RetryError[<Future at 0x1f64e5cdd90 state=finished raised InvalidResponseError>]
+
+Invalid response from OpenAI API
+Invalid response from OpenAI API
+INFO:openai._base_client:Retrying request to /embeddings in 0.499504 seconds
+Invalid response from OpenAI API
+limit_async: Error in decorated function: RetryError[<Future at 0x1f6527e2540 state=finished raised InvalidResponseError>]
+Invalid response from OpenAI API
+Invalid response from OpenAI API
+INFO:openai._base_client:Retrying request to /embeddings in 0.968772 seconds
+Invalid response from OpenAI API
+Invalid response from OpenAI API
+limit_async: Error in decorated function: RetryError[<Future at 0x1f651956600 state=finished raised InvalidResponseError>]
+Failed to extract entities and relationships: RetryError[<Future at 0x1f651956600 state=finished raised InvalidResponseError>]
+Failed to extrat document doc-ecf1f949b3adbba5fc3f6c1b8170449d: Traceback (most recent call last):
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\tenacity\asyncio\__init__.py", line 114, in __call__
+    result = await fn(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\llm\openai.py", line 271, in openai_complete_if_cache   
+    raise InvalidResponseError("Invalid response from OpenAI API")
+lightrag.llm.openai.InvalidResponseError: Invalid response from OpenAI API
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\lightrag.py", line 990, in process_document
+    await asyncio.gather(*tasks)
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\lightrag.py", line 1168, in _process_entity_relation_graph
+    raise e
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\lightrag.py", line 1154, in _process_entity_relation_graph
+    chunk_results = await extract_entities(
+                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\operate.py", line 832, in extract_entities
+    raise task.exception()
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\operate.py", line 808, in _process_with_semaphore       
+    return await _process_single_content(chunk)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\operate.py", line 733, in _process_single_content       
+    final_result = await use_llm_func_with_cache(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\utils.py", line 1614, in use_llm_func_with_cache        
+    res: str = await use_llm_func(input_text, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\utils.py", line 544, in wait_func
+    return await future
+           ^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\utils.py", line 328, in worker
+    result = await func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\app_gradio_lightrag.py", line 133, in _llm_model_func
+    return await openai_complete_if_cache(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\tenacity\asyncio\__init__.py", line 189, in async_wrapped        
+    return await copy(fn, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\tenacity\asyncio\__init__.py", line 111, in __call__
+    do = await self.iter(retry_state=retry_state)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\tenacity\asyncio\__init__.py", line 153, in iter
+    result = await action(retry_state)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\tenacity\_utils.py", line 99, in inner
+    return call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\tenacity\__init__.py", line 421, in exc_check
+    raise retry_exc from fut.exception()
+tenacity.RetryError: RetryError[<Future at 0x1f651956600 state=finished raised InvalidResponseError>]
+
+Invalid response from OpenAI API
+Invalid response from OpenAI API
+Invalid response from OpenAI API
+limit_async: Error in decorated function: RetryError[<Future at 0x1f6525657f0 state=finished raised InvalidResponseError>]
+Invalid response from OpenAI API
+INFO:openai._base_client:Retrying request to /chat/completions in 0.495195 seconds
+Keyboard interruption in main thread... closing server.
+Traceback (most recent call last):
+  File "C:\Dat\dev\Python\Python312\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\Python\Python312\Lib\asyncio\base_events.py", line 687, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+asyncio.exceptions.CancelledError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Dat\dev\aider\minirag\app_gradio_lightrag.py", line 532, in <module>
+    asyncio.run(main())
+  File "C:\Dat\dev\Python\Python312\Lib\asyncio\runners.py", line 194, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\Python\Python312\Lib\asyncio\runners.py", line 123, in run
+    raise KeyboardInterrupt()
+KeyboardInterrupt
+
+(minirag) 
+user@DESKTOP-P41D8C3 MINGW64 C:/Users/user/AppData/Local/Programs/cursor
+$
+
+
+[13May25]
+Working directory exists: ./working_folder
+LightRAG(working_dir='./working_folder', kv_storage='JsonKVStorage', vector_storage='NanoVectorDBStorage', graph_storage='NetworkXStorage', doc_status_storage='JsonDocStatusStorage', log_level=None, log_file_path=None, entity_extract_max_gleaning=1, summary_to_max_tokens=500, force_llm_summary_on_merge=6, chunk_token_size=1200, chunk_overlap_token_size=100, tokenizer=<lightrag.utils.TiktokenTokenizer object at 0x0000027031C7CFB0>, tiktoken_model_name='gpt-4o-mini', chunking_func=<function chunking_by_token_size at 0x000002702EAF7D80>, embedding_func=<function priority_limit_async_func_call.<locals>.final_decro.<locals>.wait_func at 0x0000027031FFF1A0>, embedding_batch_num=32, embedding_func_max_async=16, embedding_cache_config={'enabled': False, 'similarity_threshold': 0.95, 'use_llm_check': False}, llm_model_func=<function priority_limit_async_func_call.<locals>.final_decro.<locals>.wait_func at 0x0000027031E16480>, llm_model_name='gpt-4o-mini', llm_model_max_token_size=32768, llm_model_max_async=4, llm_model_kwargs={}, vector_db_storage_cls_kwargs={'cosine_better_than_threshold': 0.2}, namespace_prefix='', enable_llm_cache=True, enable_llm_cache_for_entity_extract=True, max_parallel_insert=2, addon_params={'language': 'English'}, auto_manage_storages_states=True, convert_response_to_json_func=<function convert_response_to_json at 0x000002702EAC6A20>, cosine_better_than_threshold=0.2, _storages_status=<StoragesStatus.INITIALIZED: 'initialized'>)
+ Initialised LightRAG with OpenAI backend
+
+[13May25]
+OpenAI API Call Failed,
+Model: Qwen3-4B-UD-Q8_K_XL_unsloth_May25,
+Params: {}, Got: <html>
+<head><title>404 Not Found</title></head>
+<body bgcolor="white" text="black">
+<center><h1>404 Not Found</h1></center>
+<hr><center>drogon/1.9.7</center>
+</body>
+</html>
+<!-- a padding to disable MSIE and Chrome friendly error page -->
+<!-- a padding to disable MSIE and Chrome friendly error page -->
+<!-- a padding to disable MSIE and Chrome friendly error page -->
+<!-- a padding to disable MSIE and Chrome friendly error page -->
+<!-- a padding to disable MSIE and Chrome friendly error page -->
+<!-- a padding to disable MSIE and Chrome friendly error page -->
+limit_async: Error in decorated function: <html>
+<head><title>404 Not Found</title></head>
+<body bgcolor="white" text="black">
+<center><h1>404 Not Found</h1></center>
+<hr><center>drogon/1.9.7</center>
+</body>
+</html>
+<!-- a padding to disable MSIE and Chrome friendly error page -->
+<!-- a padding to disable MSIE and Chrome friendly error page -->
+<!-- a padding to disable MSIE and Chrome friendly error page -->
+<!-- a padding to disable MSIE and Chrome friendly error page -->
+<!-- a padding to disable MSIE and Chrome friendly error page -->
+<!-- a padding to disable MSIE and Chrome friendly error page -->
+INFO:openai._base_client:Retrying request to /embeddings in 0.968874 seconds
+INFO:openai._base_client:Retrying request to /embeddings in 0.782456 seconds
+OpenAI API Call Failed,
+Model: Qwen3-4B-UD-Q8_K_XL_unsloth_May25,
+Params: {}, Got: <html>
+<head><title>404 Not Found</title></head>
+<body bgcolor="white" text="black">
+<center><h1>404 Not Found</h1></center>
+<hr><center>drogon/1.9.7</center>
+</body>
+
+[12May25]
+_get_llm_functions error: object method can't be used in 'await' expression
+ LightRAG initialisation.setup: cannot get llm and embed functions | object method can't be used in 'await' expression
+ LightRAG initialisation.setup failed | cannot access local variable 'llm_model_func' where it is not associated with a value
+Storage initialisation failed: 'NoneType' object has no attribute 'initialize_storages'
+ Initialised LightRAG with OpenAI backend
+
+[12May25]
+Working directory exists: ./working_folder
+LightRAG(working_dir='./working_folder', kv_storage='JsonKVStorage', vector_storage='NanoVectorDBStorage', graph_storage='NetworkXStorage', doc_status_storage='JsonDocStatusStorage', log_level=None, log_file_path=None, entity_extract_max_gleaning=1, summary_to_max_tokens=500, force_llm_summary_on_merge=6, chunk_token_size=1200, chunk_overlap_token_size=100, tokenizer=<lightrag.utils.TiktokenTokenizer object at 0x000001BBF7B9E480>, tiktoken_model_name='gpt-4o-mini', chunking_func=<function chunking_by_token_size at 0x000001BBF2377CE0>, embedding_func=<function priority_limit_async_func_call.<locals>.final_decro.<locals>.wait_func at 0x000001BBF374A020>, embedding_batch_num=32, embedding_func_max_async=16, embedding_cache_config={'enabled': False, 'similarity_threshold': 0.95, 'use_llm_check': False}, llm_model_func=<function priority_limit_async_func_call.<locals>.final_decro.<locals>.wait_func at 0x000001BBF2F967A0>, llm_model_name='gpt-4o-mini', llm_model_max_token_size=32768, llm_model_max_async=4, llm_model_kwargs={}, vector_db_storage_cls_kwargs={'cosine_better_than_threshold': 0.2}, namespace_prefix='', enable_llm_cache=True, enable_llm_cache_for_entity_extract=True, max_parallel_insert=2, addon_params={'language': 'English'}, auto_manage_storages_states=True, convert_response_to_json_func=<function convert_response_to_json at 0x000001BBF2346980>, cosine_better_than_threshold=0.2, _storages_status=<StoragesStatus.INITIALIZED: 'initialized'>)
+ Initialised LightRAG with OpenAI backend
+
+[12May25]
+$ gradio app_gradio_lightrag.py --demo-name=gradio_ui
+Watching: 'C:\Dat\dev\aider\minirag' 'C:\Dat\dev\aider\minirag'
+
+2025-05-12 20:28:17 - pipmaster.package_manager - INFO - Targeting pip associated with Python: C:\Dat\dev\aider\minirag\Scripts\python.exe | Command base: C:\Dat\dev\aider\minirag\Scripts\python.exe -m pip
+* Running on local URL:  http://127.0.0.1:7860
+* To create a public link, set `share=True` in `launch()`.
+Detected embedding dimension: 3072
+INFO: Process 23636 Shared-Data created for Single Process
+INFO:nano-vectordb:Init {'embedding_dim': 3072, 'metric': 'cosine', 'storage_file': './working_folder\\vdb_entities.json'} 0 data
+INFO:nano-vectordb:Init {'embedding_dim': 3072, 'metric': 'cosine', 'storage_file': './working_folder\\vdb_relationships.json'} 0 data
+INFO:nano-vectordb:Init {'embedding_dim': 3072, 'metric': 'cosine', 'storage_file': './working_folder\\vdb_chunks.json'} 0 data
+INFO: Process 23636 initialized updated flags for namespace: [full_docs]
+INFO: Process 23636 ready to initialize storage namespace: [full_docs]
+INFO: Process 23636 initialized updated flags for namespace: [text_chunks]
+INFO: Process 23636 ready to initialize storage namespace: [text_chunks]
+INFO: Process 23636 initialized updated flags for namespace: [entities]
+INFO: Process 23636 initialized updated flags for namespace: [relationships]
+INFO: Process 23636 initialized updated flags for namespace: [chunks]
+INFO: Process 23636 initialized updated flags for namespace: [chunk_entity_relation]       
+INFO: Process 23636 initialized updated flags for namespace: [llm_response_cache]
+INFO: Process 23636 ready to initialize storage namespace: [llm_response_cache]
+INFO: Process 23636 initialized updated flags for namespace: [doc_status]
+INFO: Process 23636 ready to initialize storage namespace: [doc_status]
+INFO: Process 23636 storage namespace already initialized: [full_docs]
+INFO: Process 23636 storage namespace already initialized: [text_chunks]
+INFO: Process 23636 storage namespace already initialized: [llm_response_cache]
+INFO: Process 23636 storage namespace already initialized: [doc_status]
+INFO: Process 23636 Pipeline namespace initialized
+
+[12May25]
+$ python app_gradio_lightrag.py 
+2025-05-12 20:48:59 - pipmaster.package_manager - INFO - Targeting pip associated with Python: C:\Dat\dev\aider\minirag\Scripts\python.exe | Command base: C:\Dat\dev\aider\minirag\Scripts\python.exe -m pip
+* Running on local URL:  http://127.0.0.1:7860
+* To create a public link, set `share=True` in `launch()`.
+Detected embedding dimension: 3072
+INFO: Process 25976 Shared-Data created for Single Process
+INFO:nano-vectordb:Init {'embedding_dim': 3072, 'metric': 'cosine', 'storage_file': './working_folder\\vdb_entities.json'} 0 data
+INFO:nano-vectordb:Init {'embedding_dim': 3072, 'metric': 'cosine', 'storage_file': './working_folder\\vdb_relationships.json'} 0 data
+INFO:nano-vectordb:Init {'embedding_dim': 3072, 'metric': 'cosine', 'storage_file': './working_folder\\vdb_chunks.json'} 0 data
+INFO: Process 25976 initialized updated flags for namespace: [full_docs]
+INFO: Process 25976 ready to initialize storage namespace: [full_docs]
+INFO: Process 25976 initialized updated flags for namespace: [text_chunks]
+INFO: Process 25976 ready to initialize storage namespace: [text_chunks]
+INFO: Process 25976 initialized updated flags for namespace: [entities]
+INFO: Process 25976 initialized updated flags for namespace: [relationships]
+INFO: Process 25976 initialized updated flags for namespace: [chunks]
+INFO: Process 25976 initialized updated flags for namespace: [chunk_entity_relation]       
+INFO: Process 25976 initialized updated flags for namespace: [llm_response_cache]
+INFO: Process 25976 ready to initialize storage namespace: [llm_response_cache]
+INFO: Process 25976 initialized updated flags for namespace: [doc_status]
+INFO: Process 25976 ready to initialize storage namespace: [doc_status]
+INFO: Process 25976 storage namespace already initialized: [full_docs]
+INFO: Process 25976 storage namespace already initialized: [text_chunks]
+INFO: Process 25976 storage namespace already initialized: [llm_response_cache]
+INFO: Process 25976 storage namespace already initialized: [doc_status]
+INFO: Process 25976 Pipeline namespace initialized
+INFO:openai._base_client:Retrying request to /embeddings in 0.444122 seconds
+INFO:openai._base_client:Retrying request to /embeddings in 0.387192 seconds
+INFO:openai._base_client:Retrying request to /embeddings in 0.945424 seconds
+INFO:openai._base_client:Retrying request to /embeddings in 0.753207 seconds
+INFO:openai._base_client:Retrying request to /embeddings in 0.402369 seconds
+INFO:openai._base_client:Retrying request to /embeddings in 0.377865 seconds
+INFO:openai._base_client:Retrying request to /embeddings in 0.992666 seconds
+INFO:openai._base_client:Retrying request to /embeddings in 0.892123 seconds
+INFO:openai._base_client:Retrying request to /embeddings in 0.437740 seconds
+INFO:openai._base_client:Retrying request to /embeddings in 0.412989 seconds
+INFO:openai._base_client:Retrying request to /embeddings in 0.954484 seconds
+INFO:openai._base_client:Retrying request to /embeddings in 0.778560 seconds
+limit_async: Error in decorated function: RetryError[<Future at 0x1c01719eb70 state=finished raised RateLimitError>]
+Failed to extrat document doc-f8b2dca12f2fd13fb6f027fa1b0e5981: Traceback (most recent call last):
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\tenacity\asyncio\__init__.py", line 114, in __call__
+    result = await fn(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\llm\openai.py", line 424, in openai_embed
+    response = await openai_async_client.embeddings.create(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\openai\resources\embeddings.py", line 243, in create
+    return await self._post(
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\openai\_base_client.py", line 1742, in post
+    return await self.request(cast_to, opts, stream=stream, stream_cls=stream_cls)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\openai\_base_client.py", line 1549, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.RateLimitError: Error code: 429 - {'error': {'code': 429, 'message': 'Resource has been exhausted (e.g. check quota).', 'status': 'RESOURCE_EXHAUSTED'}}
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\lightrag.py", line 990, in process_document
+    await asyncio.gather(*tasks)
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\kg\nano_vector_db_impl.py", line 109, in upsert
+    embeddings_list = await asyncio.gather(*embedding_tasks)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\utils.py", line 544, in wait_func
+    return await future
+           ^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\utils.py", line 328, in worker 
+    result = await func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\utils.py", line 203, in __call__
+    return await self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\app_gradio_lightrag.py", line 82, in _embedding_func      
+    return await openai_embed(
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\utils.py", line 203, in __call__
+    return await self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\tenacity\asyncio\__init__.py", line 189, in async_wrapped
+    return await copy(fn, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\tenacity\asyncio\__init__.py", line 111, in __call__
+    do = await self.iter(retry_state=retry_state)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\tenacity\asyncio\__init__.py", line 153, in iter
+    result = await action(retry_state)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\tenacity\_utils.py", line 99, in inner  
+    return call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\tenacity\__init__.py", line 421, in exc_check
+    raise retry_exc from fut.exception()
+tenacity.RetryError: RetryError[<Future at 0x1c01719eb70 state=finished raised RateLimitError>]
+
+limit_async: Error in decorated function: RetryError[<Future at 0x1c01719caa0 state=finished raised RateLimitError>]
+Failed to extrat document doc-8d9f1c2154bc03d13ad2583ff23573d5: Traceback (most recent call last):
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\tenacity\asyncio\__init__.py", line 114, in __call__
+    result = await fn(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\llm\openai.py", line 424, in openai_embed
+    response = await openai_async_client.embeddings.create(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\openai\resources\embeddings.py", line 243, in create
+    return await self._post(
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\openai\_base_client.py", line 1742, in post
+    return await self.request(cast_to, opts, stream=stream, stream_cls=stream_cls)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\openai\_base_client.py", line 1549, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.RateLimitError: Error code: 429 - {'error': {'code': 429, 'message': 'Resource has been exhausted (e.g. check quota).', 'status': 'RESOURCE_EXHAUSTED'}}
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\lightrag.py", line 990, in process_document
+    await asyncio.gather(*tasks)
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\kg\nano_vector_db_impl.py", line 109, in upsert
+    embeddings_list = await asyncio.gather(*embedding_tasks)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\utils.py", line 544, in wait_func
+    return await future
+           ^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\utils.py", line 328, in worker 
+    result = await func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\utils.py", line 203, in __call__
+    return await self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\app_gradio_lightrag.py", line 82, in _embedding_func      
+    return await openai_embed(
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\utils.py", line 203, in __call__
+    return await self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\tenacity\asyncio\__init__.py", line 189, in async_wrapped
+    return await copy(fn, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\tenacity\asyncio\__init__.py", line 111, in __call__
+    do = await self.iter(retry_state=retry_state)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\tenacity\asyncio\__init__.py", line 153, in iter
+    result = await action(retry_state)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\tenacity\_utils.py", line 99, in inner  
+    return call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\tenacity\__init__.py", line 421, in exc_check
+    raise retry_exc from fut.exception()
+tenacity.RetryError: RetryError[<Future at 0x1c01719caa0 state=finished raised RateLimitError>]
+
+INFO:openai._base_client:Retrying request to /embeddings in 0.377104 seconds
+INFO:openai._base_client:Retrying request to /embeddings in 0.969911 seconds
+INFO:openai._base_client:Retrying request to /embeddings in 0.416929 seconds
+INFO:openai._base_client:Retrying request to /embeddings in 0.855646 seconds
+INFO:openai._base_client:Retrying request to /embeddings in 0.486038 seconds
+INFO:openai._base_client:Retrying request to /embeddings in 0.945631 seconds
+limit_async: Error in decorated function: RetryError[<Future at 0x1c01719c320 state=finished raised RateLimitError>]
+Failed to extrat document doc-f1107827ac6a5ba31fa7c6b221694515: Traceback (most recent call last):
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\tenacity\asyncio\__init__.py", line 114, in __call__
+    result = await fn(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\llm\openai.py", line 424, in openai_embed
+    response = await openai_async_client.embeddings.create(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\openai\resources\embeddings.py", line 243, in create
+    return await self._post(
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\openai\_base_client.py", line 1742, in post
+    return await self.request(cast_to, opts, stream=stream, stream_cls=stream_cls)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\openai\_base_client.py", line 1549, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.RateLimitError: Error code: 429 - {'error': {'code': 429, 'message': 'Resource has been exhausted (e.g. check quota).', 'status': 'RESOURCE_EXHAUSTED'}}
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\lightrag.py", line 990, in process_document
+    await asyncio.gather(*tasks)
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\kg\nano_vector_db_impl.py", line 109, in upsert
+    embeddings_list = await asyncio.gather(*embedding_tasks)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\utils.py", line 544, in wait_func
+    return await future
+           ^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\utils.py", line 328, in worker 
+    result = await func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\utils.py", line 203, in __call__
+    return await self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\app_gradio_lightrag.py", line 82, in _embedding_func      
+    return await openai_embed(
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\utils.py", line 203, in __call__
+    return await self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\tenacity\asyncio\__init__.py", line 189, in async_wrapped
+    return await copy(fn, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\tenacity\asyncio\__init__.py", line 111, in __call__
+    do = await self.iter(retry_state=retry_state)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\tenacity\asyncio\__init__.py", line 153, in iter
+    result = await action(retry_state)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\tenacity\_utils.py", line 99, in inner  
+    return call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\tenacity\__init__.py", line 421, in exc_check
+    raise retry_exc from fut.exception()
+tenacity.RetryError: RetryError[<Future at 0x1c01719c320 state=finished raised RateLimitError>]
+
+INFO:openai._base_client:Retrying request to /embeddings in 0.498232 seconds
+INFO:openai._base_client:Retrying request to /embeddings in 0.755672 seconds
+INFO:openai._base_client:Retrying request to /embeddings in 0.446166 seconds
+INFO:openai._base_client:Retrying request to /embeddings in 0.931705 seconds
+INFO:openai._base_client:Retrying request to /embeddings in 0.436989 seconds
+INFO:openai._base_client:Retrying request to /embeddings in 0.935155 seconds
+limit_async: Error in decorated function: RetryError[<Future at 0x1c014e05910 state=finished raised RateLimitError>]
+Failed to extrat document doc-89770f1fb5ecf790f77e1bed87947716: Traceback (most recent call last):
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\tenacity\asyncio\__init__.py", line 114, in __call__
+    result = await fn(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\llm\openai.py", line 424, in openai_embed
+    response = await openai_async_client.embeddings.create(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\openai\resources\embeddings.py", line 243, in create
+    return await self._post(
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\openai\_base_client.py", line 1742, in post
+    return await self.request(cast_to, opts, stream=stream, stream_cls=stream_cls)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\openai\_base_client.py", line 1549, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.RateLimitError: Error code: 429 - {'error': {'code': 429, 'message': 'Resource has been exhausted (e.g. check quota).', 'status': 'RESOURCE_EXHAUSTED'}}
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\lightrag.py", line 990, in process_document
+    await asyncio.gather(*tasks)
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\kg\nano_vector_db_impl.py", line 109, in upsert
+    embeddings_list = await asyncio.gather(*embedding_tasks)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\utils.py", line 544, in wait_func
+    return await future
+           ^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\utils.py", line 328, in worker 
+    result = await func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\utils.py", line 203, in __call__
+    return await self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\app_gradio_lightrag.py", line 82, in _embedding_func      
+    return await openai_embed(
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\utils.py", line 203, in __call__
+    return await self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\tenacity\asyncio\__init__.py", line 189, in async_wrapped
+    return await copy(fn, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\tenacity\asyncio\__init__.py", line 111, in __call__
+    do = await self.iter(retry_state=retry_state)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\tenacity\asyncio\__init__.py", line 153, in iter
+    result = await action(retry_state)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\tenacity\_utils.py", line 99, in inner  
+    return call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\tenacity\__init__.py", line 421, in exc_check
+    raise retry_exc from fut.exception()
+tenacity.RetryError: RetryError[<Future at 0x1c014e05910 state=finished raised RateLimitError>]
+
+INFO:openai._base_client:Retrying request to /embeddings in 0.449529 seconds
+INFO:openai._base_client:Retrying request to /embeddings in 0.923853 seconds
+INFO:openai._base_client:Retrying request to /embeddings in 0.403065 seconds
+INFO:openai._base_client:Retrying request to /embeddings in 0.929649 seconds
+INFO:openai._base_client:Retrying request to /embeddings in 0.479705 seconds
+INFO:openai._base_client:Retrying request to /embeddings in 0.934844 seconds
+limit_async: Error in decorated function: RetryError[<Future at 0x1c014e19df0 state=finished raised RateLimitError>]
+Failed to extrat document doc-ecf1f949b3adbba5fc3f6c1b8170449d: Traceback (most recent call last):
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\tenacity\asyncio\__init__.py", line 114, in __call__
+    result = await fn(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\llm\openai.py", line 424, in openai_embed
+    response = await openai_async_client.embeddings.create(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\openai\resources\embeddings.py", line 243, in create
+    return await self._post(
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\openai\_base_client.py", line 1742, in post
+    return await self.request(cast_to, opts, stream=stream, stream_cls=stream_cls)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\openai\_base_client.py", line 1549, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.RateLimitError: Error code: 429 - {'error': {'code': 429, 'message': 'Resource has been exhausted (e.g. check quota).', 'status': 'RESOURCE_EXHAUSTED'}}
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\lightrag.py", line 990, in process_document
+    await asyncio.gather(*tasks)
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\kg\nano_vector_db_impl.py", line 109, in upsert
+    embeddings_list = await asyncio.gather(*embedding_tasks)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\utils.py", line 544, in wait_func
+    return await future
+           ^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\utils.py", line 328, in worker 
+    result = await func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\utils.py", line 203, in __call__
+    return await self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\app_gradio_lightrag.py", line 82, in _embedding_func      
+    return await openai_embed(
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\utils.py", line 203, in __call__
+    return await self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\tenacity\asyncio\__init__.py", line 189, in async_wrapped
+    return await copy(fn, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\tenacity\asyncio\__init__.py", line 111, in __call__
+    do = await self.iter(retry_state=retry_state)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\tenacity\asyncio\__init__.py", line 153, in iter
+    result = await action(retry_state)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\tenacity\_utils.py", line 99, in inner  
+    return call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\tenacity\__init__.py", line 421, in exc_check
+    raise retry_exc from fut.exception()
+tenacity.RetryError: RetryError[<Future at 0x1c014e19df0 state=finished raised RateLimitError>]
+
+INFO:openai._base_client:Retrying request to /embeddings in 0.393303 seconds
+INFO:openai._base_client:Retrying request to /embeddings in 0.765578 seconds
+INFO:openai._base_client:Retrying request to /embeddings in 0.450774 seconds
+INFO:openai._base_client:Retrying request to /embeddings in 0.909153 seconds
+INFO:openai._base_client:Retrying request to /embeddings in 0.421790 seconds
+INFO:openai._base_client:Retrying request to /embeddings in 0.793909 seconds
+limit_async: Error in decorated function: RetryError[<Future at 0x1c014dd9070 state=finished raised RateLimitError>]
+Failed to extrat document doc-109f144334b4fb3df293699326465652: Traceback (most recent call last):
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\tenacity\asyncio\__init__.py", line 114, in __call__
+    result = await fn(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\llm\openai.py", line 424, in openai_embed
+    response = await openai_async_client.embeddings.create(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\openai\resources\embeddings.py", line 243, in create
+    return await self._post(
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\openai\_base_client.py", line 1742, in post
+    return await self.request(cast_to, opts, stream=stream, stream_cls=stream_cls)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\openai\_base_client.py", line 1549, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.RateLimitError: Error code: 429 - {'error': {'code': 429, 'message': 'Resource has been exhausted (e.g. check quota).', 'status': 'RESOURCE_EXHAUSTED'}}
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\lightrag.py", line 990, in process_document
+    await asyncio.gather(*tasks)
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\kg\nano_vector_db_impl.py", line 109, in upsert
+    embeddings_list = await asyncio.gather(*embedding_tasks)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\utils.py", line 544, in wait_func
+    return await future
+           ^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\utils.py", line 328, in worker 
+    result = await func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\utils.py", line 203, in __call__
+    return await self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\app_gradio_lightrag.py", line 82, in _embedding_func      
+    return await openai_embed(
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\utils.py", line 203, in __call__
+    return await self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\tenacity\asyncio\__init__.py", line 189, in async_wrapped
+    return await copy(fn, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\tenacity\asyncio\__init__.py", line 111, in __call__
+    do = await self.iter(retry_state=retry_state)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\tenacity\asyncio\__init__.py", line 153, in iter
+    result = await action(retry_state)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\tenacity\_utils.py", line 99, in inner  
+    return call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\tenacity\__init__.py", line 421, in exc_check
+    raise retry_exc from fut.exception()
+tenacity.RetryError: RetryError[<Future at 0x1c014dd9070 state=finished raised RateLimitError>]
+
+... ... ...
+
+ERROR:asyncio:Task exception was never retrieved
+future: <Task finished name='Task-188' coro=<extract_entities.<locals>._process_with_semaphore() done, defined at C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\operate.py:806> exception=RetryError(<Future at 0x1c017c69310 state=finished raised RateLimitError>)>
+Traceback (most recent call last):
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\tenacity\asyncio\__init__.py", line 114, in __call__
+    result = await fn(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\llm\openai.py", line 185, in openai_complete_if_cache
+    response = await openai_async_client.chat.completions.create(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\openai\resources\chat\completions\completions.py", line 2028, in create
+    return await self._post(
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\openai\_base_client.py", line 1742, in post
+    return await self.request(cast_to, opts, stream=stream, stream_cls=stream_cls)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\openai\_base_client.py", line 1549, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.RateLimitError: Error code: 429 - [{'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.0-pro-exp'}, 'quotaValue': '25'}]}, {'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '24s'}]}}]
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\operate.py", line 808, in _process_with_semaphore
+    return await _process_single_content(chunk)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\operate.py", line 748, in _process_single_content
+    glean_result = await use_llm_func_with_cache(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\utils.py", line 1614, in use_llm_func_with_cache
+    res: str = await use_llm_func(input_text, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\utils.py", line 544, in wait_func
+    return await future
+           ^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\utils.py", line 328, in worker  
+    result = await func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\app_gradio_lightrag.py", line 122, in _llm_model_func      
+    return await openai_complete_if_cache(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\tenacity\asyncio\__init__.py", line 189, in async_wrapped
+    return await copy(fn, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\tenacity\asyncio\__init__.py", line 111, in __call__
+    do = await self.iter(retry_state=retry_state)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\tenacity\asyncio\__init__.py", line 153, in iter
+    result = await action(retry_state)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\tenacity\_utils.py", line 99, in inner   
+    return call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\tenacity\__init__.py", line 421, in exc_check
+    raise retry_exc from fut.exception()
+tenacity.RetryError: RetryError[<Future at 0x1c017c69310 state=finished raised RateLimitError>]
+ERROR:asyncio:Task exception was never retrieved
+future: <Task finished name='Task-187' coro=<extract_entities.<locals>._process_with_semaphore() done, defined at C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\operate.py:806> exception=RetryError(<Future at 0x1c017b2a360 state=finished raised RateLimitError>)>
+Traceback (most recent call last):
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\tenacity\asyncio\__init__.py", line 114, in __call__
+    result = await fn(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\llm\openai.py", line 185, in openai_complete_if_cache
+    response = await openai_async_client.chat.completions.create(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\openai\resources\chat\completions\completions.py", line 2028, in create
+    return await self._post(
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\openai\_base_client.py", line 1742, in post
+    return await self.request(cast_to, opts, stream=stream, stream_cls=stream_cls)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\openai\_base_client.py", line 1549, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.RateLimitError: Error code: 429 - [{'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.0-pro-exp'}, 'quotaValue': '25'}]}, {'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '44s'}]}}]
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\operate.py", line 808, in _process_with_semaphore
+    return await _process_single_content(chunk)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\operate.py", line 748, in _process_single_content
+    glean_result = await use_llm_func_with_cache(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\utils.py", line 1614, in use_llm_func_with_cache
+    res: str = await use_llm_func(input_text, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\utils.py", line 544, in wait_func
+    return await future
+           ^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\lightrag\utils.py", line 328, in worker  
+    result = await func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\app_gradio_lightrag.py", line 122, in _llm_model_func      
+    return await openai_complete_if_cache(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\tenacity\asyncio\__init__.py", line 189, in async_wrapped
+    return await copy(fn, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\tenacity\asyncio\__init__.py", line 111, in __call__
+    do = await self.iter(retry_state=retry_state)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\tenacity\asyncio\__init__.py", line 153, in iter
+    result = await action(retry_state)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\tenacity\_utils.py", line 99, in inner   
+    return call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Dat\dev\aider\minirag\Lib\site-packages\tenacity\__init__.py", line 421, in exc_check
+    raise retry_exc from fut.exception()
+tenacity.RetryError: RetryError[<Future at 0x1c017b2a360 state=finished raised RateLimitError>]
+
+[12May25]
