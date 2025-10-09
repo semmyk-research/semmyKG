@@ -1,6 +1,6 @@
 ---
 # metadata
-title: semmyKG - Knowledge Graph visualiser builder toolkit (from markdown)
+title: semmyKG - Knowledge Graph visualiser toolkit (builder from markdown)
 emoji: 🕸️
 colorFrom: yellow
 colorTo: purple
@@ -27,7 +27,7 @@ owner: research-semmyk
 #---
 
 #short_description: PDF & HTML parser to markdown
-version: 0.1.0
+version: 0.1.1
 readme: README.md
 requires-python: ">=3.12"
 #dependencies: []
@@ -50,6 +50,14 @@ A modern, modular Gradio app for knowledge graph-based Retrieval-Augmented Gener
 
 ### 1. Clone and create venv
 ```bash
+git clone https://github.com/semmyk-research/semmyKG
+cd semmyKG
+
+uv venv .venv              # ensure you have the uv package
+source .venv/bin/activate  # or .venv\Scripts\activate on Windows
+uv pip sync                # or uv pip sync requirements.txt
+
+or 
 python -m venv .venv
 source .venv/bin/activate  # or .venv\Scripts\activate on Windows
 pip install -r requirements.txt
