@@ -14,7 +14,7 @@ oauth_scopes: [read-access]
 hf_oauth_scopes: [inference-api]
 license: mit
 pinned: true
-short_description: semmyKG - Knowledge Graph builder toolkit (from markdown) | (Use ParserPDF for PDF, Word & HTML parser to markdown)
+short_description: semmyKG - Knowledge Graph toolkit | (Use ParserPDF to markdown)
 #models: [meta-llama/Llama-4-Maverick-17B-128E-Instruct, openai/gpt-oss-120b, openai/gpt-oss-20b, ]
 models: 
   - meta-llama/Llama-4-Maverick-17B-128E-Instruct
