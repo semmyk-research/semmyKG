@@ -7,7 +7,7 @@ colorTo: purple
 sdk: gradio
 sdk_version: 5.44.1
 python_version: 3.12
-command: python app_gradio_lightrag.py
+#command: python app_gradio_lightrag.py
 app_file: app_gradio_lightrag.py
 hf_oauth: true
 oauth_scopes: [read-access]

@@ -8,3 +8,5 @@ ollama>=0.4.8           ##SMY: 0.4.8
 plotly>=6.0.1           ##SMY: 6.0.1
 tiktoken>=0.9.0         ##SMY: 0.9.0
 graspologic>=3.4.1      ##SMY: 3.4.1 networkx: utilities and algorithms for processing and analysis of graphs
+
+watchfiles>=1.0.5       ##SMY: 1.0.5
