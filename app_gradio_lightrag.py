@@ -347,7 +347,7 @@ class LightRAGApp:
         new_user_content =  types.Content(role="user", parts=[types.Part.from_text(text=prompt)])
         history_messages.append(new_user_content)
 
-        logger.debug(f"Sending messages to Gemini: Model: {self.llm_model_name.rpartition("/")[-1]} \n~ Message: {prompt}")
+        logger.debug(f"Sending messages to Gemini: Model: {self.llm_model_name.rpartition('/')[-1]} \n~ Message: {prompt}")
         logger_kg.log(level=20, msg=f"Sending messages to Gemini: Model: {self.llm_model_name.rpartition("/")[-1]} \n~ Message: {prompt}")
         
         # 2. Initialize the GenAI Client with Gemini API Key
@@ -429,7 +429,7 @@ class LightRAGApp:
             else:
                 #return openai_complete_if_cache(
                 return await openai_complete_if_cache(
-                    model=self.llm_model_name.rpartition("/")[-1] if "googleapi" in self.llm_baseurl else self.llm_model_name,  #"gemini" in self.llm_model_name else self.llm_model_name, 
+                    model=self.llm_model_name.rpartition('/')[-1] if "googleapi" in self.llm_baseurl else self.llm_model_name,  #"gemini" in self.llm_model_name else self.llm_model_name, 
                     prompt=prompt, 
                     system_prompt=system_prompt, 
                     history_messages=history_messages,
