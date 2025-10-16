@@ -27,7 +27,7 @@ owner: research-semmyk
 #---
 
 #short_description: PDF & HTML parser to markdown
-version: 0.1.1
+version: 0.2.0
 readme: README.md
 requires-python: ">=3.12"
 #dependencies: []
@@ -36,7 +36,7 @@ requires-python: ">=3.12"
 
 # LightRAG Gradio App
 
-A modern, modular Gradio app for knowledge graph-based Retrieval-Augmented Generation (RAG) using [LightRAG][1]. Supports OpenAI and Ollama LLM backends, markdown document ingestion, and interactive knowledge graph visualisation. Our ParserPDF ([GitHub]][3] | [HF Space][4]) pipeline generate markdown from documents (pdf, Word, html).
+A modern, modular Gradio app for knowledge graph-based Retrieval-Augmented Generation (RAG) using [LightRAG][1]. Supports OpenAI and Ollama LLM backends, markdown document ingestion, and interactive knowledge graph visualisation. Our ParserPDF ([GitHub][3] | [HF Space][4]) pipeline generate markdown from documents (pdf, Word, html).
 
 ## Features
 - LightRAG for Dual-level RAG and knowledge graph (KG)
@@ -97,10 +97,11 @@ gradio app_gradio_lightrag.py --demo-name=gradio_ui
 
 ## Usage
 - Select your data folder (default: `dataset/data/docs`)
-- Choose LLM backend (OpenAI or Ollama)
-- Enter your query and select query mode
-- Click 'Index Documents' to build the KG
+- Choose LLM backend (OpenAI or Ollama). GenAI has a bug yieling error: role: 'assistant' instead of 'user' when updating history.
+- Activate the RAG constructor
+- Click 'Index Documents' to build the KG entities
 - Click 'Query' to get answers
+-- Enter your query and select query mode
 - Click 'Show Knowledge Graph' to visualise the KG
 
 ## Notes
