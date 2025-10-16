@@ -348,7 +348,7 @@ class LightRAGApp:
         history_messages.append(new_user_content)
 
         logger.debug(f"Sending messages to Gemini: Model: {self.llm_model_name.rpartition('/')[-1]} \n~ Message: {prompt}")
-        logger_kg.log(level=20, msg=f"Sending messages to Gemini: Model: {self.llm_model_name.rpartition("/")[-1]} \n~ Message: {prompt}")
+        logger_kg.log(level=20, msg=f"Sending messages to Gemini: Model: {self.llm_model_name.rpartition('/')[-1]} \n~ Message: {prompt}")
         
         # 2. Initialize the GenAI Client with Gemini API Key
         client = Client(api_key=self.llm_api_key)     #api_key=gemini_api_key
