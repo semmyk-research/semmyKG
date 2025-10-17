@@ -24,8 +24,8 @@ if not pm.is_installed("nest_asyncio"):
     pm.install("nest_asyncio")    #HF Spaces modulenotfounderror: No module named 'nest_asyncio'
 if not pm.is_installed("google-genai"):
     pm.install("google-genai")      ## use gemini as a client: genai
-if not pm.is_installed("gradio[oauth]==5.29.0"):
-    pm.install("gradio[oauth]==5.29.0")
+#if not pm.is_installed("gradio[oauth]==5.29.0"):
+#    pm.install("gradio[oauth]==5.29.0")
 if not pm.is_installed("pyvis"):
     pm.install("pyvis")
 if not pm.is_installed("networkx"):
