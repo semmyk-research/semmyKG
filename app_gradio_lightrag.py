@@ -21,15 +21,15 @@ except ModuleNotFoundError:  ##assist: https://discuss.huggingface.co/t/huggingf
     install("pipmaster")
     import pipmaster as pm
 if not pm.is_installed("nest_asyncio"):
-    pm.install("nest_asyncio>=1.6.0")    #HF Spaces modulenotfounderror: No module named 'nest_asyncio'
+    pm.install("nest_asyncio")    #HF Spaces modulenotfounderror: No module named 'nest_asyncio'
 if not pm.is_installed("google-genai"):
-    pm.install("google-genai>=1.40.0")      ## use gemini as a client: genai
+    pm.install("google-genai")      ## use gemini as a client: genai    "google-genai>=1.40.0"
 #if not pm.is_installed("gradio[oauth]==5.29.0"):
 #    pm.install("gradio[oauth]>=5.29.0")
 if not pm.is_installed("pyvis"):
-    pm.install("pyvis>=0.3.0")
+    pm.install("pyvis")      #"pyvis>=0.3.0"
 if not pm.is_installed("networkx"):
-    pm.install("networkx>=3.4.2")
+    pm.install("networkx")   #"networkx>=3.4.2"
 if not pm.is_installed("sentence-transformers"):
     pm.install("sentence-transformers")
 if not pm.is_installed("hf_xet"):
