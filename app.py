@@ -2,13 +2,13 @@ import os   ## replace with Path
 from pathlib import Path
 import numpy as np  ##SMY
 
-import asyncio, nest_asyncio
-nest_asyncio.apply  #
-
 import gradio as gr
 #from watchfiles import run_process  ##gradio reload watch
 from app_gradio_lightrag import LightRAGApp  ##SMY lightrag logging
 from utils.llm_login import get_login_token
+
+import asyncio, nest_asyncio
+nest_asyncio.apply  #
 
 import logging, logging.config
 

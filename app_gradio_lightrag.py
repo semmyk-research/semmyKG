@@ -7,13 +7,13 @@ import gradio as gr
 import numpy as np  ##SMY
 import random
 
-
 from functools import partial
 from typing import Tuple, Optional, Any, List, Union
 
-
 import inspect  ##SMY lightrag_openai_compatible_demo.py
 import pipmaster as pm
+if not pm.is_installed("nest_asyncio"):
+    pm.install("nest_asyncio")    #HF Spaces modulenotfounderror: No module named 'nest_asyncio'
 if not pm.is_installed("google-genai"):
     pm.install("google-genai")      ## use gemini as a client: genai
 if not pm.is_installed("gradio[oauth]==5.29.0"):
