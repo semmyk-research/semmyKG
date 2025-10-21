@@ -11,8 +11,6 @@ google-genai>=1.40.0    ##SMY: 1.43.0
 pipmaster
 nest_asyncio>=1.6.0     ##SMY:    #HF Spaces modulenotfounderror: No module named 'nest_asyncio' 
 #google-genai            ##SMY:    ## use gemini as a client: genai
-#if not pm.is_installed("gradio[oauth]==5.29.0"):
-#    pm.install("gradio[oauth]==5.29.0")
 pyvis>=0.3.1            ##SMY: >=0.3.0  --> 0.3.2
 networkx>=3.4.2         ##SMY: 3.2.1  (3.4.2)
 sentence-transformers   ##SMY:

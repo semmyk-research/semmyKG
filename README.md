@@ -8,7 +8,7 @@ sdk: gradio
 sdk_version: 5.44.1
 python_version: 3.12
 #command: python app_gradio_lightrag.py
-app_file: app_gradio_lightrag.py
+app_file: app.py    #app_gradio_lightrag.py
 hf_oauth: true
 oauth_scopes: [read-access]
 hf_oauth_scopes: [inference-api]
@@ -106,7 +106,7 @@ gradio app_gradio_lightrag.py --demo-name=gradio_ui
 
 ## Notes
 - Only markdown files are supported for ingestion (images in `/images` subfolder are ignored for now). <br>NB: other formats will be enabled later: pdf, txt, html...
-- To generate markdown from documents (PDf, Word, html), use our ParserPDF tool [GitHub]][3] | [HF Space][4].
+- To generate markdown from documents (PDf, Word, html), use our ParserPDF tool [GitHub][3] | [HF Space][4].
 - All user-facing text is in UK English
 - For advanced configuration, see LightRAG documentation
 
