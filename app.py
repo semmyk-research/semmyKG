@@ -300,7 +300,7 @@ if __name__ == "__main__":
         # Instantiate LightRAG and launch Gradio
         try:
             app_logic = LightRAGApp()
-            gradio_ui(app_logic).launch(server_port=7866)
+            gradio_ui(app_logic).launch()    #(server_port=7866)
         except Exception as e:
             print(f"An error occurred: {e}")
         finally:

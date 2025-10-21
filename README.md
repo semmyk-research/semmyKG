@@ -34,90 +34,220 @@ requires-python: ">=3.12"
 #---
 ---
 
-# LightRAG Gradio App
+# semmyKG[lightrag] - LightRAG-based Knowledge Graph Toolkit
 
-A modern, modular Gradio app for knowledge graph-based Retrieval-Augmented Generation (RAG) using [LightRAG][1]. Supports OpenAI and Ollama LLM backends, markdown document ingestion, and interactive knowledge graph visualisation. Our ParserPDF ([GitHub][3] | [HF Space][4]) pipeline generate markdown from documents (pdf, Word, html).
+A modular, sophisticated Gradio application for Knowledge Graph-based Retrieval-Augmented Generation (KG-RAG) using the [LightRAG][1] framework.
 
-## Features
-- LightRAG for Dual-level RAG and knowledge graph (KG)
-- Ingest markdown files from a folder (default: `dataset/data/docs`). 
-- Query with OpenAI or Ollama backend (user-selectable)
-- Visualise KG interactively in-browser
-- Deployable to venv, Colab, or HuggingFace Spaces
-- Robust, pythonic, modular code (UK English)
+##   Overview
 
-## Setup
+semmyKG gears towards a comprehensive solution that combines the power of LightRAG with modern web interfaces to create, query, and visualise knowledge graphs from markdown documents.
+ The toolkit enables intelligent document processing, semantic search, and interactive knowledge graph visualisation with support for multiple LLM backends. It supports OpenAI and Ollama LLM backends.
 
-### 1. Clone and create venv
+##  ✨ Key Features
+
+###  🔍 Intelligent Document processing and RAG Capabilities
+- **Dual-level KG-RAG**: Combines traditional RAG with knowledge graph reasoning (powered by LightRAG)
+- **Multi-modal LLM Support**: OpenAI, Ollama, and Google GenAI backends. Full GenAI support coming soon.
+- **Semantic Search**: Vector-based document retrieval with embedding models (powered by LightRAG)
+- **Multi-format Support**: Markdown ingestion with ParserPDF ([GitHub][3] | [HF Space][4]) integration for PDF, Word, and HTML conversion. Full integration coming soon.
+- **Markdown Ingestion**: Process and index markdown files from specified directories
+- **Knowledge Graph Construction**: Automatically builds entity-relationship graphs after indexing
+- **Interactive Visualisation**: Real-time KG exploration
+
+###  ️ Technical Excellence
+- **Modular Architecture**: Clean, maintainable code structure
+- **Async Operations**: Efficient handling of large document collections
+- **Robust Error Handling**: Comprehensive logging and exception management
+
+##  ️ Installation & Setup
+
+### Method 1: Using UV (Recommended)
 ```bash
 git clone https://github.com/semmyk-research/semmyKG
 cd semmyKG
 
-uv venv .venv              # ensure you have the uv package
-source .venv/bin/activate  # or .venv\Scripts\activate on Windows
-uv pip sync                # or uv pip sync requirements.txt
+# Create virtual environment and install dependencies
+uv venv .venv
+source .venv/bin/activate  # Linux/MacOS
+# .venv\Scripts\activate on Windows
 
-or 
+# Sync dependencies
+uv pip sync
+```
+
+### Method 2: Traditional Python Setup
+```bash
+git clone https://github.com/semmyk-research/semmyKG
+cd semmyKG
+
+# Create virtual environment
 python -m venv .venv
-source .venv/bin/activate  # or .venv\Scripts\activate on Windows
+source .venv/bin/activate  # Linux/MacOS
+# .venv\Scripts\activate on Windows
+
+# Install dependencies
 pip install -r requirements.txt
 ```
 
-### 2. Configure environment
-Copy `.env.example` to `.env` and fill in your keys:
-```markdown
+##  🔧 Configuration
+
+### Environment Variables Setup
+Copy `.env.example` to `.env` and configure your settings:
+
+```env
+# API Configuration
 OPENAI_API_KEY=your-openai-api-key
-LLM_MODEL=your-LLM-model-Name 
-    ##(in the format: provider/model-identifier)
-OPENAI_API_BASE=your-LLM-inference-provider-endpoint 
-    ##(for locally hosted llm inference server like LMStudio or Jan.ai, follow ollama host adding /v1: http://localhost:1234/v1)
-OPENAI_API_EMBED_BASE=your-embedding-provider-endpoint 
-    ##(for locally hosted, do not include /embedding)
-LLM_MODEL_EMBED=your-embedding-model  ##(in the format: provider/embedding-name)
+
+# Model Selection (format: provider/model-identifier)
+LLM_MODEL=openai/gpt-oss-120b
+
+# LLM Inference Endpoints
+OPENAI_API_BASE=your-llm-provider-endpoint
+# For local inference servers: http://localhost:1234/v1
+
+# Embedding Configuration
+OPENAI_API_EMBED_BASE=your-embedding-provider-endpoint
+# Note: For local embedding services, do not include /embedding in URL
+LLM_MODEL_EMBED=your-embedding-model
+
+# Ollama/Local hosting Configuration
 OLLAMA_HOST=http://localhost:11434
-OLLAMA_API_KEY=  ##(include if required)
-```  
-If .env is not set, you can enter into the web UI directly. <br>
-Ditto, override .env by inputting directly in web UI.
+OLLAMA_API_KEY=your-ollama-api-key-if-required
+#[For LMStudio] OLLAMA_API_KEY=lmstudio
 
-### 3. Run the app
-```bash
-python app_gradio_lightrag.py
-```  
-For 'faster' development 'debug'
-
-```python
-##SMY: assist: https://www.gradio.app/guides/developing-faster-with-reload-mode
-gradio app_gradio_lightrag.py --demo-name=gradio_ui
+## Alternative: Direct Web UI Configuration
+# If .env is not set, you can enter credentials directly in the web interface
 ```
 
-### 4. Colab/Spaces
-- For HuggingFace Spaces: ensure all dependencies are in `requirements.txt` and `.env` is set via the web UI or Space secret.
-- For Colab: install requirements and run the app cell.
+##   Quick Start
 
-## Usage
-- Select your data folder (default: `dataset/data/docs`)
-- Choose LLM backend (OpenAI or Ollama). GenAI has a bug yieling error: role: 'assistant' instead of 'user' when updating history.
-- Activate the RAG constructor
-- Click 'Index Documents' to build the KG entities
-- Click 'Query' to get answers
--- Enter your query and select query mode
-- Click 'Show Knowledge Graph' to visualise the KG
+### 1. Initialise the Application
+```bash
+python app.py
+```
 
-## Notes
-- Only markdown files are supported for ingestion (images in `/images` subfolder are ignored for now). <br>NB: other formats will be enabled later: pdf, txt, html...
-- To generate markdown from documents (PDf, Word, html), use our ParserPDF tool [GitHub][3] | [HF Space][4].
-- All user-facing text is in UK English
-- For advanced configuration, see LightRAG documentation
+### 2. Web Interface Workflow
+1. **Select Data Folder**: Choose your markdown documents directory (default: `dataset/data/docs`)
+2. **Configure Settings**: 
+- **Choose LLM Backend**: Select between OpenAI, Ollama, or GenAI
+- Select or input other configuration in the Settings pane, 
+3. **Activate**: Activate the lightRAG constructor
+4. **Process Documents**: Click 'Index Documents' to process your files
+5. **Query the System**: Enter your questions and select query mode
+6. **Visualise Results**: Click 'Show Knowledge Graph' to finalise building Knowledge Graph and for interactive exploration
 
-## Roadmap (no defined timeline)
-- HuggingFace log in
+##  📁 Project Structure
+
+```
+semmyKG/
+├── app_gradio_lightrag.py    # Central Gradio coordinating processing
+├── app.py                    # Main Gradio app entry point
+├── requirements.txt          # Project dependencies
+├── .env.example              # Environment template
+├── dataset/
+│    └── data/
+│        └── docs/            # Default document directory
+├── utils/
+│   ├── utils.py              # Utility functions
+│   ├── file_utils.py          # File operations
+│   ├── logger.py              # Logging configuration
+└── logs/                     # Application logs
+```
+
+##   Deployment Options
+
+### Local Development
+```bash
+python app.py
+```
+
+### HuggingFace Spaces
+- **Requirements**: Ensure all dependencies in `requirements.txt`
+- **Environment**: Configure via web UI or Space secrets
+
+### Google Colab
+- **Quick Setup**: Install requirements and configure tokens in 'Secret'
+-  **Run**: Copy to `Files`, following folder structure and run app cells as approriate
+
+###  📋 System Requirements
+
+- **Python**: 3.12+
+- **Memory**: 8GB+ vRAM recommended for large document sets
+- **Storage**: Sufficient space for document collections and vector databases
+
+###  🔌 Supported LLM Backends
+
+#### OpenAI Compatible and Google GenAI
+- **Models**: Frontline providers (Openai, Deepseek ...) and custom models
+- **Gemini Models**: Access to Google's latest AI models
+- **Endpoints**: Local inference servers (LMStudio, Jan.ai, ollama ...)
+- **Embedding Models**: Multiple sentence transformer models and inference providers
+
+#### Ollama Integration
+- **Local Models**: Access to Ollama's model ecosystem
+- **Self-hosted**: Complete data privacy and control
+
+
+### Document Ingestion
+- **Format Support**: Markdown files only (use ParserPDF for other formats)
+```python
+# The system automatically processes markdown files from:
+# - dataset/data/docs/ (default)
+```
+
+### Query Modes
+- **Semantic Search**: Vector-based similarity matching
+- **KG-enhanced RAG**: Combines traditional RAG with graph reasoning
+
+### Interactive Visualisation
+- **Real-time Exploration**: Dynamic graph manipulation
+- **Entity Highlighting**: Focus on specific nodes and relationships
+
+###  📈 Performance Optimisation: Batch Processing
+- **Parallel Insertion**: Configurable batch sizes
+- **Rate Limiting**: Built-in delays to prevent API throttling
+
+###  📊  Custom System Prompts: Domain-Specific Expertise
+- **Domain Adaptation**: Modify prompts for specific use cases and customised NER (Named Entity Recognition)domain-specific entities rules
+- **Specialised Processing**: Tailored entity recognition for security domains
+- **Legislation Awareness**: Built-in understanding of legal frameworks
+
+
+##  🔍 Troubleshooting
+
+### Common Issues
+- **Module Import Errors**: Ensure all dependencies are installed
+- **API Connection Issues**: Verify endpoint URLs and API keys
+- **Memory Management**: Monitor resource usage during large-scale indexing
+
+### Notes
+- All user-facing text are in UK English
+- For advanced configuration, see LightRAG documemntation
+Pending full integration, use our ParserPDF tool ([GitHub][3] | [HF Space][4]) to generate markdown from documents (PDF, Word, html)
+
+##  🤝 Contributing
+
+We welcome contributions! Please see our contributing guidelines for more information.
+
+## 🛣️ Roadmap (no defined timeline)
+- Integrate Huggingface log in (in progress)
 - [ParserPDF][3] integration
+- Pre and post processing document viewer
+- Modal platform support
+- Conected UX refactoring
 
-## License
-[MIT][2] 
+##  📄 License
 
-[1]: https://github.com/HKUDS/LightRAG "LightRAG GitHub"
+This project is licensed under the [MIT License][2].
+
+##  🔗 References
+
+- [LightRAG Framework][1]
+- [ParserPDF Tool][3] for document conversion
+- [HuggingFace Space][4] for ParserPDF
+
+
+[1]: https://github.com/HKUDS/LightRAG "LightRAG GitHub Repository"
 [2]: https://opensource.org/license/mit "MIT License"
-[3]: https://github.com/semmyk-research/parserPDF "ParserPDF (GitHub)"
-[4]: https://huggingface.co/spaces/semmyk/parserPDF "ParserPDF (HF Space)"
+[3]: https://github.com/semmyk-research/parserPDF "ParserPDF GitHub Repository"
+[4]: https://huggingface.co/spaces/semmyk/parserPDF "ParserPDF HuggingFace Space"
