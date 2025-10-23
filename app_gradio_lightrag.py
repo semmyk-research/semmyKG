@@ -10,7 +10,7 @@ import random
 from functools import partial
 from typing import Tuple, Optional, Any, List, Union
 
-import inspect  ##SMY lightrag_openai_compatible_demo.py
+from utils.utils import get_time_now_str  ##SMY lightrag_openai_compatible_demo.py
 
 def install(package):
     import subprocess
@@ -86,9 +86,7 @@ def configure_logging():
     # Get log directory path from environment variable or use current directory
     #log_dir = os.getenv("LOG_DIR", os.getcwd())
     log_dir = os.getenv("LOG_DIR", "logs")
-    '''log_file_path = os.path.abspath(
-        os.path.join(log_dir, "lightrag_compatible_demo.log")
-                )'''
+    
     if log_dir:
         log_file_path = Path(log_dir) / "lightrag_logs.log"
     else:
@@ -165,15 +163,25 @@ def visualise_graphml(graphml_path: str, working_dir: str) -> str:
     ## Load the GraphML file
     G = nx.read_graphml(graphml_path)
 
+    ## Dynamically size nodes
+    # Calculate note attributes for sizing
+    node_degrees = dict(G.degree())
+
+    # Scale node degrees for better visual differentiation
+    max_degree = max(node_degrees.values())
+    for node, degree in node_degrees.items():
+        G.nodes[node]['size'] = 10 + (degree / max_degree) * 80   #40  # scaling
+    
     ## Create a Pyvis network
     #net = Network(height="100vh", notebook=True)
-    net = Network(notebook=True, width="100%", height="600px")  #, heading=f"Knowledge Graph Visualisation")  #(noteboot=False)
-    ## Convert NetworkX graph to Pyvis network
+    net = Network(notebook=True, width="100%", height="100vh")      #, heading=f"Knowledge Graph Visualisation")  #(noteboot=False) height="600px", 
+    # Convert NetworkX graph to Pyvis network
     net.from_nx(G)
 
     # Add colors and title to nodes
     for node in net.nodes:
-        node["color"] = "#{:06x}".format(random.randint(0, 0xFFFFFF))
+        #node["color"] = "#{:06x}".format(random.randint(0, 0xFFFFFF))
+        node["color"] = "#{:01x}".format(random.randint(0, 0xFFFFFF))
         if "description" in node:
             node["title"] = node["description"]
     
@@ -184,22 +192,32 @@ def visualise_graphml(graphml_path: str, working_dir: str) -> str:
 
     ## Set the 'physics' attribute to repulsion
     net.repulsion(node_distance=120, spring_length=200)
-    net.show_buttons(filter_=['physics'])  ##SMY: dynamically modify the network
+    net.show_buttons(filter_=['physics', 'layout'])  ##SMY: dynamically modify the network
     #net.show_buttons()
     
     ## graph path
-    kg_viz_html_file = "kg_viz.html"
-    #html_path = os.path.join(working_dir, kg_viz_html_file)
+    kg_viz_html_file = f"kg_viz_{get_time_now_str(date_format='%Y-%m-%d')}.html"
     html_path = Path(working_dir) / kg_viz_html_file
 
-    #net.save_graph(html_path)
     ## Save and display the generated KG network html
+    #net.save_graph(html_path)
     #net.show(html_path)
     net.show(str(html_path), local=True, notebook=False)
 
-    ##SMY read and display generated KG html
-    #with open(html_path, "r", encoding="utf-8") as f:
-    #    return f.read()  ## html
+    # get HTML content
+    html_iframe = net.generate_html(str(html_path), local=True, notebook=False)
+    ## need to remove ' from HTML     ##assist: https://huggingface.co/spaces/simonduerr/pyvisdemo/blob/main/app.py
+    html_iframe = html_iframe.replace("'", "\"")
+
+    ##SMY display generated KG html
+    #'''
+    return gr.update(show_label=True, container=True, value=f"""<iframe style="width: 100%; height: 100vh;margin:0 auto" name="result" allow="midi; geolocation; microphone; camera; 
+        display-capture; encrypted-media;" sandbox="allow-modals allow-forms 
+        allow-scripts allow-same-origin allow-popups 
+        allow-top-navigation-by-user-activation allow-downloads" allowfullscreen="" 
+        allowpaymentrequest="" frameborder="0" srcdoc='{html_iframe}'></iframe>"""
+    )
+    #'''
 
 # Utility: Get all markdown files in a folder
 def get_markdown_files(folder: str) -> list[str]:
@@ -242,6 +260,7 @@ class LightRAGApp:
         
         if custom_system_prompt:
             self.system_prompt = custom_system_prompt
+        '''     ## system_prompt now in gradio ui
         else:
             self.system_prompt = """
             You are a domain expert on Cybersecurity, the South Africa landscape and South African legislation. 
@@ -269,8 +288,9 @@ class LightRAGApp:
                 - For instance, maintain a single node for Protection of Information Act, Protection of Information Act, 1982, Protection of Information Act No 84, 1982.
                 - However, have a separate node for Protection of Personal Information Act, 2013; as it it a separate legislation.
                 - Also take note that 'Republic of South Africa' is an offical geo entity while 'South Africa' is a referred to place, although also a geo entity: 
-                - Always watch the context and becareful of lumping them together.
+                - Always watch the context and be careful of lumping them together.
                 """
+            '''
 
         return self.system_prompt
 
@@ -358,7 +378,7 @@ class LightRAGApp:
         logger.debug(f"Sending messages to Gemini: Model: {self.llm_model_name.rpartition('/')[-1]} \n~ Message: {prompt}")
         logger_kg.log(level=20, msg=f"Sending messages to Gemini: Model: {self.llm_model_name.rpartition('/')[-1]} \n~ Message: {prompt}")
         
-        # 2. Initialize the GenAI Client with Gemini API Key
+        # 2. Initialise the GenAI Client with Gemini API Key
         client = Client(api_key=self.llm_api_key)     #api_key=gemini_api_key
         #aclient = genai.Client(api_key=self.llm_api_key).aio  # use AsyncClient
 
@@ -454,14 +474,30 @@ class LightRAGApp:
 
     def _ensure_working_dir(self) -> str:
         """Ensure working directory exists and return status message"""
-        '''if not os.path.exists(self.working_dir):
-            os.makedirs(self.working_dir, exist_ok=True)
-            return f"Created working directory: {self.working_dir}"'''
+        
         if not Path(self.working_dir).exists():
             check_create_dir(self.working_dir)
             return f"Created working directory: {self.working_dir}"
         return f"Working directory exists: {self.working_dir}"
 
+    ##SMY: //TODO: Gradio toggle button
+    async def _clear_old_data_files(self):
+        """Clear old data files"""
+        files_to_delete = [
+                    "graph_chunk_entity_relation.graphml",
+                    "kv_store_doc_status.json",
+                    "kv_store_full_docs.json",
+                    "kv_store_text_chunks.json",
+                    "vdb_chunks.json",
+                    "vdb_entities.json",
+                    "vdb_relationships.json",
+                ]
+        
+        for file in files_to_delete:
+            file_path = Path(self.working_dir) / file
+            if file_path.exists():
+                file_path.unlink()
+                logger_kg.log(level=20, msg=f"LightRAG class: Deleting old files", extra={"filepath": file_path.name})
 
     async def _initialise_storages(self) -> str:
     #def _initialise_storages(self) -> str:
@@ -487,31 +523,11 @@ class LightRAGApp:
         #print(f"_embedding_func: llm_api_key_embed: {self.llm_api_key_embed}")
         #print(f"_embedding_func: llm_baseurl_embed: {self.llm_baseurl_embed}")
         
-        # Clear old data files
-        #wrap_async(self._clear_old_data_files)
-        #await self._clear_old_data_files()
-        """Clear old data files"""
-        files_to_delete = [
-                    "graph_chunk_entity_relation.graphml",
-                    "kv_store_doc_status.json",
-                    "kv_store_full_docs.json",
-                    "kv_store_text_chunks.json",
-                    "vdb_chunks.json",
-                    "vdb_entities.json",
-                    "vdb_relationships.json",
-                ]
         
-        for file in files_to_delete:
-            '''file_path = os.path.join(self.working_dir, file)
-            if os.path.exists(file_path):
-                os.remove(file_path)
-                print(f"Deleting old file:: {file_path}")'''
-            file_path = Path(self.working_dir) / file
-            if file_path.exists():
-                file_path.unlink()
-                logger_kg.log(level=20, msg=f"LightRAG class: Deleting old files", extra={"filepath": file_path.name})
-
-        
+        if self.working_dir_reset:        
+            # Clear old data files
+            await self._clear_old_data_files()
+                
         # Get embedding
         if self.embed_backend == "Transformer" or self.embed_backend[0] == "Transformer":
             logger_kg.log(level=20, msg=f"Getting embeddings dynamically through _embedding_func: ", 
@@ -549,7 +565,7 @@ class LightRAGApp:
             await self._initialise_storages()
             
             #await rag.initialize_storages()
-            #await initialize_pipeline_status()  ##SMY: still relevant in updated lightRAG? - """Asynchronously finalize the storages"""
+            #await initialize_pipeline_status()  ##SMY: still relevant in updated lightRAG? - """Asynchronously finalise the storages"""
 
             self.status = f"Storages and pipeline initialised successfully"  ##SMY: debug
             logger_kg.log(level=20, msg=f"Storages and pipeline initialised successfully")
@@ -561,9 +577,9 @@ class LightRAGApp:
 
     @handle_errors
     #def setup(self, data_folder: str, working_dir: str, llm_backend: str,
-    async def setup(self, data_folder: str, working_dir: str, llm_backend: str, embed_backend: str,
+    async def setup(self, data_folder: str, working_dir: str, wdir_reset: bool, llm_backend: str, embed_backend: str,
              openai_key: str, openai_baseurl: str, openai_baseurl_embed: str, llm_model_name: str, 
-             llm_model_embed: str, ollama_host: str, embed_key: str) -> str:
+             llm_model_embed: str, ollama_host: str, embed_key: str, system_prompt: str) -> str:
         """Set up LightRAG with specified configuration"""
         # Configure environment
         #os.environ["OPENAI_API_KEY"] = openai_key or os.getenv("OPENAI_API_KEY", "")
@@ -573,8 +589,9 @@ class LightRAGApp:
         #os.environ["OPENAI_API_EMBED_BASE"] = openai_baseurl_embed or os.getenv("OPENAI_API_EMBED_BASE")  #, "http://localhost:1234/v1/embeddings")
 
         # Update instance state
-        self.data_folder = data_folder
+        self.data_folder = data_folder      ##SMY: redundant
         self.working_dir = working_dir
+        self.working_dir_reset = wdir_reset
         self.llm_backend = llm_backend
         self.embed_backend = embed_backend if isinstance(embed_backend, str) else embed_backend[0],
         self.llm_model_name = llm_model_name
@@ -592,7 +609,7 @@ class LightRAGApp:
             except Exception as e:
                 self.status = f"LightRAG initialisation.setup: working dir err | {str(e)}"
 
-            # Initialize lightRAG with storages
+            # Initialise lightRAG with storages
             try:
                 #self.rag = wrap_async( self._initialise_rag)
                 self.rag = await self._initialise_rag()
@@ -628,15 +645,18 @@ class LightRAGApp:
     '''
 
     @handle_errors
-    async def index_documents(self, data_folder: str) -> Tuple[str, str]:
+    async def index_documents(self, data_folder: Union[list[str], str]) -> Tuple[str, str]:
     #def index_documents(self, data_folder: str) -> Tuple[str, str]:
         """Index markdown documents with progress tracking"""
         if not self._is_initialised or self.rag is None:
             return "Please initialise LightRAG first using the 'Initialise App' button.", "Not started"
             
-        md_files = get_markdown_files(data_folder)
+        #md_files = get_markdown_files(data_folder)     #data_folder is now list of ploaded files
+        #if not md_files:
+        #    return f"No markdown files found in {data_folder}:", "No files"
+        md_files = data_folder
         if not md_files:
-            return f"No markdown files found in {data_folder}:", "No files"
+            return f"No markdown files uploaded {data_folder}:", "No files"
             
         try:
             total_files = len(md_files)
@@ -739,9 +759,7 @@ class LightRAGApp:
         """Display knowledge graph visualisation"""
         ## graphml_path: defaults to lightRAG's generated graph_chunk_entity_relation.graphml
         ## working_dir: lightRAG's working directory set by user  
-        '''graphml_path = os.path.join(self.working_dir, "graph_chunk_entity_relation.graphml")
-        if not os.path.exists(graphml_path):
-            return "Knowledge graph file not found. Please index documents first to generate Knowledge Graph."'''
+        
         graphml_path = Path(self.working_dir) / "graph_chunk_entity_relation.graphml"
         if not Path(graphml_path).exists():
             return "Knowledge graph file not found. Please index documents first to generate Knowledge Graph."
@@ -759,59 +777,6 @@ class LightRAGApp:
 
 
 ############
-'''    
-    ##SMY: //TODO: Gradio toggle button
-    def _clear_old_data_files(self):
-        """Clear old data files"""
-        files_to_delete = [
-                    "graph_chunk_entity_relation.graphml",
-                    "kv_store_doc_status.json",
-                    "kv_store_full_docs.json",
-                    "kv_store_text_chunks.json",
-                    "vdb_chunks.json",
-                    "vdb_entities.json",
-                    "vdb_relationships.json",
-                ]
-        
-        for file in files_to_delete:
-            file_path = Path(self.working_dir) / file
-            if file_path.exists():
-                file_path.unlink()
-                logger_kg.log(level=20, msg=f"LightRAG class: Deleting old files", extra={"filepath": file_path.name})'''
-'''
-
-    async def _get_llm_functions(self) -> Tuple[callable, callable]:
-    #def _get_llm_functions(self) -> Tuple[callable, callable]:
-        """Get LLM and embedding functions based on backend"""
-        try:
-            # Get embedding dimension dynamically
-            try:
-                embedding_dimension = await self._get_embedding_dim()
-                self.status = f"Using embedding dimension: {embedding_dimension}"
-                logger_kg.log(level=20, msg=f"Using embedding dimension: {embedding_dimension}")
-            except Exception as e:                
-                # feedback dimensions error                
-                self.status = f"_get_llm_function: embedding_dim error with fallback: {str(e)}"
-
-            # Create embedding function wrapper: # Wrap with EmbeddingFunc to provide required attributes
-            embed_func = EmbeddingFunc(
-                embedding_dim=embedding_dimension,
-                max_token_size=8192,  #4096,  #8192,  # Conservative default | #ollama
-                func=self._embedding_func
-            )
-            
-            # Get LLM function
-            #llm_func = await self._llm_model_func  ##SMY: not used
-            
-            # return LLM and embed functions
-            #return llm_func, embed_func
-            return await self._llm_model_func(), embed_func
-            
-        except Exception as e:
-            self.status = f"{self.status} \n| _get_llm_functions error: {str(e)}"
-            logger_kg.log(level=30, msg=f"{self.status} \n| _get_llm_functions error: {str(e)}")
-            raise  # Re-raise to be caught by the setup method
-    '''
 
 '''
     ##SMY: record only. for deletion

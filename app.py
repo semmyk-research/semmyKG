@@ -6,6 +6,7 @@ import gradio as gr
 #from watchfiles import run_process  ##gradio reload watch
 from app_gradio_lightrag import LightRAGApp  ##SMY lightrag logging
 from utils.llm_login import get_login_token
+from utils.file_utils import accumulate_dir
 
 import asyncio
 import nest_asyncio
@@ -17,6 +18,7 @@ from dotenv import load_dotenv
 # Load environment variables
 load_dotenv()
 
+'''
 # Pythonic error handling decorator
 def handle_errors(func):
     def wrapper(*args, **kwargs):
@@ -25,6 +27,7 @@ def handle_errors(func):
         except Exception as e:
             return gr.update(value=f"Error: {e}")
     return wrapper
+'''
 
 # Instantiate app logic
 #app_logic = LightRAGApp()  ## See main()
@@ -67,39 +70,64 @@ def gradio_ui(app_logic: LightRAGApp):
         """)
 
         # Step 0: Section 1
+
+        # Define ext type (in lieu of getting from global var)
+        #ext = (".md", "md")        #SMY disused: 'tuple' object has no attribute '_id'
         # Define openai_api textbox initial value
         openai_api_key_init = os.getenv("OPENAI_API_KEY", "jan-ai")
-        with gr.Accordion(label="🛞 LLM settings", open=False):
-            with gr.Row():
-                data_folder_tb = gr.Textbox(value="dataset/data/docs2", label="Data Folder (markdown only)", show_copy_button=True)
-                working_dir_tb = gr.Textbox(value="./working_folder1", label="lightRAG working folder", show_copy_button=True)
-                llm_backend_cb = gr.Radio(["OpenAI", "Ollama", "GenAI"], value="OpenAI", label="LLM Backend: OpenAI, Local or GenAI")
-                llm_model_name_tb = gr.Textbox(value=os.getenv("LLM_MODEL", "openai/gpt-oss-120b"), label="LLM Model Name", show_copy_button=True)  #.split('/')[1], label="LLM Model Name") "meta-llama/Llama-4-Maverick-17B-128E-Instruct")),  #image-Text-to-Text  #"openai/gpt-oss-120b",
-            with gr.Row():
-                with gr.Row():  #elem_classes="password-box"):
-                    #openai_key_tb = gr.Textbox(value=os.getenv("OPENAI_API_KEY", "jan-ai"), label="OpenAI API Key", 
-                    #                           type="password", elem_classes="password-box", container=False, interactive=True, info="OpenAI API Key") #, show_copy_button=True)
-                    openai_key_tb = gr.Textbox(value=openai_api_key_init, label="OpenAI API Key", 
-                                               type="password", elem_classes="password-box", container=False, interactive=True, info="OpenAI API Key") #, show_copy_button=True)
-                    toggle_btn_openai_key = gr.Button(
-                                value="👁️",  # Initial eye icon
-                                elem_classes="icon-button", size="sm")  #, min_width=50)
-                openai_baseurl_tb = gr.Textbox(value=os.getenv("OPENAI_API_BASE", "https://router.huggingface.co/v1"), label="OpenAI baseurl", show_copy_button=True)
-                ollama_host_tb = gr.Textbox(value=os.getenv("OLLAMA_HOST", "http://localhost:1234/v1"), label="Ollama Host", show_copy_button=True)
-                #ollama_host_tb = gr.Textbox(value=os.getenv("OPENAI_API_EMBED_BASE", ""), label="Ollama Host")
-            with gr.Row():    
-                embed_backend_dd = gr.Dropdown(choices=["Transformer", "Provider"], value="Provider", label="Embedding Type")
-                openai_baseurl_embed_tb = gr.Textbox(value=os.getenv("OPENAI_API_EMBED_BASE", "http://localhost:1234/v1"), label="LLM Embed baseurl", show_copy_button=True)
-                llm_model_embed_tb = gr.Textbox(value=os.getenv("LLM_MODEL_EMBED","text-embedding-bge-m3"), label="LLM Embedding Model", show_copy_button=True) #.split('/')[1], label="Embedding Model")
-                with gr.Row():  #elem_classes="password-box"):
-                    openai_key_embed_tb = gr.Textbox(value=os.getenv("OPENAI_API_KEY_EMBED", "jan-ai"), label="LLM API Key Embed",   #lm-studio
-                                               type="password", elem_classes="password-box", container=False, interactive=True, info="LLM API Key Embed") #, show_copy_button=True)
-                    toggle_btn_openai_key_embed = gr.Button(
-                                value="👁️",  # Initial eye icon
-                                elem_classes="icon-button", size="sm")  #, min_width=50)
-                #openai_key_embed_tb = gr.Textbox(value=os.getenv("OPENAI_API_KEY_EMBED", "jan-ai"), label="OpenAI API Key Embed", type="password", show_copy_button=True)  #("OLLAMA_API_KEY", ""), label="OpenAI API Key Embed", type="password")
+
+        with gr.Sidebar(position="right"):
+            system_prompt_tb = gr.Textbox(
+                value="You are a helpful assistant. You answer questions based on the provided context.",    # If you don't know the answer, just say so. Don't make up information.", 
+                label="System Prompt", 
+                lines=3, 
+                interactive=True, 
+                show_copy_button=True,
+            )
+            
+            with gr.Accordion(label="🛞 LLM settings", open=False):
+                with gr.Row():    
+                    llm_backend_cb = gr.Radio(["OpenAI", "Ollama", "GenAI"], value="OpenAI", label="LLM Backend: OpenAI, Local or GenAI")
+                    llm_model_name_tb = gr.Textbox(value=os.getenv("LLM_MODEL", "openai/gpt-oss-120b"), label="LLM Model Name", show_copy_button=True)  #.split('/')[1], label="LLM Model Name") "meta-llama/Llama-4-Maverick-17B-128E-Instruct")),  #image-Text-to-Text  #"openai/gpt-oss-120b",
+                with gr.Row():
+                    with gr.Row():  #elem_classes="password-box"):
+                        #openai_key_tb = gr.Textbox(value=os.getenv("OPENAI_API_KEY", "jan-ai"), label="OpenAI API Key", 
+                        #                           type="password", elem_classes="password-box", container=False, interactive=True, info="OpenAI API Key") #, show_copy_button=True)
+                        openai_key_tb = gr.Textbox(value=openai_api_key_init, label="OpenAI API Key", 
+                                                type="password", elem_classes="password-box", container=False, interactive=True, info="OpenAI API Key") #, show_copy_button=True)
+                        toggle_btn_openai_key = gr.Button(
+                                    value="👁️",  # Initial eye icon
+                                    elem_classes="icon-button", size="sm")  #, min_width=50)
+                with gr.Row():    
+                    openai_baseurl_tb = gr.Textbox(value=os.getenv("OPENAI_API_BASE", "https://router.huggingface.co/v1"), label="OpenAI baseurl", show_copy_button=True)
+                    ollama_host_tb = gr.Textbox(value=os.getenv("OLLAMA_HOST", "http://localhost:1234/v1"), label="Ollama Host", show_copy_button=True)
+                    #ollama_host_tb = gr.Textbox(value=os.getenv("OPENAI_API_EMBED_BASE", ""), label="Ollama Host")
+                with gr.Row():    
+                    openai_baseurl_embed_tb = gr.Textbox(value=os.getenv("OPENAI_API_EMBED_BASE", "http://localhost:1234/v1"), label="LLM Embed baseurl", show_copy_button=True)
+                    llm_model_embed_tb = gr.Textbox(value=os.getenv("LLM_MODEL_EMBED","text-embedding-bge-m3"), label="LLM Embedding Model", show_copy_button=True) #.split('/')[1], label="Embedding Model")
+                with gr.Row():
+                    embed_backend_dd = gr.Dropdown(choices=["Transformer", "Provider"], value="Provider", label="Embedding Type")
+                    with gr.Row():  #elem_classes="password-box"):
+                        openai_key_embed_tb = gr.Textbox(value=os.getenv("OPENAI_API_KEY_EMBED", "jan-ai"), label="LLM API Key Embed",   #lm-studio
+                                                type="password", elem_classes="password-box", container=False, interactive=True, info="LLM API Key Embed") #, show_copy_button=True)
+                        toggle_btn_openai_key_embed = gr.Button(
+                                    value="👁️",  # Initial eye icon
+                                    elem_classes="icon-button", size="sm")  #, min_width=50)
+                    #openai_key_embed_tb = gr.Textbox(value=os.getenv("OPENAI_API_KEY_EMBED", "jan-ai"), label="OpenAI API Key Embed", type="password", show_copy_button=True)  #("OLLAMA_API_KEY", ""), label="OpenAI API Key Embed", type="password")
         
         # Step 1: Section 2
+        with gr.Row():
+                with gr.Column():
+                    #data_folder_tb = gr.Textbox(value="dataset/data/docs2", label="Data Folder (markdown only)", show_copy_button=True)
+                    dir_btn = gr.UploadButton(
+                        #value='dataset/data/',      #docs2     #[Errno 13] Permission denied
+                        label="📁 Upload Folder",
+                        #file_types=ext,           #["file"],
+                        file_count="directory",
+                    )
+                    upload_count_md = gr.Markdown(visible=False)
+                working_dir_tb = gr.Textbox(value="./working_folder1", label="lightRAG working folder", show_copy_button=True)
+                working_dir_reset_cb = gr.Checkbox(value=False, label="Reset working files?")
         with gr.Accordion("🤗 HuggingFace Client Control", open=True):  #, open=False):
             # HuggingFace controls
             hf_login_logout_btn = gr.LoginButton(value="Sign in to HuggingFace 🤗", logout_value="Logout of HF: ({}) 🤗", variant="huggingface")
@@ -113,7 +141,7 @@ def gradio_ui(app_logic: LightRAGApp):
         gr.HTML("<hr>")   #gr.Markdown("---")
         
         with gr.Row():
-            index_btn = gr.Button("Index Documents")
+            index_btn = gr.Button("Index Documents", interactive=False)
             stop_btn = gr.Button("Stop", variant="stop")  ## Add cancel event button
             query_text_tb = gr.Textbox(label="Your Query")
             mode_dd = gr.Dropdown(["naive", "local", "global", "hybrid", "mix"], value="hybrid", label="Query Mode")
@@ -135,6 +163,7 @@ def gradio_ui(app_logic: LightRAGApp):
         st_openai_key = gr.State(value=openai_api_key_init)    #gr.State("")
         st_password1 = gr.State(value="password")
         st_password2 = gr.State(value="password")
+        state_uploaded_file_list = gr.State(value=[])
 
 
         ### Change handling
@@ -217,9 +246,9 @@ def gradio_ui(app_logic: LightRAGApp):
 
         
         # Button logic with async handling
-        async def setup_wrapper(df, wd, llm_back, embed_back, oai, base, base_embed, model, model_embed, host, embedkey):
-            return await app_logic.setup(df, wd, llm_back, embed_back, oai, 
-                                         base, base_embed, model, model_embed, host, embedkey)
+        async def setup_wrapper(df, wd, wd_reset, llm_back, embed_back, oai, base, base_embed, model, model_embed, host, embedkey, sys_prompt):
+            return await app_logic.setup(df, wd, wd_reset, llm_back, embed_back, oai, 
+                                         base, base_embed, model, model_embed, host, embedkey, sys_prompt)
             
         async def index_wrapper(df):
             return await app_logic.index_documents(df)
@@ -241,6 +270,13 @@ def gradio_ui(app_logic: LightRAGApp):
         #hf_login_logout_btn.click(update_state_stored_value, inputs=openai_key_tb, outputs=st_openai_key)
         hf_login_logout_btn.click(fn=custom_do_logout, inputs=openai_key_tb, outputs=[hf_login_logout_btn, st_openai_key])
         
+        dir_btn.upload(
+            fn=accumulate_dir,
+            inputs=[dir_btn, state_uploaded_file_list],
+            outputs=[state_uploaded_file_list, index_btn, upload_count_md, status_box],
+            show_progress="hidden"
+            )
+        
         toggle_btn_openai_key.click(
             fn=toggle_password,
             inputs=[st_password1],
@@ -253,10 +289,14 @@ def gradio_ui(app_logic: LightRAGApp):
             outputs=[openai_key_embed_tb, toggle_btn_openai_key_embed, st_password2],
             show_progress="hidden"
             )
-        
-        inputs_arg = [data_folder_tb, working_dir_tb, llm_backend_cb, embed_backend_dd, st_openai_key, #openai_key_tb, 
+        '''
+        async def setup(self, data_folder: str, working_dir: str, wdir_reset: bool, llm_backend: str, embed_backend: str, openai_key: str, 
+             openai_baseurl: str, openai_baseurl_embed: str, llm_model_name: str, llm_model_embed: str, 
+             ollama_host: str, embed_key: str, system_prompt: str) -> str:
+        '''
+        inputs_arg = [state_uploaded_file_list, working_dir_tb, working_dir_reset_cb, llm_backend_cb, embed_backend_dd, st_openai_key, #openai_key_tb, 
                       openai_baseurl_tb, openai_baseurl_embed_tb, llm_model_name_tb, llm_model_embed_tb, 
-                      ollama_host_tb, openai_key_embed_tb]
+                      ollama_host_tb, openai_key_embed_tb, system_prompt_tb]      #data_folder_tb, 
         
         setup_btn.click(
             fn=setup_wrapper,
@@ -267,7 +307,7 @@ def gradio_ui(app_logic: LightRAGApp):
             )
         index_btn.click(
             fn=index_wrapper,
-            inputs=[data_folder_tb],
+            inputs=state_uploaded_file_list,     #[data_folder_tb],
             outputs=[status_box, progress_tb],
             show_progress=True
             )

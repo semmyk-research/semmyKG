@@ -29,7 +29,7 @@ def get_login_token( api_token_arg, oauth_token):
 
 def login_huggingface(token: Optional[str] = None):
     """
-    Login to Hugging Face account. Prioritize CLI login for privacy and determinism.
+    Login to Hugging Face account. Prioritise CLI login for privacy and determinism.
 
     Attempts to log in to Hugging Face Hub.
     First, it tries to log in interactively via the Hugging Face CLI.

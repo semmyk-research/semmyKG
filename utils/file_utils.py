@@ -131,6 +131,40 @@ def create_temp_folder(tempfolder: Optional[str | Path] = '', program_name: str 
     
     return output_dir
 
+def accumulate_dir(uploaded_files, current_state, ext: Union[str, tuple] = (".md", "md")):
+    """ accumulate uploaded files in dir based on ext with the existing state """
+
+    import gradio as gr
+
+    # Initialise state if it's the first run
+    if current_state is None:
+        current_state = []
+
+    # Check if files were uploaded in the current iteration, return the current state.
+    if not uploaded_files:
+        return current_state, gr.update(), gr.update(visible=True, value="No new files uploaded"), gr.update(value="No new files uploaded")
+
+    # call is_file_with_extension to check if pathlib.Path object is a file and has a non-empty extension
+    #new_file_paths = [f.name for f in uploaded_files if is_file_with_extension(Path(f.name))]  #Path(f.name) and Path(f.name).is_file() and bool(Path(f.name).suffix)]  #Path(f.name).suffix.lower() !=""]
+    new_file_paths = [f.name for f in uploaded_files if is_file_with_extension(Path(f.name)) and f.name.endswith(ext)] 
+    
+    # Concatenate the new files with the existing ones in the state
+    updated_files = current_state + new_file_paths
+    updated_filenames = [Path(f).name for f in updated_files]      ##SMY: filenames only
+
+    updated_files_count = len(updated_files)
+    
+    # Return the updated state and a message to the user
+    filename_info = "\n".join(updated_filenames)    ##SMY: not used(updated_filenames)
+    #message = f"Accumulated {len(updated_files)} file(s) total: \n{filename_info}"
+    message_count = f"Accumulated {updated_files_count} file(s) total."
+    message = f"Accumulated {updated_files_count} file(s) total: \n{filename_info}"
+    
+    
+    #outputs=[state_uploaded_file_list, dir_btn, upload_count_md, status_box],
+    #return updated_files, updated_files_count, message, gr.update(interactive=True), gr.update(interactive=True)
+    return updated_files, gr.update(interactive=True,), gr.update(visible=True, value=message_count), gr.update(value=message)
+
 
 ##========= 
 def find_file(file_name: str) -> Path:  #configparser.ConfigParser:
@@ -194,6 +228,8 @@ def resolve_grandparent_object(gp_object:str):
     ###
     # Create a Path object based on current file's location, resolve it to an absolute path,
     # and then get its parent's parent using chained .parent calls or the parents[] attribute.
+
+    #import sys
     
     # 1. Get the current script's path, its parent and its grandparent directory
     try:
@@ -339,7 +375,7 @@ def accumulate_files(uploaded_files, current_state):
 
     from globals_config import config_load
     import gradio as gr 
-    # Initialize state if it's the first run
+    # Initialise state if it's the first run
     if current_state is None:
         current_state = []
     
